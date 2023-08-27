@@ -29,36 +29,34 @@ function Sidebar() {
   return (
     <div className="fixed w-[300px] h-screen bg-black px-2 py-2 flex flex-col gap-2">
       <div className=" bg-teal-950 rounded-lg px-3 py-2">
-        <div className="flex-col ">
+        <div className="flex-col">
           {routes.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className="px-2 py-2 my-0.5 flex flex-row items-center active:text-white text-neutral-300"
+              className="hover:text-white transition duration-500 px-2 py-2 my-0.5 flex flex-row items-center active:text-white text-neutral-300"
             >
-              <item.icon className="" size={26} />
-              <p className="w-full">{item.label}</p>
+              <item.icon className="mr-3" size={26} />
+              <p className="w-full  ">{item.label}</p>
             </Link>
           ))}
         </div>
       </div>
       <main className="bg-teal-950 rounded-lg h-fit w-full px-3 py-2">
         {/* Library header */}
-        <div className="flex items-center justify-between px-2 py-2">
+        <header className="flex items-center justify-between px-2 py-2">
           <div className="inline-flex items-center gap-x-2">
             <BiLibrary className="text-neutral-300" size={26} />
-            <p className="font-medium text-neutral-300 text-md">
-              내 라이브러리
-            </p>
+            <p className="font-medium text-neutral-300 ">내 라이브러리</p>
           </div>
           <AiOutlinePlus
             size={20}
             className="text-neutral-300 hover:text-white cursor-pointer transition"
           />
-        </div>
+        </header>
 
         {/*Library list*/}
-        <header className="h-screen overflow-y-auto px-2 py-2">
+        <div className="h-screen overflow-y-auto px-2 py-2">
           <div className="flex items-center justify-between ">
             <BiSearch size={18} className="text-neutral-300" />
             <p className="text-neutral-300"> Recents</p>
@@ -72,7 +70,15 @@ function Sidebar() {
           <div className="h-20">Example list</div>
           <div className="h-20">Example list</div>
           <div className="h-20">Example list</div>
-        </header>
+          <div className="h-20">Example list</div>
+          <div className="h-20">Example list</div>
+          <div className="h-20">Example list</div>
+          <div className="h-20">Example list</div>
+          <div className="h-20">Example list</div>
+          <div className="h-20">Example list</div>
+          <div className="h-20">Example list</div>
+          <div className="h-20">Example list</div>
+        </div>
       </main>
     </div>
   );

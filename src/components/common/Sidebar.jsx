@@ -2,23 +2,24 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useMemo } from 'react';
+import { AiOutlinePlus } from 'react-icons/ai';
 import { BiSearch } from 'react-icons/bi';
-import { GoHome } from 'react-icons/go';
 import { BiLibrary } from 'react-icons/bi';
-import {AiOutlinePlus} from 'react-icons/ai';
+import { GoHome } from 'react-icons/go';
+
 function Sidebar() {
   const pathname = usePathname();
   const routes = useMemo(
     () => [
       {
         icon: GoHome,
-        label: 'Home',
+        label: '홈',
         active: pathname !== '/search',
         href: '/',
       },
       {
         icon: BiSearch,
-        label: 'Search',
+        label: '검색하기',
         active: pathname === '/search',
         href: '/search',
       },
@@ -26,14 +27,14 @@ function Sidebar() {
     [pathname]
   );
   return (
-    <div className="flex flex-col h-full bg-black">
-      <div className="bg-teal-950 rounded-lg h-fit w-full">
-        <div>
+    <div className="fixed w-[300px] h-screen bg-black px-2 py-2 flex flex-col gap-2">
+      <div className=" bg-teal-950 rounded-lg px-3 py-2">
+        <div className="flex-col ">
           {routes.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className="active:text-white text-neutral-300"
+              className="px-2 py-2 my-0.5 flex flex-row items-center active:text-white text-neutral-300"
             >
               <item.icon className="" size={26} />
               <p className="w-full">{item.label}</p>
@@ -41,29 +42,37 @@ function Sidebar() {
           ))}
         </div>
       </div>
-      <main className="bg-teal-950 rounded-lg h-fit w-full ">
+      <main className="bg-teal-950 rounded-lg h-fit w-full px-3 py-2">
         {/* Library header */}
-        <div>
-          <div className="flex items-center justify-between">
-            <div className="inline-flex items-center gap-x-2">
-              <BiLibrary className="text-neutral-300" size={26}/>
-              <p className="font-medium text-neutral-300 text-md">내 라이브러리</p>
-            </div>
-            <AiOutlinePlus  size={20} className="text-neutral-300 hover:text-white cursor-pointer transition"/>
+        <div className="flex items-center justify-between px-2 py-2">
+          <div className="inline-flex items-center gap-x-2">
+            <BiLibrary className="text-neutral-300" size={26} />
+            <p className="font-medium text-neutral-300 text-md">
+              내 라이브러리
+            </p>
           </div>
-          <div className="flex items-center justify-between">
-            <BiSearch className="text-neutral-300"/>
+          <AiOutlinePlus
+            size={20}
+            className="text-neutral-300 hover:text-white cursor-pointer transition"
+          />
+        </div>
+
+        {/*Library list*/}
+        <header className="h-screen overflow-y-auto px-2 py-2">
+          <div className="flex items-center justify-between ">
+            <BiSearch size={18} className="text-neutral-300" />
             <p className="text-neutral-300"> Recents</p>
           </div>
-        </div>
-        {/*Library list*/}
-        <div className="h-full overflow-y-auto">
-            <div className="h-20">Example list</div>
-            <div className="h-20">Example list</div>
-            <div className="h-20">Example list</div>
-
-        </div>
-        
+          <div className="h-20">Example list</div>
+          <div className="h-20">Example list</div>
+          <div className="h-20">Example list</div>
+          <div className="h-20">Example list</div>
+          <div className="h-20">Example list</div>
+          <div className="h-20">Example list</div>
+          <div className="h-20">Example list</div>
+          <div className="h-20">Example list</div>
+          <div className="h-20">Example list</div>
+        </header>
       </main>
     </div>
   );

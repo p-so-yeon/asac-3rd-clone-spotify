@@ -28,13 +28,13 @@ function Sidebar() {
   );
   return (
     <div className="fixed w-[300px] h-screen bg-black px-2 py-2 flex flex-col gap-2">
-      <div className=" bg-teal-950 rounded-lg px-3 py-2">
+      <div className=" bg-color-box-primary rounded-lg px-3 py-2">
         <div className="flex-col">
           {routes.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className="hover:text-white transition duration-500 px-2 py-2 my-0.5 flex flex-row items-center active:text-white text-neutral-300"
+              className="font-black hover:text-white transition duration-500 px-2 py-2 my-0.5 flex flex-row items-center active:text-white text-color-text-secondary"
             >
               <item.icon className="mr-3" size={26} />
               <p className="w-full  ">{item.label}</p>
@@ -42,12 +42,12 @@ function Sidebar() {
           ))}
         </div>
       </div>
-      <main className="bg-teal-950 rounded-lg h-fit w-full px-3 py-2">
+      <main className="bg-color-box-primary rounded-lg h-fit w-full  py-2">
         {/* Library header */}
-        <header className="flex items-center justify-between px-2 py-2">
+        <header className="font-black flex items-center justify-between px-5 py-2">
           <div className="inline-flex items-center gap-x-2">
-            <BiLibrary className="text-neutral-300" size={26} />
-            <p className="font-medium text-neutral-300 ">내 라이브러리</p>
+            <BiLibrary className="text-color-text-secondary" size={26} />
+            <p className=" text-color-text-secondary ">내 라이브러리</p>
           </div>
           <AiOutlinePlus
             size={20}
@@ -56,10 +56,10 @@ function Sidebar() {
         </header>
 
         {/*Library list*/}
-        <div className="h-screen overflow-y-auto px-2 py-2">
+        <div className="h-screen overflow-y-auto px-5 py-2">
           <div className="flex items-center justify-between ">
-            <BiSearch size={18} className="text-neutral-300" />
-            <p className="text-neutral-300"> Recents</p>
+            <BiSearch size={18} className="font-black text-color-text-secondary" />
+            <p className="font-bold text-xs text-color-text-secondary"> Recents</p>
           </div>
           <div className="h-20">Example list</div>
           <div className="h-20">Example list</div>

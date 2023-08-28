@@ -34,7 +34,9 @@ function Sidebar() {
             <Link
               key={item.label}
               href={item.href}
-              className="font-black hover:text-white transition duration-500 px-2 py-2 my-0.5 flex flex-row items-center active:text-white text-color-text-secondary"
+              className={`font-black hover:text-white transition duration-500 px-2 py-2 my-0.5 flex flex-row items-center ${
+                item.active && 'text-white'
+              } text-color-text-secondary`}
             >
               <item.icon className="mr-3" size={26} />
               <p className="w-full  ">{item.label}</p>
@@ -56,10 +58,16 @@ function Sidebar() {
         </header>
 
         {/*Library list*/}
-        <div className="h-screen overflow-y-auto px-5 py-2">
+        <div className="h-screen overflow-y-auto pl-5 pr-3 py-2">
           <div className="flex items-center justify-between ">
-            <BiSearch size={18} className="font-black text-color-text-secondary" />
-            <p className="font-bold text-xs text-color-text-secondary"> Recents</p>
+            <BiSearch
+              size={18}
+              className="font-black text-color-text-secondary"
+            />
+            <p className="font-bold text-xs text-color-text-secondary">
+              {' '}
+              Recents
+            </p>
           </div>
           <div className="h-20">Example list</div>
           <div className="h-20">Example list</div>

@@ -65,7 +65,6 @@ function Sidebar() {
               className="font-black text-color-text-secondary"
             />
             <p className="font-bold text-xs text-color-text-secondary">
-              {' '}
               Recents
             </p>
           </div>

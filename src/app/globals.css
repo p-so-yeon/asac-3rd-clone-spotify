@@ -8,12 +8,12 @@
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.30); /*gray4 color*/
+  background: rgba(255, 255, 255, 0.3); /*gray4 color*/
 }
 ::-webkit-scrollbar-track {
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.40); /*gray5 color*/
+  background: rgba(255, 255, 255, 0.4); /*gray5 color*/
 }

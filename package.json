@@ -20,6 +20,7 @@
     "react-redux": "^8.1.2"
   },
   "devDependencies": {
+    "@savvywombat/tailwindcss-grid-areas": "^3.1.0",
     "@svgr/webpack": "^8.1.0",
     "@testing-library/jest-dom": "^6.1.0",
     "@testing-library/react": "^14.0.0",

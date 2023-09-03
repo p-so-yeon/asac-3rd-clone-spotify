@@ -34,7 +34,7 @@ function Player() {
 
   // aria-label, data-testid aria-expanded
   return (
-    <footer className="flex w-screen gap-x-2 fixed bottom-0 bg-color-background-primary">
+    <footer className="flex w-full fixed bottom-0 bg-color-background-primary">
       <div className="basis-[30%] min-w-[180px] flex justify-start items-center">
         {currentTrack && (
           <div className="">

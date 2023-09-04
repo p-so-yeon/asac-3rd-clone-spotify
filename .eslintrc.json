@@ -5,7 +5,7 @@
     "es6": true,
     "node": true
   },
-  "ignorePatterns": ["public", "*.config.js", "*.config.ts", "**/*.md"],
+  "ignorePatterns": ["node_modules/", "public", "*.config.[jt]s", "**/*.md"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": { "jsx": true },

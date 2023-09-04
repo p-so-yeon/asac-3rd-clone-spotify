@@ -1,11 +1,3 @@
-"use client";
-
-import Player from "@/components/common/Player";
-
-export default function page() {
-  return (
-    <main className="min-h-screen bg-color-background-primary">
-      <Player />
-    </main>
-  );
+export default function Home() {
+  return <h1 className="">home</h1>
 }

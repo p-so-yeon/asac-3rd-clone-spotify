@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
+  mode: "jit",
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -17,9 +18,28 @@ const config: Config = {
         "color-active-primary": "#b3b3b3",
         "color-text-primary": "#fff",
         "color-text-secondary": "#b3b3b3",
-      }
+      },
+      gridTemplateAreas: {
+        "mobile": [],
+        "tablet": [],
+        "destop": [
+          "left-sidebar main",
+          "now-playing-bar now-playing-bar"
+        ],
+      },
+      gridTemplateColumns: {
+        "layout": "auto 1fr"
+      },
+      gridTemplateRows: {
+        "layout": "1fr auto"
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@savvywombat/tailwindcss-grid-areas')
+  ],
+  variants: {
+    gridTemplateAreas: ["responsive"]
+  }
 };
 export default config;

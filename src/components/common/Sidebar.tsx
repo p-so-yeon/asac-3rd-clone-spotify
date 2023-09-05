@@ -44,43 +44,41 @@ function Sidebar() {
   }, [])
 
   return (
-    <div className="fixed w-[300px] h-screen bg-black px-2 py-2 flex flex-col gap-2">
-      <div className=" bg-color-box-primary rounded-lg px-3 py-2">
-        <div className="flex-col">
-          {routes.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className={`font-black hover:text-white transition duration-500 px-2 py-2 my-0.5 flex flex-row items-center ${
-                item.active && 'text-white'
-              } text-color-text-secondary`}
-            >
-              <item.icon className="mr-3" size={26} />
-              <p className="w-full  ">{item.label}</p>
-            </Link>
-          ))}
-        </div>
+    <div className="fixed w-[280px] h-screen bg-black flex flex-col gap-2">
+      {/* <div className="fixed w-[300px] h-screen bg-black px-2 py-2 flex flex-col gap-2"> */}
+      <div className="flex flex-col bg-color-box-primary rounded-lg py-2 px-3">
+        {routes.map((item) => (
+          <Link
+            key={item.label}
+            href={item.href}
+            className={`py-1 px-3 font-black hover:text-white transition duration-500 flex flex-row items-center ${
+              item.active && 'text-white'
+            } text-color-text-secondary`}
+          >
+            <item.icon className="mr-3" size={26} />
+            <p className="w-full">{item.label}</p>
+          </Link>
+        ))}
       </div>
-      <main className="bg-color-box-primary rounded-lg h-fit w-full  py-2">
+      <main className="bg-color-box-primary rounded-lg h-fit w-full py-2">
         {/* Library header */}
-        <header className="font-black flex items-center justify-between px-5 py-2">
-          <div className="inline-flex items-center gap-x-2">
+        <header className="font-black flex items-center justify-between py-2 px-4">
+          <div className="inline-flex items-center gap-x-2 px-2 py-1">
             <BiLibrary className="text-color-text-secondary" size={26} />
             <p className=" text-color-text-secondary ">내 라이브러리</p>
           </div>
           <AiOutlinePlus size={20} className="text-neutral-300 hover:text-white cursor-pointer transition" />
         </header>
-
         {/*Library list*/}
-        <div className="h-screen overflow-y-auto pl-5 pr-3 py-2">
-          <div className="flex items-center justify-between ">
-            <BiSearch size={18} className="font-black text-color-text-secondary" />
+        <div className="flex flex-col gap-2 px-2">
+          <div className="flex items-center justify-between px-2 py-0.5">
+            <BiSearch size={20} className="m-2 font-black text-color-text-secondary" />
             <p className="font-bold text-xs text-color-text-secondary">Recents</p>
           </div>
-          <ul className="flex flex-col gap-2">
+          <ul className="h-screen overflow-y-auto flex flex-col gap-2">
             {followedArtists?.artists.items.map((artist) => (
-              <li key={`${artist.id}`}>
-                <div className="grid grid-cols-3">
+              <li key={`${artist.id}`} className="">
+                <div className="grid grid-cols-[auto_1fr] p-2 gap-x-3 gap-y-2">
                   <Image
                     className="rounded-full"
                     src={`${artist.images[2].url}`}
@@ -89,7 +87,7 @@ function Sidebar() {
                     alt={`${artist.name}`}
                   />
                   <div className="flex flex-col">
-                    <span className="text-color-text-primary">{`${artist.name}`}</span>
+                    <span className="text-color-text-primary line-clamp-1 break-all">{`${artist.name}`}</span>
                     <span className="text-color-text-secondary">{`${artist.type}`}</span>
                   </div>
                 </div>

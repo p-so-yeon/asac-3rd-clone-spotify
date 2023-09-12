@@ -1,8 +1,9 @@
-
+import Playlist from '@/app/playlist/Playlist'
 
 export default function page() {
-  return 
-  <div>
-    
-  </div>
+  return (
+    <div>
+      <Playlist />
+    </div>
+  )
 }

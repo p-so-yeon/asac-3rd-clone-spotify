@@ -1,12 +1,14 @@
 import { ReactNode } from 'react'
 
-import ContentCardContext from '@/components/ContentCard/ContentCardContext'
+import { ContentCardContext } from '@/components/ContentCard/ContentCardContext'
 import ContentCardDescription from '@/components/ContentCard/ContentCardDescription'
+import ContentCardInfo from '@/components/ContentCard/ContentCardInfo'
 import ContentCardName from '@/components/ContentCard/ContentCardName'
-import {  Item } from '@/lib/types/playlist/featured-playlist-mock-data'
+import { Item } from '@/lib/types/playlist/featured-playlist-mock-data'
 
 import ContentCardImg from './ContentCardImg'
 
+//data type이 늘어나면 interface로 추가해주기 
 type Props = {
   data: Item
   image?: ReactNode
@@ -15,12 +17,15 @@ type Props = {
 
 export default function ContentCard({ data, image, info }: Props) {
   return (
-    <ContentCardContext.Provider value={{ data }}>
-      <div>
-        <div>{image}</div>
-        <div>{info}</div>
-      </div>
-    </ContentCardContext.Provider>
+    <div className="bg-color-card-primary"> 
+      <ContentCardContext.Provider value={{ data }}>
+        <div>
+          <div>{image}</div>
+          <div>{info}</div>
+        </div>
+      </ContentCardContext.Provider>
+    </div>
+    
   )
 }
 
@@ -28,3 +33,4 @@ export default function ContentCard({ data, image, info }: Props) {
 ContentCard.Image = ContentCardImg
 ContentCard.Name = ContentCardName
 ContentCard.Description = ContentCardDescription
+ContentCard.Info = ContentCardInfo

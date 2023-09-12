@@ -1,7 +1,8 @@
 import React from 'react'
 
+import useContentCardContext from '@/components/ContentCard/ContentCardContext'
+
 export default function ContentCardDescription() {
-  return (
-    <div>ContentCardDescription</div>
-  )
+  const { data } = useContentCardContext()
+  return <div>{data.description}</div>
 }

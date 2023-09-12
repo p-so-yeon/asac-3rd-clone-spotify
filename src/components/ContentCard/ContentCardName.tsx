@@ -1,7 +1,8 @@
 import React from 'react'
 
+import useContentCardContext from '@/components/ContentCard/ContentCardContext'
+
 export default function ContentCardName() {
-  return (
-    <div>ContentCardName</div>
-  )
+  const { data } = useContentCardContext()
+  return <div>{data.name}</div>
 }

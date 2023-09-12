@@ -1,7 +1,7 @@
+'use client'
 import { useEffect, useState } from 'react'
 
 import ContentCard from '@/components/ContentCard/ContentCard'
-import ContentCardInfo from '@/components/ContentCard/ContentCardInfo'
 import { MOCK_API_URL } from '@/lib/constant/path'
 import { FeaturedPlaylist, Item } from '@/lib/types/playlist/featured-playlist-mock-data'
 
@@ -23,17 +23,16 @@ export default function Playlist() {
       <h1>{featuredPlaylists?.message}</h1>
       <ul>
         {featuredPlaylists?.playlists.items.map((playlist: Item) => {
-          console.log('show featured playlists')
           return (
             <ContentCard
               key={playlist.id}
               data={playlist}
               image={<ContentCard.Image />}
               info={
-                <ContentCardInfo> 
+                <ContentCard.Info>
                   <ContentCard.Name />
                   <ContentCard.Description />
-                </ContentCardInfo>
+                </ContentCard.Info>
               }
             />
           )

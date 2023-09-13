@@ -20,6 +20,7 @@ const config: Config = {
         'color-text-primary': '#fff',
         'color-text-secondary': '#b3b3b3',
       },
+
       gridTemplateAreas: {
         mobile: [],
         tablet: [],

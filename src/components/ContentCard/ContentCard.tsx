@@ -17,9 +17,9 @@ type Props = {
 
 export default function ContentCard({ data, image, info }: Props) {
   return (
-    <div className="bg-color-card-primary"> 
+    <div className="rounded-md bg-color-box-primary overflow-hidden w-full transition duration-300  hover:bg-[rgb(255,255,255)]/20"> 
       <ContentCardContext.Provider value={{ data }}>
-        <div>
+        <div className="">
           <div>{image}</div>
           <div>{info}</div>
         </div>

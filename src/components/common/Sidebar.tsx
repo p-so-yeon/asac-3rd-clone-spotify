@@ -43,6 +43,7 @@ function Sidebar() {
     fetchFlollowedArtists()
   }, [])
 
+
   return (
     <div className="fixed w-[280px] h-screen bg-black flex flex-col gap-2">
       {/* <div className="fixed w-[300px] h-screen bg-black px-2 py-2 flex flex-col gap-2"> */}

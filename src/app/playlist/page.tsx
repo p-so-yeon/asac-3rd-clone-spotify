@@ -1,5 +1,9 @@
-import React from 'react'
+import Playlist from '@/app/playlist/Playlist'
 
 export default function page() {
-  return <div>page</div>
+  return (
+    <div>
+      <Playlist />
+    </div>
+  )
 }

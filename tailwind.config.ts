@@ -22,9 +22,12 @@ const config: Config = {
       },
 
       gridTemplateAreas: {
-        mobile: [],
-        tablet: [],
-        destop: ['left-sidebar main', 'now-playing-bar now-playing-bar'],
+        "mobile": [],
+        "tablet": [],
+        "desktop": [
+          "left-sidebar main",
+          "player player"
+        ],
       },
       gridTemplateColumns: {
         layout: 'auto 1fr',

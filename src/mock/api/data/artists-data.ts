@@ -2,7 +2,6 @@ export const ARTISTS_DATA = {}
 
 export const FOLLOWED_ARTISTS_DATA = {
   "artists": {
-    "href": "https://api.spotify.com/v1/me/following?type=artist&limit=50&locale=ko,en-US;q=0.9,en;q=0.8",
     "limit": 50,
     "next": null,
     "cursors": {
@@ -11,15 +10,10 @@ export const FOLLOWED_ARTISTS_DATA = {
     "total": 32,
     "items": [
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/0bAsR2unSRpn6BQPEnNlZm"
-        },
         "followers": {
-          "href": null,
           "total": 2320365
         },
         "genres": ["anime", "anime rock", "j-pixie", "j-pop", "j-poprock"],
-        "href": "https://api.spotify.com/v1/artists/0bAsR2unSRpn6BQPEnNlZm",
         "id": "0bAsR2unSRpn6BQPEnNlZm",
         "images": [
           {
@@ -41,18 +35,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "Aimer",
         "popularity": 65,
         "type": "artist",
-        "uri": "spotify:artist:0bAsR2unSRpn6BQPEnNlZm"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/1EowJ1WwkMzkCkRomFhui7"
-        },
         "followers": {
-          "href": null,
           "total": 3566163
         },
         "genres": ["j-pop", "j-rock", "japanese emo", "visual kei"],
-        "href": "https://api.spotify.com/v1/artists/1EowJ1WwkMzkCkRomFhui7",
         "id": "1EowJ1WwkMzkCkRomFhui7",
         "images": [
           {
@@ -74,18 +62,13 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "RADWIMPS",
         "popularity": 69,
         "type": "artist",
-        "uri": "spotify:artist:1EowJ1WwkMzkCkRomFhui7"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/1HY2Jd0NmPuamShAr6KMms"
-        },
         "followers": {
           "href": null,
           "total": 27732498
         },
         "genres": ["art pop", "dance pop", "pop"],
-        "href": "https://api.spotify.com/v1/artists/1HY2Jd0NmPuamShAr6KMms",
         "id": "1HY2Jd0NmPuamShAr6KMms",
         "images": [
           {
@@ -107,18 +90,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "Lady Gaga",
         "popularity": 82,
         "type": "artist",
-        "uri": "spotify:artist:1HY2Jd0NmPuamShAr6KMms"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ"
-        },
         "followers": {
-          "href": null,
           "total": 70478782
         },
         "genres": ["canadian contemporary r&b", "canadian pop", "pop"],
-        "href": "https://api.spotify.com/v1/artists/1Xyo4u8uXC1ZmMpatF05PJ",
         "id": "1Xyo4u8uXC1ZmMpatF05PJ",
         "images": [
           {
@@ -140,18 +117,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "The Weeknd",
         "popularity": 94,
         "type": "artist",
-        "uri": "spotify:artist:1Xyo4u8uXC1ZmMpatF05PJ"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/1dfeR4HaWDbWqFHLkxsg1d"
-        },
         "followers": {
-          "href": null,
           "total": 48104048
         },
         "genres": ["classic rock", "glam rock", "rock"],
-        "href": "https://api.spotify.com/v1/artists/1dfeR4HaWDbWqFHLkxsg1d",
         "id": "1dfeR4HaWDbWqFHLkxsg1d",
         "images": [
           {
@@ -178,18 +149,13 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "Queen",
         "popularity": 82,
         "type": "artist",
-        "uri": "spotify:artist:1dfeR4HaWDbWqFHLkxsg1d"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/1qma7XhwZotCAucL7NHVLY"
-        },
         "followers": {
           "href": null,
           "total": 3112107
         },
         "genres": ["classic j-pop", "j-pop", "j-rock"],
-        "href": "https://api.spotify.com/v1/artists/1qma7XhwZotCAucL7NHVLY",
         "id": "1qma7XhwZotCAucL7NHVLY",
         "images": [
           {
@@ -211,18 +177,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "Mr.Children",
         "popularity": 61,
         "type": "artist",
-        "uri": "spotify:artist:1qma7XhwZotCAucL7NHVLY"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/1snhtMLeb2DYoMOcVbb8iB"
-        },
         "followers": {
-          "href": null,
           "total": 5238998
         },
         "genres": ["anime", "j-pop"],
-        "href": "https://api.spotify.com/v1/artists/1snhtMLeb2DYoMOcVbb8iB",
         "id": "1snhtMLeb2DYoMOcVbb8iB",
         "images": [
           {
@@ -244,18 +204,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "Kenshi Yonezu",
         "popularity": 71,
         "type": "artist",
-        "uri": "spotify:artist:1snhtMLeb2DYoMOcVbb8iB"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/1vCWHaC5f2uS3yhpwWbIA6"
-        },
         "followers": {
-          "href": null,
           "total": 23181989
         },
         "genres": ["edm", "pop", "pop dance"],
-        "href": "https://api.spotify.com/v1/artists/1vCWHaC5f2uS3yhpwWbIA6",
         "id": "1vCWHaC5f2uS3yhpwWbIA6",
         "images": [
           {
@@ -277,18 +231,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "Avicii",
         "popularity": 79,
         "type": "artist",
-        "uri": "spotify:artist:1vCWHaC5f2uS3yhpwWbIA6"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/20K5puLWHL28ckI4LjieDt"
-        },
         "followers": {
-          "href": null,
           "total": 133984
         },
         "genres": ["korean pop"],
-        "href": "https://api.spotify.com/v1/artists/20K5puLWHL28ckI4LjieDt",
         "id": "20K5puLWHL28ckI4LjieDt",
         "images": [
           {
@@ -310,18 +258,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "김범수",
         "popularity": 40,
         "type": "artist",
-        "uri": "spotify:artist:20K5puLWHL28ckI4LjieDt"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/2nvl0N9GwyX69RRBMEZ4OD"
-        },
         "followers": {
-          "href": null,
           "total": 317432
         },
         "genres": [],
-        "href": "https://api.spotify.com/v1/artists/2nvl0N9GwyX69RRBMEZ4OD",
         "id": "2nvl0N9GwyX69RRBMEZ4OD",
         "images": [
           {
@@ -343,18 +285,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "結束バンド",
         "popularity": 60,
         "type": "artist",
-        "uri": "spotify:artist:2nvl0N9GwyX69RRBMEZ4OD"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/32QmJ5obSke8YKDbQvVPUx"
-        },
         "followers": {
-          "href": null,
           "total": 268828
         },
         "genres": ["j-pop", "japanese teen pop"],
-        "href": "https://api.spotify.com/v1/artists/32QmJ5obSke8YKDbQvVPUx",
         "id": "32QmJ5obSke8YKDbQvVPUx",
         "images": [
           {
@@ -376,18 +312,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "Eito",
         "popularity": 38,
         "type": "artist",
-        "uri": "spotify:artist:32QmJ5obSke8YKDbQvVPUx"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/3HqSLMAZ3g3d5poNaI7GOU"
-        },
         "followers": {
-          "href": null,
           "total": 8146363
         },
         "genres": ["k-pop", "pop"],
-        "href": "https://api.spotify.com/v1/artists/3HqSLMAZ3g3d5poNaI7GOU",
         "id": "3HqSLMAZ3g3d5poNaI7GOU",
         "images": [
           {
@@ -409,18 +339,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "아이유",
         "popularity": 69,
         "type": "artist",
-        "uri": "spotify:artist:3HqSLMAZ3g3d5poNaI7GOU"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/3Mvc8kRgr8LRYYgvFmlZqn"
-        },
         "followers": {
-          "href": null,
           "total": 854372
         },
         "genres": ["classic j-pop", "eurobeat", "j-pop"],
-        "href": "https://api.spotify.com/v1/artists/3Mvc8kRgr8LRYYgvFmlZqn",
         "id": "3Mvc8kRgr8LRYYgvFmlZqn",
         "images": [
           {
@@ -442,18 +366,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "Ayumi Hamasaki",
         "popularity": 56,
         "type": "artist",
-        "uri": "spotify:artist:3Mvc8kRgr8LRYYgvFmlZqn"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/3cbd5GWGOknxmFAe77MDbk"
-        },
         "followers": {
-          "href": null,
           "total": 543213
         },
         "genres": ["j-pop", "j-rock", "japanese emo", "japanese pop punk", "japanese punk rock"],
-        "href": "https://api.spotify.com/v1/artists/3cbd5GWGOknxmFAe77MDbk",
         "id": "3cbd5GWGOknxmFAe77MDbk",
         "images": [
           {
@@ -475,18 +393,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "ELLEGARDEN",
         "popularity": 54,
         "type": "artist",
-        "uri": "spotify:artist:3cbd5GWGOknxmFAe77MDbk"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
-        },
         "followers": {
-          "href": null,
           "total": 28500352
         },
         "genres": ["r&b", "soul"],
-        "href": "https://api.spotify.com/v1/artists/3fMbdgg4jU18AjLCKBhRSm",
         "id": "3fMbdgg4jU18AjLCKBhRSm",
         "images": [
           {
@@ -508,18 +420,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "Michael Jackson",
         "popularity": 80,
         "type": "artist",
-        "uri": "spotify:artist:3fMbdgg4jU18AjLCKBhRSm"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/3qNVuliS40BLgXGxhdBdqu"
-        },
         "followers": {
-          "href": null,
           "total": 2792989
         },
         "genres": ["k-pop"],
-        "href": "https://api.spotify.com/v1/artists/3qNVuliS40BLgXGxhdBdqu",
         "id": "3qNVuliS40BLgXGxhdBdqu",
         "images": [
           {
@@ -541,18 +447,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "태연",
         "popularity": 64,
         "type": "artist",
-        "uri": "spotify:artist:3qNVuliS40BLgXGxhdBdqu"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/41MozSoPIsD1dJM0CLPjZF"
-        },
         "followers": {
-          "href": null,
           "total": 44832402
         },
         "genres": ["k-pop", "k-pop girl group", "pop"],
-        "href": "https://api.spotify.com/v1/artists/41MozSoPIsD1dJM0CLPjZF",
         "id": "41MozSoPIsD1dJM0CLPjZF",
         "images": [
           {
@@ -574,18 +474,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "BLACKPINK",
         "popularity": 82,
         "type": "artist",
-        "uri": "spotify:artist:41MozSoPIsD1dJM0CLPjZF"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/4DDoAL8n6ob19r3jOZEbJI"
-        },
         "followers": {
-          "href": null,
           "total": 1535856
         },
         "genres": ["j-pop"],
-        "href": "https://api.spotify.com/v1/artists/4DDoAL8n6ob19r3jOZEbJI",
         "id": "4DDoAL8n6ob19r3jOZEbJI",
         "images": [
           {
@@ -607,18 +501,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "Kana Nishino",
         "popularity": 57,
         "type": "artist",
-        "uri": "spotify:artist:4DDoAL8n6ob19r3jOZEbJI"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/4UK2Lzi6fBfUi9rpDt6cik"
-        },
         "followers": {
-          "href": null,
           "total": 2191511
         },
         "genres": ["j-pop"],
-        "href": "https://api.spotify.com/v1/artists/4UK2Lzi6fBfUi9rpDt6cik",
         "id": "4UK2Lzi6fBfUi9rpDt6cik",
         "images": [
           {
@@ -640,18 +528,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "Yorushika",
         "popularity": 67,
         "type": "artist",
-        "uri": "spotify:artist:4UK2Lzi6fBfUi9rpDt6cik"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/4VrqQQy6X0hlMtqY5gp6Wx"
-        },
         "followers": {
-          "href": null,
           "total": 584588
         },
         "genres": ["japanese heavy metal", "japanese power metal", "visual kei"],
-        "href": "https://api.spotify.com/v1/artists/4VrqQQy6X0hlMtqY5gp6Wx",
         "id": "4VrqQQy6X0hlMtqY5gp6Wx",
         "images": [
           {
@@ -673,18 +555,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "X JAPAN",
         "popularity": 47,
         "type": "artist",
-        "uri": "spotify:artist:4VrqQQy6X0hlMtqY5gp6Wx"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/4gOc8TsQed9eqnqJct2c5v"
-        },
         "followers": {
-          "href": null,
           "total": 2104766
         },
         "genres": ["k-pop girl group"],
-        "href": "https://api.spotify.com/v1/artists/4gOc8TsQed9eqnqJct2c5v",
         "id": "4gOc8TsQed9eqnqJct2c5v",
         "images": [
           {
@@ -706,18 +582,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "K/DA",
         "popularity": 62,
         "type": "artist",
-        "uri": "spotify:artist:4gOc8TsQed9eqnqJct2c5v"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/5Vo1hnCRmCM6M4thZCInCj"
-        },
         "followers": {
-          "href": null,
           "total": 5902150
         },
         "genres": ["anime", "anime rock", "j-pop"],
-        "href": "https://api.spotify.com/v1/artists/5Vo1hnCRmCM6M4thZCInCj",
         "id": "5Vo1hnCRmCM6M4thZCInCj",
         "images": [
           {
@@ -739,18 +609,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "OFFICIAL HIGE DANDISM",
         "popularity": 70,
         "type": "artist",
-        "uri": "spotify:artist:5Vo1hnCRmCM6M4thZCInCj"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/5kVZa4lFUmAQlBogl1fkd6"
-        },
         "followers": {
-          "href": null,
           "total": 4807873
         },
         "genres": ["j-acoustic", "j-pop"],
-        "href": "https://api.spotify.com/v1/artists/5kVZa4lFUmAQlBogl1fkd6",
         "id": "5kVZa4lFUmAQlBogl1fkd6",
         "images": [
           {
@@ -772,18 +636,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "Aimyon",
         "popularity": 67,
         "type": "artist",
-        "uri": "spotify:artist:5kVZa4lFUmAQlBogl1fkd6"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/64tJ2EAv1R6UaZqc4iOCyj"
-        },
         "followers": {
-          "href": null,
           "total": 6226828
         },
         "genres": ["j-pop", "japanese teen pop"],
-        "href": "https://api.spotify.com/v1/artists/64tJ2EAv1R6UaZqc4iOCyj",
         "id": "64tJ2EAv1R6UaZqc4iOCyj",
         "images": [
           {
@@ -805,18 +663,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "YOASOBI",
         "popularity": 76,
         "type": "artist",
-        "uri": "spotify:artist:64tJ2EAv1R6UaZqc4iOCyj"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/69GGBxA162lTqCwzJG5jLp"
-        },
         "followers": {
-          "href": null,
           "total": 20394917
         },
         "genres": ["electropop", "pop"],
-        "href": "https://api.spotify.com/v1/artists/69GGBxA162lTqCwzJG5jLp",
         "id": "69GGBxA162lTqCwzJG5jLp",
         "images": [
           {
@@ -838,18 +690,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "The Chainsmokers",
         "popularity": 78,
         "type": "artist",
-        "uri": "spotify:artist:69GGBxA162lTqCwzJG5jLp"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/6GwM5CHqhWXzG3l5kzRSAS"
-        },
         "followers": {
-          "href": null,
           "total": 441525
         },
         "genres": ["korean pop"],
-        "href": "https://api.spotify.com/v1/artists/6GwM5CHqhWXzG3l5kzRSAS",
         "id": "6GwM5CHqhWXzG3l5kzRSAS",
         "images": [
           {
@@ -871,18 +717,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "윤하",
         "popularity": 51,
         "type": "artist",
-        "uri": "spotify:artist:6GwM5CHqhWXzG3l5kzRSAS"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/6HvZYsbFfjnjFrWF950C9d"
-        },
         "followers": {
-          "href": null,
           "total": 4917063
         },
         "genres": ["k-pop", "k-pop girl group"],
-        "href": "https://api.spotify.com/v1/artists/6HvZYsbFfjnjFrWF950C9d",
         "id": "6HvZYsbFfjnjFrWF950C9d",
         "images": [
           {
@@ -904,18 +744,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "NewJeans",
         "popularity": 84,
         "type": "artist",
-        "uri": "spotify:artist:6HvZYsbFfjnjFrWF950C9d"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/6VuMaDnrHyPL1p4EHjYLi7"
-        },
         "followers": {
-          "href": null,
           "total": 21162827
         },
         "genres": ["pop", "viral pop"],
-        "href": "https://api.spotify.com/v1/artists/6VuMaDnrHyPL1p4EHjYLi7",
         "id": "6VuMaDnrHyPL1p4EHjYLi7",
         "images": [
           {
@@ -937,18 +771,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "Charlie Puth",
         "popularity": 80,
         "type": "artist",
-        "uri": "spotify:artist:6VuMaDnrHyPL1p4EHjYLi7"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/6jTjjAjvYvMYfaqi837p5x"
-        },
         "followers": {
-          "href": null,
           "total": 793763
         },
         "genres": ["anime", "classic j-pop", "j-pop", "visual kei"],
-        "href": "https://api.spotify.com/v1/artists/6jTjjAjvYvMYfaqi837p5x",
         "id": "6jTjjAjvYvMYfaqi837p5x",
         "images": [
           {
@@ -970,18 +798,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "L'Arc-en-Ciel",
         "popularity": 54,
         "type": "artist",
-        "uri": "spotify:artist:6jTjjAjvYvMYfaqi837p5x"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/79nkC8XZ5ohEVU0Xlf5Ael"
-        },
         "followers": {
-          "href": null,
           "total": 1443483
         },
         "genres": ["classic j-pop", "j-pop"],
-        "href": "https://api.spotify.com/v1/artists/79nkC8XZ5ohEVU0Xlf5Ael",
         "id": "79nkC8XZ5ohEVU0Xlf5Ael",
         "images": [
           {
@@ -1003,18 +825,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "SOUTHERN ALL STARS",
         "popularity": 64,
         "type": "artist",
-        "uri": "spotify:artist:79nkC8XZ5ohEVU0Xlf5Ael"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/7jFUYMpMUBDL4JQtMZ5ilc"
-        },
         "followers": {
-          "href": null,
           "total": 219096
         },
         "genres": ["korean pop"],
-        "href": "https://api.spotify.com/v1/artists/7jFUYMpMUBDL4JQtMZ5ilc",
         "id": "7jFUYMpMUBDL4JQtMZ5ilc",
         "images": [
           {
@@ -1036,18 +852,12 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "성시경",
         "popularity": 48,
         "type": "artist",
-        "uri": "spotify:artist:7jFUYMpMUBDL4JQtMZ5ilc"
       },
       {
-        "external_urls": {
-          "spotify": "https://open.spotify.com/artist/7n2Ycct7Beij7Dj7meI4X0"
-        },
         "followers": {
-          "href": null,
           "total": 18692542
         },
         "genres": ["k-pop", "k-pop girl group", "pop"],
-        "href": "https://api.spotify.com/v1/artists/7n2Ycct7Beij7Dj7meI4X0",
         "id": "7n2Ycct7Beij7Dj7meI4X0",
         "images": [
           {
@@ -1069,7 +879,6 @@ export const FOLLOWED_ARTISTS_DATA = {
         "name": "TWICE",
         "popularity": 78,
         "type": "artist",
-        "uri": "spotify:artist:7n2Ycct7Beij7Dj7meI4X0"
       }
     ]
   }

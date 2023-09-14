@@ -7,6 +7,7 @@ import { PiRepeat, PiShuffleLight } from 'react-icons/pi'
 
 import { MOCK_API_URL } from '@/lib/constant/path'
 import { Track } from '@/lib/types/mock-data-type'
+import { RecentlyPlayed } from '@/lib/types/track/recent-played-data-type'
 
 function Button({ children }: { children: React.ReactNode }) {
   return (
@@ -18,26 +19,36 @@ function Button({ children }: { children: React.ReactNode }) {
 
 function Player() {
   const [currentTrack, setCurrentTrack] = useState<Track>()
+  const [recentlyPlayedTrack, setRecentlyPlayedTrack] = useState<RecentlyPlayed>()
 
   //최적화 해야함
   useEffect(() => {
-    async function fetchCurrentTrack() {
-      const url = `${MOCK_API_URL}/home/track`
-      const res = await fetch(url)
-      const trackData: Track = await res.json()
-      console.log(trackData)
+    // async function fetchCurrentTrack() {
+    //   const url = `${MOCK_API_URL}/home/track`
+    //   const res = await fetch(url)
+    //   const trackData: Track = await res.json()
+    //   console.log(trackData)
 
-      setCurrentTrack(trackData)
+    //   setCurrentTrack(trackData)
+    // }
+    async function fetchRecentlyPlayedTrack() {
+      const url = `${MOCK_API_URL}/home/recently-played-track`
+
+      const res = await fetch(url)
+      const recentlyPlayedData: RecentlyPlayed = await res.json()
+      console.log(recentlyPlayedData)
+      setRecentlyPlayedTrack(recentlyPlayedData)
     }
-    fetchCurrentTrack()
+    fetchRecentlyPlayedTrack()
+    // fetchCurrentTrack()
   }, [])
 
   // aria-label, data-testid aria-expanded
   return (
-    <footer className="flex w-full fixed bottom-0 bg-color-background-primary">
+    <footer className="flex w-full fixed bg-color-background-primary">
       <div className="basis-[30%] min-w-[180px] flex justify-start items-center">
-        {currentTrack && (
-          <div className="">
+        {/* {currentTrack && (
+          <>
             <Image
               className="rounded"
               src={`${currentTrack?.album.images[0].url}`}
@@ -45,14 +56,52 @@ function Player() {
               height={56}
               alt={`${currentTrack?.album.name}`}
             />
-          </div>
+            <div className="flex flex-col">
+              <span className="text-color-text-primary hover:underline">{currentTrack?.name}</span>
+              <span className=" text-color-text-secondary hover:underline hover:text-color-text-primary">
+                {currentTrack?.artists.map((artist) => artist.name)}
+              </span>
+            </div>
+          </>
+        )} */}
+        {/* {recentlyPlayedTrack && (
+          <>
+            <Image
+              className="rounded"
+              src={`${recentlyPlayedTrack?.items[0].track.album.images[0].url}`}
+              width={56}
+              height={56}
+              alt={`${recentlyPlayedTrack?.items[0].track.album.name}`}
+            />
+            <div className="flex flex-col">
+              <span className="text-color-text-primary hover:underline">
+                {recentlyPlayedTrack?.items[0].track.name}
+              </span>
+              <span className=" text-color-text-secondary hover:underline hover:text-color-text-primary">
+                {recentlyPlayedTrack?.items[0].track.artists.map((artist) => artist.name)}
+              </span>
+            </div>
+          </>
+        )} */}
+        {recentlyPlayedTrack && (
+          <>
+            <Image
+              className="rounded"
+              src={`${recentlyPlayedTrack?.items[0].track.album.images[0].url}`}
+              width={56}
+              height={56}
+              alt={`${recentlyPlayedTrack?.items[0].track.album.name}`}
+            />
+            <div className="flex flex-col">
+              <span className="text-color-text-primary hover:underline">
+                {recentlyPlayedTrack?.items[0].track.name}
+              </span>
+              <span className=" text-color-text-secondary hover:underline hover:text-color-text-primary">
+                {recentlyPlayedTrack?.items[0].track.artists.map((artist) => artist.name)}
+              </span>
+            </div>
+          </>
         )}
-        <div className="flex flex-col">
-          <span className="text-color-text-primary hover:underline">{currentTrack?.name}</span>
-          <span className=" text-color-text-secondary hover:underline hover:text-color-text-primary">
-            {currentTrack?.artists.map((artist) => artist.name)}
-          </span>
-        </div>
       </div>
       <div className="basis-[40%] max-w-[722px] ">
         <div className="flex justify-center gap-4 mb-2">

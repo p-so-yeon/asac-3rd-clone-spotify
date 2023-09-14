@@ -45,8 +45,8 @@ function Sidebar() {
 
 
   return (
-    <div className="fixed w-[280px] h-screen bg-black flex flex-col gap-2">
-      {/* <div className="fixed w-[300px] h-screen bg-black px-2 py-2 flex flex-col gap-2"> */}
+    <aside className="w-[280px] bg-black flex flex-col gap-2 row-span-1">
+      {/* <div className="h-[calc(100vh-80px)] "> */}
       <div className="flex flex-col bg-color-box-primary rounded-lg py-2 px-3">
         {routes.map((item) => (
           <Link
@@ -61,7 +61,7 @@ function Sidebar() {
           </Link>
         ))}
       </div>
-      <main className="bg-color-box-primary rounded-lg h-fit w-full py-2">
+      <main className="bg-color-box-primary rounded-lg w-full py-2">
         {/* Library header */}
         <header className="font-black flex items-center justify-between py-2 px-4">
           <div className="inline-flex items-center gap-x-2 px-2 py-1">
@@ -71,12 +71,12 @@ function Sidebar() {
           <AiOutlinePlus size={20} className="text-neutral-300 hover:text-white cursor-pointer transition" />
         </header>
         {/*Library list*/}
-        <div className="flex flex-col gap-2 px-2">
+        <div className="flex flex-col gap-2 px-2 overflow-y-auto">
           <div className="flex items-center justify-between px-2 py-0.5">
             <BiSearch size={20} className="m-2 font-black text-color-text-secondary" />
             <p className="font-bold text-xs text-color-text-secondary">Recents</p>
           </div>
-          <ul className="h-screen overflow-y-auto flex flex-col gap-2">
+          <ul className="flex flex-col gap-2">
             {followedArtists?.artists.items.map((artist) => (
               <li key={`${artist.id}`} className="">
                 <div className="grid grid-cols-[auto_1fr] p-2 gap-x-3 gap-y-2">
@@ -95,26 +95,10 @@ function Sidebar() {
               </li>
             ))}
           </ul>
-          {/* <div className="h-20">Example list</div>
-          <div className="h-20">Example list</div>
-          <div className="h-20">Example list</div>
-          <div className="h-20">Example list</div>
-          <div className="h-20">Example list</div>
-          <div className="h-20">Example list</div>
-          <div className="h-20">Example list</div>
-          <div className="h-20">Example list</div>
-          <div className="h-20">Example list</div>
-          <div className="h-20">Example list</div>
-          <div className="h-20">Example list</div>
-          <div className="h-20">Example list</div>
-          <div className="h-20">Example list</div>
-          <div className="h-20">Example list</div>
-          <div className="h-20">Example list</div>
-          <div className="h-20">Example list</div>
-          <div className="h-20">Example list</div> */}
         </div>
       </main>
-    </div>
+      {/* </div> */}
+    </aside>
   )
 }
 

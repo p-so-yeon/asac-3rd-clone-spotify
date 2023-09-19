@@ -5986,3 +5986,86 @@ export const CATEGORY_PLAYLIST_DATA = {
     "total": 223
   }
 }
+
+export const CURRENT_USERS_PLAYLIST = {
+  "href": "https://api.spotify.com/v1/users/314hgjbu2uft22xmofmmn6b7tfzq/playlists?offset=0&limit=20",
+  "items": [
+    {
+      "collaborative": false,
+      "description": "<a href=spotify:playlist:37i9dQZF1EIZDmJksaGAQi>케이윌</a>, <a href=spotify:playlist:37i9dQZF1EIXShO6Mp4Is1>이적</a>, <a href=spotify:playlist:37i9dQZF1EIVXSnhy4ck3B>엠씨더맥스</a> 등",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/37i9dQZF1EQpesGsmIyqcW"
+      },
+      "href": "https://api.spotify.com/v1/playlists/37i9dQZF1EQpesGsmIyqcW",
+      "id": "37i9dQZF1EQpesGsmIyqcW",
+      "images": [
+        {
+          "height": null,
+          "url": "https://seed-mix-image.spotifycdn.com/v6/img/k_pop/1XNC9ksvgXeD1xRJruSA5t/ko/large",
+          "width": null
+        }
+      ],
+      "name": "K-Pop 믹스",
+      "owner": {
+        "display_name": "Spotify",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/spotify"
+        },
+        "href": "https://api.spotify.com/v1/users/spotify",
+        "id": "spotify",
+        "type": "user",
+        "uri": "spotify:user:spotify"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "MTY5NTAxNjgwMCwwMDAwMDAwMDVkMDRmZGFkOTA5NzhmNzM3YWUxODI1MGY5YzE1ODY4",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1EQpesGsmIyqcW/tracks",
+        "total": 50
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:37i9dQZF1EQpesGsmIyqcW"
+    },
+    {
+      "collaborative": false,
+      "description": "A playlist for testing pourposes",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/3cEYpjA9oz9GiPac4AsH4n"
+      },
+      "href": "https://api.spotify.com/v1/playlists/3cEYpjA9oz9GiPac4AsH4n",
+      "id": "3cEYpjA9oz9GiPac4AsH4n",
+      "images": [
+        {
+          "height": null,
+          "url": "https://i.scdn.co/image/ab67706c0000bebb8d0ce13d55f634e290f744ba",
+          "width": null
+        }
+      ],
+      "name": "Spotify Web API Testing playlist",
+      "owner": {
+        "display_name": "JMPerez²",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/user/jmperezperez"
+        },
+        "href": "https://api.spotify.com/v1/users/jmperezperez",
+        "id": "jmperezperez",
+        "type": "user",
+        "uri": "spotify:user:jmperezperez"
+      },
+      "primary_color": null,
+      "public": false,
+      "snapshot_id": "MTgsZWFmNmZiNTIzYTg4ODM0OGQzZWQzOGI4NTdkNTJlMjU0OWFkYTUxMA==",
+      "tracks": {
+        "href": "https://api.spotify.com/v1/playlists/3cEYpjA9oz9GiPac4AsH4n/tracks",
+        "total": 5
+      },
+      "type": "playlist",
+      "uri": "spotify:playlist:3cEYpjA9oz9GiPac4AsH4n"
+    }
+  ],
+  "limit": 20,
+  "next": null,
+  "offset": 0,
+  "previous": null,
+  "total": 2
+}

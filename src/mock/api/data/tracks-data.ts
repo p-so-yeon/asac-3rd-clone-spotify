@@ -1798,3 +1798,863 @@ export const RECOMMANDATION_TRACK_DATA = {
     }
   ]
 }
+
+export const USERS_SAVED_TRACKS = {
+  "href": "https://api.spotify.com/v1/me/tracks?offset=0&limit=20",
+  "items": [
+    {
+      "added_at": "2023-09-07T10:36:58Z",
+      "track": {
+        "album": {
+          "album_type": "compilation",
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/3qm84nBOXUEQ2vnTfUTTFC"
+              },
+              "href": "https://api.spotify.com/v1/artists/3qm84nBOXUEQ2vnTfUTTFC",
+              "id": "3qm84nBOXUEQ2vnTfUTTFC",
+              "name": "Guns N' Roses",
+              "type": "artist",
+              "uri": "spotify:artist:3qm84nBOXUEQ2vnTfUTTFC"
+            }
+          ],
+          "external_urls": {
+            "spotify": "https://open.spotify.com/album/5pRYIkMQcy4a3C5BYtmuf3"
+          },
+          "href": "https://api.spotify.com/v1/albums/5pRYIkMQcy4a3C5BYtmuf3",
+          "id": "5pRYIkMQcy4a3C5BYtmuf3",
+          "images": [
+            {
+              "height": 640,
+              "url": "https://i.scdn.co/image/ab67616d0000b2737acd3e3099cfc7335abbc7b4",
+              "width": 640
+            },
+            {
+              "height": 300,
+              "url": "https://i.scdn.co/image/ab67616d00001e027acd3e3099cfc7335abbc7b4",
+              "width": 300
+            },
+            {
+              "height": 64,
+              "url": "https://i.scdn.co/image/ab67616d000048517acd3e3099cfc7335abbc7b4",
+              "width": 64
+            }
+          ],
+          "is_playable": true,
+          "name": "Appetite For Destruction / G N'R Lies / The Spaghetti Incident",
+          "release_date": "1987-07-21",
+          "release_date_precision": "day",
+          "total_tracks": 32,
+          "type": "album",
+          "uri": "spotify:album:5pRYIkMQcy4a3C5BYtmuf3"
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/3qm84nBOXUEQ2vnTfUTTFC"
+            },
+            "href": "https://api.spotify.com/v1/artists/3qm84nBOXUEQ2vnTfUTTFC",
+            "id": "3qm84nBOXUEQ2vnTfUTTFC",
+            "name": "Guns N' Roses",
+            "type": "artist",
+            "uri": "spotify:artist:3qm84nBOXUEQ2vnTfUTTFC"
+          }
+        ],
+        "disc_number": 1,
+        "duration_ms": 356066,
+        "explicit": true,
+        "external_ids": {
+          "isrc": "USGF18714809"
+        },
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/7snQQk1zcKl8gZ92AnueZW"
+        },
+        "href": "https://api.spotify.com/v1/tracks/7snQQk1zcKl8gZ92AnueZW",
+        "id": "7snQQk1zcKl8gZ92AnueZW",
+        "is_local": false,
+        "is_playable": true,
+        "linked_from": {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/track/5r9AgnhkPQXeKG1w5rauDq"
+          },
+          "href": "https://api.spotify.com/v1/tracks/5r9AgnhkPQXeKG1w5rauDq",
+          "id": "5r9AgnhkPQXeKG1w5rauDq",
+          "type": "track",
+          "uri": "spotify:track:5r9AgnhkPQXeKG1w5rauDq"
+        },
+        "name": "Sweet Child O' Mine",
+        "popularity": 87,
+        "preview_url": "https://p.scdn.co/mp3-preview/a941cdd2c0c74206aaa6d7e459e4fdf1d738deaa?cid=174e06ca11a84265b0cc2bb26a8ce545",
+        "track_number": 9,
+        "type": "track",
+        "uri": "spotify:track:7snQQk1zcKl8gZ92AnueZW"
+      }
+    },
+    {
+      "added_at": "2023-09-05T08:24:53Z",
+      "track": {
+        "album": {
+          "album_type": "compilation",
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/0LyfQWJT6nXafLPZqxe9Of"
+              },
+              "href": "https://api.spotify.com/v1/artists/0LyfQWJT6nXafLPZqxe9Of",
+              "id": "0LyfQWJT6nXafLPZqxe9Of",
+              "name": "Various Artists",
+              "type": "artist",
+              "uri": "spotify:artist:0LyfQWJT6nXafLPZqxe9Of"
+            }
+          ],
+          "external_urls": {
+            "spotify": "https://open.spotify.com/album/4WGcPCflN9FNccSu7tE9iS"
+          },
+          "href": "https://api.spotify.com/v1/albums/4WGcPCflN9FNccSu7tE9iS",
+          "id": "4WGcPCflN9FNccSu7tE9iS",
+          "images": [
+            {
+              "height": 640,
+              "url": "https://i.scdn.co/image/ab67616d0000b2739986d69836eac008a927b032",
+              "width": 640
+            },
+            {
+              "height": 300,
+              "url": "https://i.scdn.co/image/ab67616d00001e029986d69836eac008a927b032",
+              "width": 300
+            },
+            {
+              "height": 64,
+              "url": "https://i.scdn.co/image/ab67616d000048519986d69836eac008a927b032",
+              "width": 64
+            }
+          ],
+          "is_playable": true,
+          "name": "Aladdin (Original Motion Picture Soundtrack)",
+          "release_date": "2019-05-22",
+          "release_date_precision": "day",
+          "total_tracks": 37,
+          "type": "album",
+          "uri": "spotify:album:4WGcPCflN9FNccSu7tE9iS"
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/2Zi3RrdQqk63Xj0914STkS"
+            },
+            "href": "https://api.spotify.com/v1/artists/2Zi3RrdQqk63Xj0914STkS",
+            "id": "2Zi3RrdQqk63Xj0914STkS",
+            "name": "Naomi Scott",
+            "type": "artist",
+            "uri": "spotify:artist:2Zi3RrdQqk63Xj0914STkS"
+          }
+        ],
+        "disc_number": 1,
+        "duration_ms": 208800,
+        "explicit": false,
+        "external_ids": {
+          "isrc": "USWD11993077"
+        },
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/0XPsOSYzDJZJArevQNm2AR"
+        },
+        "href": "https://api.spotify.com/v1/tracks/0XPsOSYzDJZJArevQNm2AR",
+        "id": "0XPsOSYzDJZJArevQNm2AR",
+        "is_local": false,
+        "is_playable": true,
+        "name": "Speechless (Full)",
+        "popularity": 71,
+        "preview_url": "https://p.scdn.co/mp3-preview/f44027924d0e0517b095033b2770c187de7c3974?cid=174e06ca11a84265b0cc2bb26a8ce545",
+        "track_number": 12,
+        "type": "track",
+        "uri": "spotify:track:0XPsOSYzDJZJArevQNm2AR"
+      }
+    },
+    {
+      "added_at": "2023-08-31T17:00:56Z",
+      "track": {
+        "album": {
+          "album_type": "album",
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/4UK2Lzi6fBfUi9rpDt6cik"
+              },
+              "href": "https://api.spotify.com/v1/artists/4UK2Lzi6fBfUi9rpDt6cik",
+              "id": "4UK2Lzi6fBfUi9rpDt6cik",
+              "name": "Yorushika",
+              "type": "artist",
+              "uri": "spotify:artist:4UK2Lzi6fBfUi9rpDt6cik"
+            }
+          ],
+          "external_urls": {
+            "spotify": "https://open.spotify.com/album/2jgZDVp8aoPDTAqxswhz9g"
+          },
+          "href": "https://api.spotify.com/v1/albums/2jgZDVp8aoPDTAqxswhz9g",
+          "id": "2jgZDVp8aoPDTAqxswhz9g",
+          "images": [
+            {
+              "height": 640,
+              "url": "https://i.scdn.co/image/ab67616d0000b2730fc9f40ffa270f17b66bcdac",
+              "width": 640
+            },
+            {
+              "height": 300,
+              "url": "https://i.scdn.co/image/ab67616d00001e020fc9f40ffa270f17b66bcdac",
+              "width": 300
+            },
+            {
+              "height": 64,
+              "url": "https://i.scdn.co/image/ab67616d000048510fc9f40ffa270f17b66bcdac",
+              "width": 64
+            }
+          ],
+          "is_playable": true,
+          "name": "エルマ",
+          "release_date": "2019-08-28",
+          "release_date_precision": "day",
+          "total_tracks": 14,
+          "type": "album",
+          "uri": "spotify:album:2jgZDVp8aoPDTAqxswhz9g"
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/4UK2Lzi6fBfUi9rpDt6cik"
+            },
+            "href": "https://api.spotify.com/v1/artists/4UK2Lzi6fBfUi9rpDt6cik",
+            "id": "4UK2Lzi6fBfUi9rpDt6cik",
+            "name": "Yorushika",
+            "type": "artist",
+            "uri": "spotify:artist:4UK2Lzi6fBfUi9rpDt6cik"
+          }
+        ],
+        "disc_number": 1,
+        "duration_ms": 269613,
+        "explicit": false,
+        "external_ids": {
+          "isrc": "JPPO01902974"
+        },
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/7rX3Gw6nyUuMjiZqe5jyr5"
+        },
+        "href": "https://api.spotify.com/v1/tracks/7rX3Gw6nyUuMjiZqe5jyr5",
+        "id": "7rX3Gw6nyUuMjiZqe5jyr5",
+        "is_local": false,
+        "is_playable": true,
+        "name": "雨とカプチーノ",
+        "popularity": 57,
+        "preview_url": "https://p.scdn.co/mp3-preview/fd90de2a99f8297e7cc782d2d6018235ffdb949c?cid=174e06ca11a84265b0cc2bb26a8ce545",
+        "track_number": 4,
+        "type": "track",
+        "uri": "spotify:track:7rX3Gw6nyUuMjiZqe5jyr5"
+      }
+    },
+    {
+      "added_at": "2023-08-31T16:21:01Z",
+      "track": {
+        "album": {
+          "album_type": "album",
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/6ydoSd3N2mwgwBHtF6K7eX"
+              },
+              "href": "https://api.spotify.com/v1/artists/6ydoSd3N2mwgwBHtF6K7eX",
+              "id": "6ydoSd3N2mwgwBHtF6K7eX",
+              "name": "Calum Scott",
+              "type": "artist",
+              "uri": "spotify:artist:6ydoSd3N2mwgwBHtF6K7eX"
+            }
+          ],
+          "external_urls": {
+            "spotify": "https://open.spotify.com/album/6Vip5A5NmEazvKuxj6GLYf"
+          },
+          "href": "https://api.spotify.com/v1/albums/6Vip5A5NmEazvKuxj6GLYf",
+          "id": "6Vip5A5NmEazvKuxj6GLYf",
+          "images": [
+            {
+              "height": 640,
+              "url": "https://i.scdn.co/image/ab67616d0000b273f2d671c22b70e01b78a618a8",
+              "width": 640
+            },
+            {
+              "height": 300,
+              "url": "https://i.scdn.co/image/ab67616d00001e02f2d671c22b70e01b78a618a8",
+              "width": 300
+            },
+            {
+              "height": 64,
+              "url": "https://i.scdn.co/image/ab67616d00004851f2d671c22b70e01b78a618a8",
+              "width": 64
+            }
+          ],
+          "is_playable": true,
+          "name": "Only Human (Deluxe)",
+          "release_date": "2018-03-09",
+          "release_date_precision": "day",
+          "total_tracks": 14,
+          "type": "album",
+          "uri": "spotify:album:6Vip5A5NmEazvKuxj6GLYf"
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/6ydoSd3N2mwgwBHtF6K7eX"
+            },
+            "href": "https://api.spotify.com/v1/artists/6ydoSd3N2mwgwBHtF6K7eX",
+            "id": "6ydoSd3N2mwgwBHtF6K7eX",
+            "name": "Calum Scott",
+            "type": "artist",
+            "uri": "spotify:artist:6ydoSd3N2mwgwBHtF6K7eX"
+          }
+        ],
+        "disc_number": 1,
+        "duration_ms": 204326,
+        "explicit": false,
+        "external_ids": {
+          "isrc": "USUM71710315"
+        },
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/69vToJ9BMbbLlFZo7k7A7B"
+        },
+        "href": "https://api.spotify.com/v1/tracks/69vToJ9BMbbLlFZo7k7A7B",
+        "id": "69vToJ9BMbbLlFZo7k7A7B",
+        "is_local": false,
+        "is_playable": true,
+        "name": "You Are The Reason",
+        "popularity": 80,
+        "preview_url": "https://p.scdn.co/mp3-preview/b9e816a532d71bcd7a41b7c7068effa2f4d91c83?cid=174e06ca11a84265b0cc2bb26a8ce545",
+        "track_number": 4,
+        "type": "track",
+        "uri": "spotify:track:69vToJ9BMbbLlFZo7k7A7B"
+      }
+    },
+    {
+      "added_at": "2023-08-31T16:16:24Z",
+      "track": {
+        "album": {
+          "album_type": "album",
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/6ydoSd3N2mwgwBHtF6K7eX"
+              },
+              "href": "https://api.spotify.com/v1/artists/6ydoSd3N2mwgwBHtF6K7eX",
+              "id": "6ydoSd3N2mwgwBHtF6K7eX",
+              "name": "Calum Scott",
+              "type": "artist",
+              "uri": "spotify:artist:6ydoSd3N2mwgwBHtF6K7eX"
+            }
+          ],
+          "external_urls": {
+            "spotify": "https://open.spotify.com/album/6Vip5A5NmEazvKuxj6GLYf"
+          },
+          "href": "https://api.spotify.com/v1/albums/6Vip5A5NmEazvKuxj6GLYf",
+          "id": "6Vip5A5NmEazvKuxj6GLYf",
+          "images": [
+            {
+              "height": 640,
+              "url": "https://i.scdn.co/image/ab67616d0000b273f2d671c22b70e01b78a618a8",
+              "width": 640
+            },
+            {
+              "height": 300,
+              "url": "https://i.scdn.co/image/ab67616d00001e02f2d671c22b70e01b78a618a8",
+              "width": 300
+            },
+            {
+              "height": 64,
+              "url": "https://i.scdn.co/image/ab67616d00004851f2d671c22b70e01b78a618a8",
+              "width": 64
+            }
+          ],
+          "is_playable": true,
+          "name": "Only Human (Deluxe)",
+          "release_date": "2018-03-09",
+          "release_date_precision": "day",
+          "total_tracks": 14,
+          "type": "album",
+          "uri": "spotify:album:6Vip5A5NmEazvKuxj6GLYf"
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/6ydoSd3N2mwgwBHtF6K7eX"
+            },
+            "href": "https://api.spotify.com/v1/artists/6ydoSd3N2mwgwBHtF6K7eX",
+            "id": "6ydoSd3N2mwgwBHtF6K7eX",
+            "name": "Calum Scott",
+            "type": "artist",
+            "uri": "spotify:artist:6ydoSd3N2mwgwBHtF6K7eX"
+          }
+        ],
+        "disc_number": 1,
+        "duration_ms": 260285,
+        "explicit": false,
+        "external_ids": {
+          "isrc": "UK6KW1500205"
+        },
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/2BOqDYLOJBiMOXShCV1neZ"
+        },
+        "href": "https://api.spotify.com/v1/tracks/2BOqDYLOJBiMOXShCV1neZ",
+        "id": "2BOqDYLOJBiMOXShCV1neZ",
+        "is_local": false,
+        "is_playable": true,
+        "name": "Dancing On My Own",
+        "popularity": 81,
+        "preview_url": "https://p.scdn.co/mp3-preview/57dcf5872dc4e4a37f7a8761f09ae865728048cd?cid=174e06ca11a84265b0cc2bb26a8ce545",
+        "track_number": 7,
+        "type": "track",
+        "uri": "spotify:track:2BOqDYLOJBiMOXShCV1neZ"
+      }
+    },
+    {
+      "added_at": "2023-08-31T09:47:44Z",
+      "track": {
+        "album": {
+          "album_type": "album",
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
+              },
+              "href": "https://api.spotify.com/v1/artists/3fMbdgg4jU18AjLCKBhRSm",
+              "id": "3fMbdgg4jU18AjLCKBhRSm",
+              "name": "Michael Jackson",
+              "type": "artist",
+              "uri": "spotify:artist:3fMbdgg4jU18AjLCKBhRSm"
+            }
+          ],
+          "external_urls": {
+            "spotify": "https://open.spotify.com/album/7pomP86PUhoJpY3fsC0WDQ"
+          },
+          "href": "https://api.spotify.com/v1/albums/7pomP86PUhoJpY3fsC0WDQ",
+          "id": "7pomP86PUhoJpY3fsC0WDQ",
+          "images": [
+            {
+              "height": 640,
+              "url": "https://i.scdn.co/image/ab67616d0000b273ed81569cdc08ab5c2dc5bd91",
+              "width": 640
+            },
+            {
+              "height": 300,
+              "url": "https://i.scdn.co/image/ab67616d00001e02ed81569cdc08ab5c2dc5bd91",
+              "width": 300
+            },
+            {
+              "height": 64,
+              "url": "https://i.scdn.co/image/ab67616d00004851ed81569cdc08ab5c2dc5bd91",
+              "width": 64
+            }
+          ],
+          "is_playable": true,
+          "name": "XSCAPE",
+          "release_date": "2014-05-09",
+          "release_date_precision": "day",
+          "total_tracks": 17,
+          "type": "album",
+          "uri": "spotify:album:7pomP86PUhoJpY3fsC0WDQ"
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm"
+            },
+            "href": "https://api.spotify.com/v1/artists/3fMbdgg4jU18AjLCKBhRSm",
+            "id": "3fMbdgg4jU18AjLCKBhRSm",
+            "name": "Michael Jackson",
+            "type": "artist",
+            "uri": "spotify:artist:3fMbdgg4jU18AjLCKBhRSm"
+          },
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/31TPClRtHm23RisEBtV3X7"
+            },
+            "href": "https://api.spotify.com/v1/artists/31TPClRtHm23RisEBtV3X7",
+            "id": "31TPClRtHm23RisEBtV3X7",
+            "name": "Justin Timberlake",
+            "type": "artist",
+            "uri": "spotify:artist:31TPClRtHm23RisEBtV3X7"
+          }
+        ],
+        "disc_number": 1,
+        "duration_ms": 246026,
+        "explicit": false,
+        "external_ids": {
+          "isrc": "USSM11401760"
+        },
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/48td6xvpokdYwvbl3JIiXP"
+        },
+        "href": "https://api.spotify.com/v1/tracks/48td6xvpokdYwvbl3JIiXP",
+        "id": "48td6xvpokdYwvbl3JIiXP",
+        "is_local": false,
+        "is_playable": true,
+        "name": "Love Never Felt So Good",
+        "popularity": 73,
+        "preview_url": "https://p.scdn.co/mp3-preview/3febaaf44131bbb57962fcf9ae1eea09df9b943d?cid=174e06ca11a84265b0cc2bb26a8ce545",
+        "track_number": 17,
+        "type": "track",
+        "uri": "spotify:track:48td6xvpokdYwvbl3JIiXP"
+      }
+    },
+    {
+      "added_at": "2023-08-29T12:08:38Z",
+      "track": {
+        "album": {
+          "album_type": "single",
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/1rpgxJZxZMLnFNc1Jmyov5"
+              },
+              "href": "https://api.spotify.com/v1/artists/1rpgxJZxZMLnFNc1Jmyov5",
+              "id": "1rpgxJZxZMLnFNc1Jmyov5",
+              "name": "YB",
+              "type": "artist",
+              "uri": "spotify:artist:1rpgxJZxZMLnFNc1Jmyov5"
+            }
+          ],
+          "external_urls": {
+            "spotify": "https://open.spotify.com/album/2wA8OXIv1JXX9kTY2ddfR4"
+          },
+          "href": "https://api.spotify.com/v1/albums/2wA8OXIv1JXX9kTY2ddfR4",
+          "id": "2wA8OXIv1JXX9kTY2ddfR4",
+          "images": [
+            {
+              "height": 640,
+              "url": "https://i.scdn.co/image/ab67616d0000b27376205e74bef31f32a779d970",
+              "width": 640
+            },
+            {
+              "height": 300,
+              "url": "https://i.scdn.co/image/ab67616d00001e0276205e74bef31f32a779d970",
+              "width": 300
+            },
+            {
+              "height": 64,
+              "url": "https://i.scdn.co/image/ab67616d0000485176205e74bef31f32a779d970",
+              "width": 64
+            }
+          ],
+          "is_playable": true,
+          "name": "REMIND",
+          "release_date": "2016-10-26",
+          "release_date_precision": "day",
+          "total_tracks": 6,
+          "type": "album",
+          "uri": "spotify:album:2wA8OXIv1JXX9kTY2ddfR4"
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/1rpgxJZxZMLnFNc1Jmyov5"
+            },
+            "href": "https://api.spotify.com/v1/artists/1rpgxJZxZMLnFNc1Jmyov5",
+            "id": "1rpgxJZxZMLnFNc1Jmyov5",
+            "name": "YB",
+            "type": "artist",
+            "uri": "spotify:artist:1rpgxJZxZMLnFNc1Jmyov5"
+          }
+        ],
+        "disc_number": 1,
+        "duration_ms": 201000,
+        "explicit": false,
+        "external_ids": {
+          "isrc": "KRA341679206"
+        },
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/1WFj1P1TUJJXH1R41PP9Vg"
+        },
+        "href": "https://api.spotify.com/v1/tracks/1WFj1P1TUJJXH1R41PP9Vg",
+        "id": "1WFj1P1TUJJXH1R41PP9Vg",
+        "is_local": false,
+        "is_playable": true,
+        "name": "흰수염고래 - 2016 Version",
+        "popularity": 38,
+        "preview_url": "https://p.scdn.co/mp3-preview/518dfe5455dd9c1098412a1f5977e24782e7abaf?cid=174e06ca11a84265b0cc2bb26a8ce545",
+        "track_number": 2,
+        "type": "track",
+        "uri": "spotify:track:1WFj1P1TUJJXH1R41PP9Vg"
+      }
+    },
+    {
+      "added_at": "2023-08-29T02:47:57Z",
+      "track": {
+        "album": {
+          "album_type": "single",
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/4QQgXkCYTt3BlENzhyNETg"
+              },
+              "href": "https://api.spotify.com/v1/artists/4QQgXkCYTt3BlENzhyNETg",
+              "id": "4QQgXkCYTt3BlENzhyNETg",
+              "name": "Earth, Wind & Fire",
+              "type": "artist",
+              "uri": "spotify:artist:4QQgXkCYTt3BlENzhyNETg"
+            },
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/2FRfJyV85zb19tO6uiXBGl"
+              },
+              "href": "https://api.spotify.com/v1/artists/2FRfJyV85zb19tO6uiXBGl",
+              "id": "2FRfJyV85zb19tO6uiXBGl",
+              "name": "sped up + slowed",
+              "type": "artist",
+              "uri": "spotify:artist:2FRfJyV85zb19tO6uiXBGl"
+            }
+          ],
+          "external_urls": {
+            "spotify": "https://open.spotify.com/album/3p90GIjEg4gXpnLmwGGvzI"
+          },
+          "href": "https://api.spotify.com/v1/albums/3p90GIjEg4gXpnLmwGGvzI",
+          "id": "3p90GIjEg4gXpnLmwGGvzI",
+          "images": [
+            {
+              "height": 640,
+              "url": "https://i.scdn.co/image/ab67616d0000b2730faf2fc17446651865ce2282",
+              "width": 640
+            },
+            {
+              "height": 300,
+              "url": "https://i.scdn.co/image/ab67616d00001e020faf2fc17446651865ce2282",
+              "width": 300
+            },
+            {
+              "height": 64,
+              "url": "https://i.scdn.co/image/ab67616d000048510faf2fc17446651865ce2282",
+              "width": 64
+            }
+          ],
+          "is_playable": true,
+          "name": "September (sped up + slowed)",
+          "release_date": "1978-11-18",
+          "release_date_precision": "day",
+          "total_tracks": 3,
+          "type": "album",
+          "uri": "spotify:album:3p90GIjEg4gXpnLmwGGvzI"
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/4QQgXkCYTt3BlENzhyNETg"
+            },
+            "href": "https://api.spotify.com/v1/artists/4QQgXkCYTt3BlENzhyNETg",
+            "id": "4QQgXkCYTt3BlENzhyNETg",
+            "name": "Earth, Wind & Fire",
+            "type": "artist",
+            "uri": "spotify:artist:4QQgXkCYTt3BlENzhyNETg"
+          }
+        ],
+        "disc_number": 1,
+        "duration_ms": 216022,
+        "explicit": false,
+        "external_ids": {
+          "isrc": "USSM17800845"
+        },
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/3kXoKlD84c6OmIcOLfrfEs"
+        },
+        "href": "https://api.spotify.com/v1/tracks/3kXoKlD84c6OmIcOLfrfEs",
+        "id": "3kXoKlD84c6OmIcOLfrfEs",
+        "is_local": false,
+        "is_playable": true,
+        "name": "September",
+        "popularity": 81,
+        "preview_url": "https://p.scdn.co/mp3-preview/27390b5ac85b9dd997e8ae98a3356f0dd4a61f51?cid=174e06ca11a84265b0cc2bb26a8ce545",
+        "track_number": 1,
+        "type": "track",
+        "uri": "spotify:track:3kXoKlD84c6OmIcOLfrfEs"
+      }
+    },
+    {
+      "added_at": "2023-08-26T13:47:25Z",
+      "track": {
+        "album": {
+          "album_type": "album",
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/5Vo1hnCRmCM6M4thZCInCj"
+              },
+              "href": "https://api.spotify.com/v1/artists/5Vo1hnCRmCM6M4thZCInCj",
+              "id": "5Vo1hnCRmCM6M4thZCInCj",
+              "name": "OFFICIAL HIGE DANDISM",
+              "type": "artist",
+              "uri": "spotify:artist:5Vo1hnCRmCM6M4thZCInCj"
+            }
+          ],
+          "external_urls": {
+            "spotify": "https://open.spotify.com/album/17gzvH2FPpVhpuqalLFi9j"
+          },
+          "href": "https://api.spotify.com/v1/albums/17gzvH2FPpVhpuqalLFi9j",
+          "id": "17gzvH2FPpVhpuqalLFi9j",
+          "images": [
+            {
+              "height": 640,
+              "url": "https://i.scdn.co/image/ab67616d0000b2739c4ba827e585fabd3cfd90f2",
+              "width": 640
+            },
+            {
+              "height": 300,
+              "url": "https://i.scdn.co/image/ab67616d00001e029c4ba827e585fabd3cfd90f2",
+              "width": 300
+            },
+            {
+              "height": 64,
+              "url": "https://i.scdn.co/image/ab67616d000048519c4ba827e585fabd3cfd90f2",
+              "width": 64
+            }
+          ],
+          "is_playable": true,
+          "name": "Traveler",
+          "release_date": "2019-08-31",
+          "release_date_precision": "day",
+          "total_tracks": 7,
+          "type": "album",
+          "uri": "spotify:album:17gzvH2FPpVhpuqalLFi9j"
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/5Vo1hnCRmCM6M4thZCInCj"
+            },
+            "href": "https://api.spotify.com/v1/artists/5Vo1hnCRmCM6M4thZCInCj",
+            "id": "5Vo1hnCRmCM6M4thZCInCj",
+            "name": "OFFICIAL HIGE DANDISM",
+            "type": "artist",
+            "uri": "spotify:artist:5Vo1hnCRmCM6M4thZCInCj"
+          }
+        ],
+        "disc_number": 1,
+        "duration_ms": 326842,
+        "explicit": false,
+        "external_ids": {
+          "isrc": "JPPC01900265"
+        },
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/15HNdxGKNCIO9pgaY4n7FU"
+        },
+        "href": "https://api.spotify.com/v1/tracks/15HNdxGKNCIO9pgaY4n7FU",
+        "id": "15HNdxGKNCIO9pgaY4n7FU",
+        "is_local": false,
+        "is_playable": true,
+        "name": "Pretender",
+        "popularity": 61,
+        "preview_url": "https://p.scdn.co/mp3-preview/da47863123523107c979c50167778d55610bd613?cid=174e06ca11a84265b0cc2bb26a8ce545",
+        "track_number": 7,
+        "type": "track",
+        "uri": "spotify:track:15HNdxGKNCIO9pgaY4n7FU"
+      }
+    },
+    {
+      "added_at": "2023-08-23T06:40:51Z",
+      "track": {
+        "album": {
+          "album_type": "single",
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/69GGBxA162lTqCwzJG5jLp"
+              },
+              "href": "https://api.spotify.com/v1/artists/69GGBxA162lTqCwzJG5jLp",
+              "id": "69GGBxA162lTqCwzJG5jLp",
+              "name": "The Chainsmokers",
+              "type": "artist",
+              "uri": "spotify:artist:69GGBxA162lTqCwzJG5jLp"
+            },
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/26VFTg2z8YR0cCuwLzESi2"
+              },
+              "href": "https://api.spotify.com/v1/artists/26VFTg2z8YR0cCuwLzESi2",
+              "id": "26VFTg2z8YR0cCuwLzESi2",
+              "name": "Halsey",
+              "type": "artist",
+              "uri": "spotify:artist:26VFTg2z8YR0cCuwLzESi2"
+            }
+          ],
+          "external_urls": {
+            "spotify": "https://open.spotify.com/album/0rSLgV8p5FzfnqlEk4GzxE"
+          },
+          "href": "https://api.spotify.com/v1/albums/0rSLgV8p5FzfnqlEk4GzxE",
+          "id": "0rSLgV8p5FzfnqlEk4GzxE",
+          "images": [
+            {
+              "height": 640,
+              "url": "https://i.scdn.co/image/ab67616d0000b273495ce6da9aeb159e94eaa453",
+              "width": 640
+            },
+            {
+              "height": 300,
+              "url": "https://i.scdn.co/image/ab67616d00001e02495ce6da9aeb159e94eaa453",
+              "width": 300
+            },
+            {
+              "height": 64,
+              "url": "https://i.scdn.co/image/ab67616d00004851495ce6da9aeb159e94eaa453",
+              "width": 64
+            }
+          ],
+          "is_playable": true,
+          "name": "Closer",
+          "release_date": "2016-07-29",
+          "release_date_precision": "day",
+          "total_tracks": 1,
+          "type": "album",
+          "uri": "spotify:album:0rSLgV8p5FzfnqlEk4GzxE"
+        },
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/69GGBxA162lTqCwzJG5jLp"
+            },
+            "href": "https://api.spotify.com/v1/artists/69GGBxA162lTqCwzJG5jLp",
+            "id": "69GGBxA162lTqCwzJG5jLp",
+            "name": "The Chainsmokers",
+            "type": "artist",
+            "uri": "spotify:artist:69GGBxA162lTqCwzJG5jLp"
+          },
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/26VFTg2z8YR0cCuwLzESi2"
+            },
+            "href": "https://api.spotify.com/v1/artists/26VFTg2z8YR0cCuwLzESi2",
+            "id": "26VFTg2z8YR0cCuwLzESi2",
+            "name": "Halsey",
+            "type": "artist",
+            "uri": "spotify:artist:26VFTg2z8YR0cCuwLzESi2"
+          }
+        ],
+        "disc_number": 1,
+        "duration_ms": 244960,
+        "explicit": false,
+        "external_ids": {
+          "isrc": "USQX91601347"
+        },
+        "external_urls": {
+          "spotify": "https://open.spotify.com/track/7BKLCZ1jbUBVqRi2FVlTVw"
+        },
+        "href": "https://api.spotify.com/v1/tracks/7BKLCZ1jbUBVqRi2FVlTVw",
+        "id": "7BKLCZ1jbUBVqRi2FVlTVw",
+        "is_local": false,
+        "is_playable": true,
+        "name": "Closer",
+        "popularity": 86,
+        "preview_url": "https://p.scdn.co/mp3-preview/cfd565c4d3c621771e6d25d99749b9fc200e396c?cid=174e06ca11a84265b0cc2bb26a8ce545",
+        "track_number": 1,
+        "type": "track",
+        "uri": "spotify:track:7BKLCZ1jbUBVqRi2FVlTVw"
+      }
+    }
+  ],
+  "limit": 20,
+  "next": null,
+  "offset": 0,
+  "previous": null,
+  "total": 10
+}

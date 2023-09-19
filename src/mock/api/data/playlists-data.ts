@@ -5253,3 +5253,736 @@ export const FEATURED_PLAYLIST_DATA = {
     ]
   }
 }
+
+export const CATEGORY_PLAYLIST_DATA = {
+  "playlists": {
+    "href": "https://api.spotify.com/v1/browse/categories/0JQ5DAqbMKFGvOw3O4nLAf/playlists?country=KR&offset=0&limit=20",
+    "items": [
+      {
+        "collaborative": false,
+        "description": "Turn on the movement with the latest and greatest in K-Pop! Cover: D.O.",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX9tPFwDMOaN1"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX9tPFwDMOaN1",
+        "id": "37i9dQZF1DX9tPFwDMOaN1",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f00000003c9521b6347772f14575d10c6",
+            "width": null
+          }
+        ],
+        "name": "K-Pop ON! (온)",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTY5NTAyNzYwMCwwMDAwMDAwMGRlOWEzNjdmY2YxZTZjNTU0MDNhY2MzNzBiYzlmYTdj",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX9tPFwDMOaN1/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DX9tPFwDMOaN1"
+      },
+      {
+        "collaborative": false,
+        "description": "Future K-Pop hits! Cover: Dreamcatcher",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX4FcAKI5Nhzq"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX4FcAKI5Nhzq",
+        "id": "37i9dQZF1DX4FcAKI5Nhzq",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f000000037df015b2ff934d529acacbc5",
+            "width": null
+          }
+        ],
+        "name": "K-Pop Rising",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTY5NDc2MDA4NCwwMDAwMDAwMGVkN2ZhOWE1NDMxZjFmNGRhNWM1YjExMmZmOGZjY2U1",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX4FcAKI5Nhzq/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DX4FcAKI5Nhzq"
+      },
+      {
+        "collaborative": false,
+        "description": "Enjoy the freshest K-Pop new releases (Cover: SOLE(쏠)) (국내 최신곡을 플레이리스트로 만나보세요!)",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DXe5W6diBL5N4"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXe5W6diBL5N4",
+        "id": "37i9dQZF1DXe5W6diBL5N4",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f000000031046f605f6afa94a7ae44bc6",
+            "width": null
+          }
+        ],
+        "name": "New Music K-Pop (국내 최신 가요)",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTY5NTAyNzg3NiwwMDAwMDAwMGMzNzQ4MzRhNDgxODMyMjI1Y2JiY2VlMGE4ODU5ZTRm",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXe5W6diBL5N4/tracks",
+          "total": 100
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DXe5W6diBL5N4"
+      },
+      {
+        "collaborative": false,
+        "description": "The K-Pop idols who started it all from 90's - 10's. (90년대부터 2010년대까지 케이팝 아이돌 필수곡들을 즐겨보세요!)",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX14fiWYoe7Oh"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX14fiWYoe7Oh",
+        "id": "37i9dQZF1DX14fiWYoe7Oh",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f0000000304387a010b3f72fb1dc0adab",
+            "width": null
+          }
+        ],
+        "name": "K-Pop Generations",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTY4NjkxODkyMiwwMDAwMDAwMGY4YWRhYjVmODc4NGJiYzAzOGU0ZTU3YWNhNmNjYTQ2",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX14fiWYoe7Oh/tracks",
+          "total": 137
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DX14fiWYoe7Oh"
+      },
+      {
+        "collaborative": false,
+        "description": "Watch out for all the collaborations and cross-overs in the K-Pop world! (Cover: JIHYO x 24kGoldn)",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX4IDaXtVjL83"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX4IDaXtVjL83",
+        "id": "37i9dQZF1DX4IDaXtVjL83",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f00000003a939b92572172156734cef27",
+            "width": null
+          }
+        ],
+        "name": "K-Pop X-Overs",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTY5NDc1ODI0MywwMDAwMDAwMDYxNGExMDhiYjJkMTQyOTEwY2E5MjdiZWY2Yzc0OTlh",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX4IDaXtVjL83/tracks",
+          "total": 80
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DX4IDaXtVjL83"
+      },
+      {
+        "collaborative": false,
+        "description": "The fresh & hottest K-Hip hop tracks. (Cover:\bHuh(허성현))",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DWW46Vfs1oltB"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWW46Vfs1oltB",
+        "id": "37i9dQZF1DWW46Vfs1oltB",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f0000000369f419478ac5974c414261b2",
+            "width": null
+          }
+        ],
+        "name": "KrOWN",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTY5NTAyMzE0NCwwMDAwMDAwMDczNjg0ZDIyODc3NzVmOTA4MDI3NzFhNGFjOWQwYTJi",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWW46Vfs1oltB/tracks",
+          "total": 113
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DWW46Vfs1oltB"
+      },
+      {
+        "collaborative": false,
+        "description": "Enjoy trendy & chill Korean R&B music. (Cover: DPR IAN)",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DXbirtHQBuwCo"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXbirtHQBuwCo",
+        "id": "37i9dQZF1DXbirtHQBuwCo",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f00000003cb797c3c19470777c5403364",
+            "width": null
+          }
+        ],
+        "name": "TrenChill K-R&B",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTY5NTAyODA0OSwwMDAwMDAwMDU5Mjg0ODI2ODY1YWUxODllZjJkMTZjNmY4NzY3YTY0",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXbirtHQBuwCo/tracks",
+          "total": 70
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DXbirtHQBuwCo"
+      },
+      {
+        "collaborative": false,
+        "description": "Let's party & clubbing with your favorite K-pop dance hits!! (Cover: aespa) [지금 가장 핫한 댄스곡들을 만나보세요.]",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX4RDXswvP6Mj"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX4RDXswvP6Mj",
+        "id": "37i9dQZF1DX4RDXswvP6Mj",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f00000003450bfff604803c744734f544",
+            "width": null
+          }
+        ],
+        "name": "K-Club Party",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTY5NTAyMzUwMywwMDAwMDAwMDA2YWRhYzAwNTlmZjNjODFjZDYwZDAxNWY2NzQzOTE0",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX4RDXswvP6Mj/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DX4RDXswvP6Mj"
+      },
+      {
+        "collaborative": false,
+        "description": "Rolling with the 'bops' in your Kimbap. Bringing you the songs that are currently trending and everything else in between. Cover: KISS OF LIFE",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX0018ciYu6bM"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX0018ciYu6bM",
+        "id": "37i9dQZF1DX0018ciYu6bM",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f00000003edb07c71a8efb4a2795a348c",
+            "width": null
+          }
+        ],
+        "name": "KimBops!",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTY5NDA3MDYzNSwwMDAwMDAwMDAwYmJiMzMzOTVjNTQ5ZWM2NWFhZDM4MmY4OWFhMDM3",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX0018ciYu6bM/tracks",
+          "total": 100
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DX0018ciYu6bM"
+      },
+      {
+        "collaborative": false,
+        "description": "Time to press play on these jaem jams from 2010 onwards! Cover: MONSTA X",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DXdR77H5Z8MIM"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXdR77H5Z8MIM",
+        "id": "37i9dQZF1DXdR77H5Z8MIM",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f00000003dd04c8560daaa69bddfd25e6",
+            "width": null
+          }
+        ],
+        "name": "Nolja!",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTY4NjkxOTk1MywwMDAwMDAwMDk5MDc0MjE2ZWMwNzU0ZmM5NTkyYTY5YTg1MDk2YjBl",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXdR77H5Z8MIM/tracks",
+          "total": 70
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DXdR77H5Z8MIM"
+      },
+      {
+        "collaborative": false,
+        "description": "New & hot K-Pop ballads. (Cover:\bCar, the garden(카더가든)) (가장 핫한 최신 국내 발라드를 만나보세요!)",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX5LEXW9eXA0n"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX5LEXW9eXA0n",
+        "id": "37i9dQZF1DX5LEXW9eXA0n",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f00000003568ace19717a13c7fa6c9bf6",
+            "width": null
+          }
+        ],
+        "name": "발라드, 려요 (K-Pop Ballad Hits)",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTY5NTAyODIyNCwwMDAwMDAwMDNlNmNlM2ZjOGE0MDM5OTE4YWUwOWRlMTgxNGE0MDc4",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX5LEXW9eXA0n/tracks",
+          "total": 100
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DX5LEXW9eXA0n"
+      },
+      {
+        "collaborative": false,
+        "description": "Let's fall into the K-인디 tracks from Korea's thriving indie scene. (Cover: Seen Hyun Hee(신현희)) (최신곡을 포함한 국내 인디곡들을 만나보세요!)",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DXdTb8AG95jne"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXdTb8AG95jne",
+        "id": "37i9dQZF1DXdTb8AG95jne",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f000000033251a7f303d4ced5a2bc926b",
+            "width": null
+          }
+        ],
+        "name": "In The K-Indie",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTY5NTAyMzYyNCwwMDAwMDAwMDdlMDk2OGU3OTY3ZTRhNjg5ODEyMjUzZmM3NWZiMTAy",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXdTb8AG95jne/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DXdTb8AG95jne"
+      },
+      {
+        "collaborative": false,
+        "description": "K'ID = Korean ID. Welcome to the K-Rock anthem! (Cover: JUNG YONG HWA(정용화)) (핫한 국내 록 음악을 만나보세요!)",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX2SFBzpAPi7n"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX2SFBzpAPi7n",
+        "id": "37i9dQZF1DX2SFBzpAPi7n",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f0000000312cee6b93dee4d1417e438ef",
+            "width": null
+          }
+        ],
+        "name": "Cool K'IDs Rock",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTY5NDY4MjQyMywwMDAwMDAwMDdmNjRjY2Q1Y2IzZTkwNTE0NTJkOTkwM2IzNTdkNjVj",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX2SFBzpAPi7n/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DX2SFBzpAPi7n"
+      },
+      {
+        "collaborative": false,
+        "description": "Meet the vocalists representing Korea! (Cover:\bSion(시온)) (대한민국을 대표하는 보컬들을 만나보세요!)",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX8eqay1FtdMm"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX8eqay1FtdMm",
+        "id": "37i9dQZF1DX8eqay1FtdMm",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f00000003021e8c3338fb2747aa2d9772",
+            "width": null
+          }
+        ],
+        "name": "v o K a l",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTY5NTAyMzQ3MiwwMDAwMDAwMGVlZmQxMzJjOTg3Nzg1NjllYjIzMGEyNzkwNGIyOWVk",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX8eqay1FtdMm/tracks",
+          "total": 100
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DX8eqay1FtdMm"
+      },
+      {
+        "collaborative": false,
+        "description": "Is it your favorite oppa or dongsaeng? (Cover: CRAVITY) [당신의 최애 아이돌 보이 그룹은 어떤 그룹인가요?]",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX1gjl24GAQC0"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX1gjl24GAQC0",
+        "id": "37i9dQZF1DX1gjl24GAQC0",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f00000003459fc8b5be646b17c255ebe8",
+            "width": null
+          }
+        ],
+        "name": "Hallyu Boy Bands",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTY5NDc1ODMzMCwwMDAwMDAwMDY3N2UwMDIzMDBmNDRkOGQyYzdhMWIzYWU2NjNlOTU5",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX1gjl24GAQC0/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DX1gjl24GAQC0"
+      },
+      {
+        "collaborative": false,
+        "description": "All your girl crushes(걸크러쉬) in one place. Cover: EL7Z UP (엘즈업) ",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DXbSWYCNwaARB"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXbSWYCNwaARB",
+        "id": "37i9dQZF1DXbSWYCNwaARB",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f00000003d89950ddc76154714c98d4ed",
+            "width": null
+          }
+        ],
+        "name": "Girl Krush",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTY5NDY4MjAwMCwwMDAwMDAwMDBmZThkOTUxNjEyMzU1OTg3ZTkxYTUzMGQzOTFiYjRk",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXbSWYCNwaARB/tracks",
+          "total": 40
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DXbSWYCNwaARB"
+      },
+      {
+        "collaborative": false,
+        "description": "Max out your sugar content with these pure and aegyo tracks from our favorite ladies. Cover: Loossemble(루셈블) (상큼하고 발랄, 청순한 여아이돌의 세계에 빠져보세요!)",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DWTTHy0vndijk"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWTTHy0vndijk",
+        "id": "37i9dQZF1DWTTHy0vndijk",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f000000031ecea831f6cc7dedc22a2989",
+            "width": null
+          }
+        ],
+        "name": "Satang Mix (사탕 믹스)",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTY5NTAwOTU4MCwwMDAwMDAwMDQ5YTEyOGU3ZGNmNzhhZWJlNzhhYzlhNTc0N2JhNzEx",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWTTHy0vndijk/tracks",
+          "total": 57
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DWTTHy0vndijk"
+      },
+      {
+        "collaborative": false,
+        "description": "Unearthing up-and-coming Korean acts. Cover: LE SSERAFIM (르세라핌)",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX9IALXsyt8zk"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX9IALXsyt8zk",
+        "id": "37i9dQZF1DX9IALXsyt8zk",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f00000003835ec9219178f8fcf015ceb1",
+            "width": null
+          }
+        ],
+        "name": "RADAR Korea",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTY5NTAwMzgwMSwwMDAwMDAwMDgyNjYzMTQxOTY1YWFjNjE1YjNmZDE2MGUyNjAwNDQ4",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX9IALXsyt8zk/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DX9IALXsyt8zk"
+      },
+      {
+        "collaborative": false,
+        "description": "Fresh new Korean independent & rising talents are here. (Cover: YeonJeong (연정)) (프레쉬한 한국의 새로운 재능들을 만나보세요!)",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX7vZYLzFGQXc"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX7vZYLzFGQXc",
+        "id": "37i9dQZF1DX7vZYLzFGQXc",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f0000000384770452c31774b40d002710",
+            "width": null
+          }
+        ],
+        "name": "Fresh Finds Korea",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTY5MzQ5NDAwMCwwMDAwMDAwMDFkNDA3N2Y4NTQzMTY2YzBhN2E2ZWExN2E5OWVjNzc0",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX7vZYLzFGQXc/tracks",
+          "total": 100
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DX7vZYLzFGQXc"
+      },
+      {
+        "collaborative": false,
+        "description": "Chillout to the coolest Korean acoustic tunes. (Cover: Jang HeeWon(장희원)) (감미롭고 부드러운 한국 어쿠스틱 음악과 함께하세요.)",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX1wdZM1FEz79"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX1wdZM1FEz79",
+        "id": "37i9dQZF1DX1wdZM1FEz79",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706f000000034cc5e2aa469c4c882c35b510",
+            "width": null
+          }
+        ],
+        "name": "K-Pop Acoustic",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTY5NTAyMzY3MSwwMDAwMDAwMGY4ZTg1NDY1ZTk5OWQyNmYzMjI5MGE3ODY5YWFiNWFh",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX1wdZM1FEz79/tracks",
+          "total": 52
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1DX1wdZM1FEz79"
+      }
+    ],
+    "limit": 20,
+    "next": "https://api.spotify.com/v1/browse/categories/0JQ5DAqbMKFGvOw3O4nLAf/playlists?country=KR&offset=20&limit=20",
+    "offset": 0,
+    "previous": null,
+    "total": 223
+  }
+}

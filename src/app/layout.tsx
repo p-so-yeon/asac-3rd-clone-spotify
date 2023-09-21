@@ -3,7 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
-import Header from '@/components/common/header'
+import Nav from '@/components/common/Nav'
 import Player from '@/components/common/Player'
 import Sidebar from '@/components/common/Sidebar'
 import MSWComponent from '@/components/mock-service/MSWComponent'
@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               {/* <div className="grid-in-main">
               </div> */}
               <div className="flex flex-col grid-in-main">
-                <Header />
+                <Nav></Nav>
                 {children}
               </div>
               {/* <aside className="cursor-e-resize resize-x grid-in-right-sidebar">

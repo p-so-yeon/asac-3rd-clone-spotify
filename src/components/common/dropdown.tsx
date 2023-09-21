@@ -1,11 +1,33 @@
+'use client'
 import React from 'react'
+import { useEffect, useState } from 'react'
 import { BiLinkExternal } from 'react-icons/bi'
+
+import { MOCK_API_URL } from '@/lib/constant/path'
+import { User } from '@/lib/types/mock-data-type'
 function Dropdown() {
+  const [curuser, setCuruser] = useState<User>()
+  useEffect(() => {
+    async function userdata() {
+      const url = `${MOCK_API_URL}/home/user`
+      let res = await fetch(url)
+      if (res.ok) {
+        let user_data = await res.json()
+        console.log(user_data)
+        setCuruser(user_data)
+      } else {
+        alert('error' + res.status)
+      }
+    }
+    userdata()
+  }, [])
+
+  function Navigate() {}
   return (
     <>
-      <div className="justify-center font-sans w-[196px] h-[248px] rounded-md bg-[#282828]  content-center text-white">
+      <div className="relative justify-center font-sans w-[196px] h-[248px] rounded-md bg-[#282828]  content-center text-white z-10">
         <ul className="p-1">
-          <li className="text-center">
+          <li className="text-center ">
             <button>
               <div className=" hover:bg-color-hover-primary hover:border-2px rounded w-[188px] h-[40px] justify-between flex py-3  pb-3 pl-3 items-center">
                 <span className="text-[0.8125rem]">계정</span>

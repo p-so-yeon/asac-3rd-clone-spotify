@@ -8,7 +8,7 @@ export interface Album {
   id: string;
   images: Image[];
   name: string;
-  release_date: Date;
+  release_date: string;
   release_date_precision: string;
   type: string;
   artists: Artist[];
@@ -17,7 +17,7 @@ export interface Album {
   genres?: any[];
   label?: string;
   popularity?: number;
-  is_playable: boolean;
+  is_playable?: boolean;
 }
 
 export interface Copyright {
@@ -34,4 +34,4 @@ export interface Tracks {
   items: Track[];
 }
 
-export type ItemType = "track" | "album" | "playlist" | "artist";
+export type AlbumType = "single" | "album" | "appears_on" | "compilation" 

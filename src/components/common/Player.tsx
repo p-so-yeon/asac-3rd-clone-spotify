@@ -6,8 +6,8 @@ import { MdPlayCircle, MdSkipNext, MdSkipPrevious, MdVolumeOff, MdVolumeUp } fro
 import { PiRepeat, PiShuffleLight } from 'react-icons/pi'
 
 import { MOCK_API_URL } from '@/lib/constant/path'
-import { Track } from '@/lib/types/mock-data-type'
-import { RecentlyPlayed } from '@/lib/types/track/recent-played-data-type'
+import { Track } from '@/types/mock-data-type'
+import { RecentlyPlayed } from '@/types/track/recent-played-data-type'
 
 function Button({ children }: { children: React.ReactNode }) {
   return (
@@ -32,11 +32,9 @@ function Player() {
     //   setCurrentTrack(trackData)
     // }
     async function fetchRecentlyPlayedTrack() {
-      const url = `${MOCK_API_URL}/home/recently-played-track`
-
+      const url = `${MOCK_API_URL}/track/recently-played`
       const res = await fetch(url)
       const recentlyPlayedData: RecentlyPlayed = await res.json()
-      console.log(recentlyPlayedData)
       setRecentlyPlayedTrack(recentlyPlayedData)
     }
     fetchRecentlyPlayedTrack()
@@ -45,7 +43,7 @@ function Player() {
 
   // aria-label, data-testid aria-expanded
   return (
-    <footer className="flex w-full fixed bg-color-background-primary">
+    <footer className="fixed flex w-full bg-color-background-primary">
       <div className="basis-[30%] min-w-[180px] flex justify-start items-center">
         {/* {currentTrack && (
           <>

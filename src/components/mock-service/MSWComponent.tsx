@@ -6,8 +6,6 @@ import { useEffect, useState } from 'react'
 // const isMocking = process.env.NEXT_PUBLIC_MOCKING_API === "enabled";
 
 const isMocking = process.env.NODE_ENV === 'development'
-// ? process.env.NEXT_PUBLIC_MOCKING_API === 'enabled'
-// : process.env.NEXT_PUBLIC_MOCKING_API !== 'enabled'
 
 function MSWComponent({ children }: { children: React.ReactNode }) {
   const [mswReady, setMSWReady] = useState(() => !isMocking)

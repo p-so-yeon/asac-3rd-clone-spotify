@@ -1,885 +1,1546 @@
 export const ARTISTS_DATA = {}
 
-export const FOLLOWED_ARTISTS_DATA = {
-  "artists": {
-    "limit": 50,
-    "next": null,
-    "cursors": {
-      "after": null
-    },
-    "total": 32,
-    "items": [
-      {
-        "followers": {
-          "total": 2320365
-        },
-        "genres": ["anime", "anime rock", "j-pixie", "j-pop", "j-poprock"],
-        "id": "0bAsR2unSRpn6BQPEnNlZm",
-        "images": [
+export const ARTIST_TOP_TRACK_DATA = {
+  "tracks": [
+    {
+      "album": {
+        "album_type": "single",
+        "artists": [
           {
-            "url": "https://i.scdn.co/image/ab6761610000e5eb71d0bf45b169d9f431a72314",
-            "height": 640,
-            "width": 640
-          },
-          {
-            "url": "https://i.scdn.co/image/ab6761610000517471d0bf45b169d9f431a72314",
-            "height": 320,
-            "width": 320
-          },
-          {
-            "url": "https://i.scdn.co/image/ab6761610000f17871d0bf45b169d9f431a72314",
-            "height": 160,
-            "width": 160
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/5dCvSnVduaFleCnyy98JMo"
+            },
+            "href": "https://api.spotify.com/v1/artists/5dCvSnVduaFleCnyy98JMo",
+            "id": "5dCvSnVduaFleCnyy98JMo",
+            "name": "헤이즈",
+            "type": "artist",
+            "uri": "spotify:artist:5dCvSnVduaFleCnyy98JMo"
           }
         ],
-        "name": "Aimer",
-        "popularity": 65,
-        "type": "artist",
-      },
-      {
-        "followers": {
-          "total": 3566163
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/0s8dKFltKr9FiUoG1QNKaN"
         },
-        "genres": ["j-pop", "j-rock", "japanese emo", "visual kei"],
-        "id": "1EowJ1WwkMzkCkRomFhui7",
+        "href": "https://api.spotify.com/v1/albums/0s8dKFltKr9FiUoG1QNKaN",
+        "id": "0s8dKFltKr9FiUoG1QNKaN",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab6761610000e5ebc9d443fb5ced1dd32d106632",
             "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b27356c426e66ee27ccf84d180fd",
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616100005174c9d443fb5ced1dd32d106632",
-            "height": 320,
-            "width": 320
-          },
-          {
-            "url": "https://i.scdn.co/image/ab6761610000f178c9d443fb5ced1dd32d106632",
-            "height": 160,
-            "width": 160
-          }
-        ],
-        "name": "RADWIMPS",
-        "popularity": 69,
-        "type": "artist",
-      },
-      {
-        "followers": {
-          "href": null,
-          "total": 27732498
-        },
-        "genres": ["art pop", "dance pop", "pop"],
-        "id": "1HY2Jd0NmPuamShAr6KMms",
-        "images": [
-          {
-            "url": "https://i.scdn.co/image/ab6761610000e5ebc8d3d98a1bccbe71393dbfbf",
-            "height": 640,
-            "width": 640
-          },
-          {
-            "url": "https://i.scdn.co/image/ab67616100005174c8d3d98a1bccbe71393dbfbf",
-            "height": 320,
-            "width": 320
-          },
-          {
-            "url": "https://i.scdn.co/image/ab6761610000f178c8d3d98a1bccbe71393dbfbf",
-            "height": 160,
-            "width": 160
-          }
-        ],
-        "name": "Lady Gaga",
-        "popularity": 82,
-        "type": "artist",
-      },
-      {
-        "followers": {
-          "total": 70478782
-        },
-        "genres": ["canadian contemporary r&b", "canadian pop", "pop"],
-        "id": "1Xyo4u8uXC1ZmMpatF05PJ",
-        "images": [
-          {
-            "url": "https://i.scdn.co/image/ab6761610000e5eb214f3cf1cbe7139c1e26ffbb",
-            "height": 640,
-            "width": 640
-          },
-          {
-            "url": "https://i.scdn.co/image/ab67616100005174214f3cf1cbe7139c1e26ffbb",
-            "height": 320,
-            "width": 320
-          },
-          {
-            "url": "https://i.scdn.co/image/ab6761610000f178214f3cf1cbe7139c1e26ffbb",
-            "height": 160,
-            "width": 160
-          }
-        ],
-        "name": "The Weeknd",
-        "popularity": 94,
-        "type": "artist",
-      },
-      {
-        "followers": {
-          "total": 48104048
-        },
-        "genres": ["classic rock", "glam rock", "rock"],
-        "id": "1dfeR4HaWDbWqFHLkxsg1d",
-        "images": [
-          {
-            "url": "https://i.scdn.co/image/b040846ceba13c3e9c125d68389491094e7f2982",
-            "height": 806,
-            "width": 999
-          },
-          {
-            "url": "https://i.scdn.co/image/af2b8e57f6d7b5d43a616bd1e27ba552cd8bfd42",
-            "height": 516,
-            "width": 640
-          },
-          {
-            "url": "https://i.scdn.co/image/c06971e9ff81696699b829484e3be165f4e64368",
-            "height": 161,
-            "width": 200
-          },
-          {
-            "url": "https://i.scdn.co/image/6dd0ffd270903d1884edf9058c49f58b03db893d",
-            "height": 52,
-            "width": 64
-          }
-        ],
-        "name": "Queen",
-        "popularity": 82,
-        "type": "artist",
-      },
-      {
-        "followers": {
-          "href": null,
-          "total": 3112107
-        },
-        "genres": ["classic j-pop", "j-pop", "j-rock"],
-        "id": "1qma7XhwZotCAucL7NHVLY",
-        "images": [
-          {
-            "url": "https://i.scdn.co/image/ab6761610000e5ebbda4d6cd93e348c967bedd47",
-            "height": 640,
-            "width": 640
-          },
-          {
-            "url": "https://i.scdn.co/image/ab67616100005174bda4d6cd93e348c967bedd47",
-            "height": 320,
-            "width": 320
-          },
-          {
-            "url": "https://i.scdn.co/image/ab6761610000f178bda4d6cd93e348c967bedd47",
-            "height": 160,
-            "width": 160
-          }
-        ],
-        "name": "Mr.Children",
-        "popularity": 61,
-        "type": "artist",
-      },
-      {
-        "followers": {
-          "total": 5238998
-        },
-        "genres": ["anime", "j-pop"],
-        "id": "1snhtMLeb2DYoMOcVbb8iB",
-        "images": [
-          {
-            "url": "https://i.scdn.co/image/ab6761610000e5ebc147e0888e83919d317c1103",
-            "height": 640,
-            "width": 640
-          },
-          {
-            "url": "https://i.scdn.co/image/ab67616100005174c147e0888e83919d317c1103",
-            "height": 320,
-            "width": 320
-          },
-          {
-            "url": "https://i.scdn.co/image/ab6761610000f178c147e0888e83919d317c1103",
-            "height": 160,
-            "width": 160
-          }
-        ],
-        "name": "Kenshi Yonezu",
-        "popularity": 71,
-        "type": "artist",
-      },
-      {
-        "followers": {
-          "total": 23181989
-        },
-        "genres": ["edm", "pop", "pop dance"],
-        "id": "1vCWHaC5f2uS3yhpwWbIA6",
-        "images": [
-          {
-            "url": "https://i.scdn.co/image/ab6761610000e5ebae07171f989fb39736674113",
-            "height": 640,
-            "width": 640
-          },
-          {
-            "url": "https://i.scdn.co/image/ab67616100005174ae07171f989fb39736674113",
-            "height": 320,
-            "width": 320
-          },
-          {
-            "url": "https://i.scdn.co/image/ab6761610000f178ae07171f989fb39736674113",
-            "height": 160,
-            "width": 160
-          }
-        ],
-        "name": "Avicii",
-        "popularity": 79,
-        "type": "artist",
-      },
-      {
-        "followers": {
-          "total": 133984
-        },
-        "genres": ["korean pop"],
-        "id": "20K5puLWHL28ckI4LjieDt",
-        "images": [
-          {
-            "url": "https://i.scdn.co/image/ab67616d0000b27340281e08e1b66d01f3a6e8e7",
-            "height": 640,
-            "width": 640
-          },
-          {
-            "url": "https://i.scdn.co/image/ab67616d00001e0240281e08e1b66d01f3a6e8e7",
             "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e0256c426e66ee27ccf84d180fd",
             "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab67616d0000485140281e08e1b66d01f3a6e8e7",
             "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d0000485156c426e66ee27ccf84d180fd",
             "width": 64
           }
         ],
-        "name": "김범수",
-        "popularity": 40,
-        "type": "artist",
+        "is_playable": true,
+        "name": "We don’t talk together",
+        "release_date": "2019-07-07",
+        "release_date_precision": "day",
+        "total_tracks": 1,
+        "type": "album",
+        "uri": "spotify:album:0s8dKFltKr9FiUoG1QNKaN"
       },
-      {
-        "followers": {
-          "total": 317432
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/5dCvSnVduaFleCnyy98JMo"
+          },
+          "href": "https://api.spotify.com/v1/artists/5dCvSnVduaFleCnyy98JMo",
+          "id": "5dCvSnVduaFleCnyy98JMo",
+          "name": "헤이즈",
+          "type": "artist",
+          "uri": "spotify:artist:5dCvSnVduaFleCnyy98JMo"
         },
-        "genres": [],
-        "id": "2nvl0N9GwyX69RRBMEZ4OD",
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/2MtHuR0W2idZdF7x4wddqq"
+          },
+          "href": "https://api.spotify.com/v1/artists/2MtHuR0W2idZdF7x4wddqq",
+          "id": "2MtHuR0W2idZdF7x4wddqq",
+          "name": "기리보이",
+          "type": "artist",
+          "uri": "spotify:artist:2MtHuR0W2idZdF7x4wddqq"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 199215,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "KRA491900461"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/6SG8lh7fWQ2bahP5WBYePn"
+      },
+      "href": "https://api.spotify.com/v1/tracks/6SG8lh7fWQ2bahP5WBYePn",
+      "id": "6SG8lh7fWQ2bahP5WBYePn",
+      "is_local": false,
+      "is_playable": true,
+      "name": "We don't talk together (Prod. by SUGA)",
+      "popularity": 63,
+      "preview_url": "https://p.scdn.co/mp3-preview/a1345b79d1b130c086e12780e716e3abbbf3e9b0?cid=174e06ca11a84265b0cc2bb26a8ce545",
+      "track_number": 1,
+      "type": "track",
+      "uri": "spotify:track:6SG8lh7fWQ2bahP5WBYePn"
+    },
+    {
+      "album": {
+        "album_type": "single",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/5dCvSnVduaFleCnyy98JMo"
+            },
+            "href": "https://api.spotify.com/v1/artists/5dCvSnVduaFleCnyy98JMo",
+            "id": "5dCvSnVduaFleCnyy98JMo",
+            "name": "헤이즈",
+            "type": "artist",
+            "uri": "spotify:artist:5dCvSnVduaFleCnyy98JMo"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/2PdRNAz6mDmy9OR7hDCrH5"
+        },
+        "href": "https://api.spotify.com/v1/albums/2PdRNAz6mDmy9OR7hDCrH5",
+        "id": "2PdRNAz6mDmy9OR7hDCrH5",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab6761610000e5eb86de41539f26da7d0626e257",
             "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b2731b3ffa7d7208efcdb5445fb6",
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab6761610000517486de41539f26da7d0626e257",
-            "height": 320,
-            "width": 320
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e021b3ffa7d7208efcdb5445fb6",
+            "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab6761610000f17886de41539f26da7d0626e257",
-            "height": 160,
-            "width": 160
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d000048511b3ffa7d7208efcdb5445fb6",
+            "width": 64
           }
         ],
-        "name": "結束バンド",
-        "popularity": 60,
-        "type": "artist",
+        "is_playable": true,
+        "name": "Hotel del Luna (Original Television Soundtrack) Pt.5",
+        "release_date": "2019-07-28",
+        "release_date_precision": "day",
+        "total_tracks": 2,
+        "type": "album",
+        "uri": "spotify:album:2PdRNAz6mDmy9OR7hDCrH5"
       },
-      {
-        "followers": {
-          "total": 268828
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/5dCvSnVduaFleCnyy98JMo"
+          },
+          "href": "https://api.spotify.com/v1/artists/5dCvSnVduaFleCnyy98JMo",
+          "id": "5dCvSnVduaFleCnyy98JMo",
+          "name": "헤이즈",
+          "type": "artist",
+          "uri": "spotify:artist:5dCvSnVduaFleCnyy98JMo"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 225785,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "KRA381903731"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/2oVHb8wyg6oC2iNpGBNvx1"
+      },
+      "href": "https://api.spotify.com/v1/tracks/2oVHb8wyg6oC2iNpGBNvx1",
+      "id": "2oVHb8wyg6oC2iNpGBNvx1",
+      "is_local": false,
+      "is_playable": true,
+      "name": "내 맘을 볼 수 있나요",
+      "popularity": 63,
+      "preview_url": "https://p.scdn.co/mp3-preview/8637ad24b9c713a65a29e92483980a1667fee417?cid=174e06ca11a84265b0cc2bb26a8ce545",
+      "track_number": 1,
+      "type": "track",
+      "uri": "spotify:track:2oVHb8wyg6oC2iNpGBNvx1"
+    },
+    {
+      "album": {
+        "album_type": "single",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/5dCvSnVduaFleCnyy98JMo"
+            },
+            "href": "https://api.spotify.com/v1/artists/5dCvSnVduaFleCnyy98JMo",
+            "id": "5dCvSnVduaFleCnyy98JMo",
+            "name": "헤이즈",
+            "type": "artist",
+            "uri": "spotify:artist:5dCvSnVduaFleCnyy98JMo"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/6uyqsQR7G7AWroOoH0eNMt"
         },
-        "genres": ["j-pop", "japanese teen pop"],
-        "id": "32QmJ5obSke8YKDbQvVPUx",
+        "href": "https://api.spotify.com/v1/albums/6uyqsQR7G7AWroOoH0eNMt",
+        "id": "6uyqsQR7G7AWroOoH0eNMt",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab6761610000e5ebb32d4e03297211cc44c00a8f",
             "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b2731c96946d64e22690f854a6b5",
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616100005174b32d4e03297211cc44c00a8f",
-            "height": 320,
-            "width": 320
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e021c96946d64e22690f854a6b5",
+            "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab6761610000f178b32d4e03297211cc44c00a8f",
-            "height": 160,
-            "width": 160
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d000048511c96946d64e22690f854a6b5",
+            "width": 64
           }
         ],
-        "name": "Eito",
-        "popularity": 38,
-        "type": "artist",
+        "is_playable": true,
+        "name": "Guardian (Original Television Soundtrack), Pt. 14",
+        "release_date": "2017-01-21",
+        "release_date_precision": "day",
+        "total_tracks": 2,
+        "type": "album",
+        "uri": "spotify:album:6uyqsQR7G7AWroOoH0eNMt"
       },
-      {
-        "followers": {
-          "total": 8146363
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/5dCvSnVduaFleCnyy98JMo"
+          },
+          "href": "https://api.spotify.com/v1/artists/5dCvSnVduaFleCnyy98JMo",
+          "id": "5dCvSnVduaFleCnyy98JMo",
+          "name": "헤이즈",
+          "type": "artist",
+          "uri": "spotify:artist:5dCvSnVduaFleCnyy98JMo"
         },
-        "genres": ["k-pop", "pop"],
-        "id": "3HqSLMAZ3g3d5poNaI7GOU",
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/3QKm0ZXXUBD9Gc3PUo2mor"
+          },
+          "href": "https://api.spotify.com/v1/artists/3QKm0ZXXUBD9Gc3PUo2mor",
+          "id": "3QKm0ZXXUBD9Gc3PUo2mor",
+          "name": "한수지",
+          "type": "artist",
+          "uri": "spotify:artist:3QKm0ZXXUBD9Gc3PUo2mor"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 201658,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "KRA491600953"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/3vAncbML0jhNrp63DKhsCo"
+      },
+      "href": "https://api.spotify.com/v1/tracks/3vAncbML0jhNrp63DKhsCo",
+      "id": "3vAncbML0jhNrp63DKhsCo",
+      "is_local": false,
+      "is_playable": true,
+      "name": "Round And Round",
+      "popularity": 59,
+      "preview_url": "https://p.scdn.co/mp3-preview/dea272a2e1ca677f0b01aef51925117faac6b34f?cid=174e06ca11a84265b0cc2bb26a8ce545",
+      "track_number": 1,
+      "type": "track",
+      "uri": "spotify:track:3vAncbML0jhNrp63DKhsCo"
+    },
+    {
+      "album": {
+        "album_type": "single",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/5dCvSnVduaFleCnyy98JMo"
+            },
+            "href": "https://api.spotify.com/v1/artists/5dCvSnVduaFleCnyy98JMo",
+            "id": "5dCvSnVduaFleCnyy98JMo",
+            "name": "헤이즈",
+            "type": "artist",
+            "uri": "spotify:artist:5dCvSnVduaFleCnyy98JMo"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/7ANb4BnhkVoBO4RDSJ6uSs"
+        },
+        "href": "https://api.spotify.com/v1/albums/7ANb4BnhkVoBO4RDSJ6uSs",
+        "id": "7ANb4BnhkVoBO4RDSJ6uSs",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab6761610000e5eb006ff3c0136a71bfb9928d34",
             "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b273053f6d4ad49f49131dbd3bfc",
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616100005174006ff3c0136a71bfb9928d34",
-            "height": 320,
-            "width": 320
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02053f6d4ad49f49131dbd3bfc",
+            "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab6761610000f178006ff3c0136a71bfb9928d34",
-            "height": 160,
-            "width": 160
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d00004851053f6d4ad49f49131dbd3bfc",
+            "width": 64
           }
         ],
-        "name": "아이유",
-        "popularity": 69,
-        "type": "artist",
+        "is_playable": true,
+        "name": "/// (You, Clouds, Rain)",
+        "release_date": "2017-06-26",
+        "release_date_precision": "day",
+        "total_tracks": 5,
+        "type": "album",
+        "uri": "spotify:album:7ANb4BnhkVoBO4RDSJ6uSs"
       },
-      {
-        "followers": {
-          "total": 854372
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/5dCvSnVduaFleCnyy98JMo"
+          },
+          "href": "https://api.spotify.com/v1/artists/5dCvSnVduaFleCnyy98JMo",
+          "id": "5dCvSnVduaFleCnyy98JMo",
+          "name": "헤이즈",
+          "type": "artist",
+          "uri": "spotify:artist:5dCvSnVduaFleCnyy98JMo"
         },
-        "genres": ["classic j-pop", "eurobeat", "j-pop"],
-        "id": "3Mvc8kRgr8LRYYgvFmlZqn",
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/2frFGmni9tkRgXYdXmzQvR"
+          },
+          "href": "https://api.spotify.com/v1/artists/2frFGmni9tkRgXYdXmzQvR",
+          "id": "2frFGmni9tkRgXYdXmzQvR",
+          "name": "신용재",
+          "type": "artist",
+          "uri": "spotify:artist:2frFGmni9tkRgXYdXmzQvR"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 205312,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "KRA491601220"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/6FZAc2XaVYc8G8jaDnBshv"
+      },
+      "href": "https://api.spotify.com/v1/tracks/6FZAc2XaVYc8G8jaDnBshv",
+      "id": "6FZAc2XaVYc8G8jaDnBshv",
+      "is_local": false,
+      "is_playable": true,
+      "name": "You, Clouds, Rain",
+      "popularity": 58,
+      "preview_url": "https://p.scdn.co/mp3-preview/9a13af5f6a479ab3427b902a3bed3944df81050a?cid=174e06ca11a84265b0cc2bb26a8ce545",
+      "track_number": 4,
+      "type": "track",
+      "uri": "spotify:track:6FZAc2XaVYc8G8jaDnBshv"
+    },
+    {
+      "album": {
+        "album_type": "single",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/5dCvSnVduaFleCnyy98JMo"
+            },
+            "href": "https://api.spotify.com/v1/artists/5dCvSnVduaFleCnyy98JMo",
+            "id": "5dCvSnVduaFleCnyy98JMo",
+            "name": "헤이즈",
+            "type": "artist",
+            "uri": "spotify:artist:5dCvSnVduaFleCnyy98JMo"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/3xUWeFeLn6m3NXKr0FlT3E"
+        },
+        "href": "https://api.spotify.com/v1/albums/3xUWeFeLn6m3NXKr0FlT3E",
+        "id": "3xUWeFeLn6m3NXKr0FlT3E",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab6761610000e5eb08132734f5756507e29fdf5b",
             "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b2737f22ff3c2da84dfc06101e23",
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab6761610000517408132734f5756507e29fdf5b",
-            "height": 320,
-            "width": 320
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e027f22ff3c2da84dfc06101e23",
+            "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab6761610000f17808132734f5756507e29fdf5b",
-            "height": 160,
-            "width": 160
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d000048517f22ff3c2da84dfc06101e23",
+            "width": 64
           }
         ],
-        "name": "Ayumi Hamasaki",
-        "popularity": 56,
-        "type": "artist",
+        "is_playable": true,
+        "name": "And July",
+        "release_date": "2016-07-18",
+        "release_date_precision": "day",
+        "total_tracks": 6,
+        "type": "album",
+        "uri": "spotify:album:3xUWeFeLn6m3NXKr0FlT3E"
       },
-      {
-        "followers": {
-          "total": 543213
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/5dCvSnVduaFleCnyy98JMo"
+          },
+          "href": "https://api.spotify.com/v1/artists/5dCvSnVduaFleCnyy98JMo",
+          "id": "5dCvSnVduaFleCnyy98JMo",
+          "name": "헤이즈",
+          "type": "artist",
+          "uri": "spotify:artist:5dCvSnVduaFleCnyy98JMo"
         },
-        "genres": ["j-pop", "j-rock", "japanese emo", "japanese pop punk", "japanese punk rock"],
-        "id": "3cbd5GWGOknxmFAe77MDbk",
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/3eCd0TZrBPm2n9cDG6yWfF"
+          },
+          "href": "https://api.spotify.com/v1/artists/3eCd0TZrBPm2n9cDG6yWfF",
+          "id": "3eCd0TZrBPm2n9cDG6yWfF",
+          "name": "DEAN",
+          "type": "artist",
+          "uri": "spotify:artist:3eCd0TZrBPm2n9cDG6yWfF"
+        },
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/0js3wKXyi7RL11sfOykRt1"
+          },
+          "href": "https://api.spotify.com/v1/artists/0js3wKXyi7RL11sfOykRt1",
+          "id": "0js3wKXyi7RL11sfOykRt1",
+          "name": "dj friz",
+          "type": "artist",
+          "uri": "spotify:artist:0js3wKXyi7RL11sfOykRt1"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 226128,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "KRA491600449"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/0Yz3F0UGDibDe8uU69zmjn"
+      },
+      "href": "https://api.spotify.com/v1/tracks/0Yz3F0UGDibDe8uU69zmjn",
+      "id": "0Yz3F0UGDibDe8uU69zmjn",
+      "is_local": false,
+      "is_playable": true,
+      "name": "And July",
+      "popularity": 56,
+      "preview_url": "https://p.scdn.co/mp3-preview/ef3d460643d72b4535852d3513bccd8579c64877?cid=174e06ca11a84265b0cc2bb26a8ce545",
+      "track_number": 1,
+      "type": "track",
+      "uri": "spotify:track:0Yz3F0UGDibDe8uU69zmjn"
+    },
+    {
+      "album": {
+        "album_type": "single",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/5dCvSnVduaFleCnyy98JMo"
+            },
+            "href": "https://api.spotify.com/v1/artists/5dCvSnVduaFleCnyy98JMo",
+            "id": "5dCvSnVduaFleCnyy98JMo",
+            "name": "헤이즈",
+            "type": "artist",
+            "uri": "spotify:artist:5dCvSnVduaFleCnyy98JMo"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/4xOOB79WcZuOoVwK06No1s"
+        },
+        "href": "https://api.spotify.com/v1/albums/4xOOB79WcZuOoVwK06No1s",
+        "id": "4xOOB79WcZuOoVwK06No1s",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab6761610000e5eb74eee2af6bd02df43e9595cc",
             "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b273168258bceeef84be1d0c9301",
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab6761610000517474eee2af6bd02df43e9595cc",
-            "height": 320,
-            "width": 320
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02168258bceeef84be1d0c9301",
+            "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab6761610000f17874eee2af6bd02df43e9595cc",
-            "height": 160,
-            "width": 160
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d00004851168258bceeef84be1d0c9301",
+            "width": 64
           }
         ],
-        "name": "ELLEGARDEN",
-        "popularity": 54,
-        "type": "artist",
+        "is_playable": true,
+        "name": "HAPPEN",
+        "release_date": "2021-05-20",
+        "release_date_precision": "day",
+        "total_tracks": 8,
+        "type": "album",
+        "uri": "spotify:album:4xOOB79WcZuOoVwK06No1s"
       },
-      {
-        "followers": {
-          "total": 28500352
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/5dCvSnVduaFleCnyy98JMo"
+          },
+          "href": "https://api.spotify.com/v1/artists/5dCvSnVduaFleCnyy98JMo",
+          "id": "5dCvSnVduaFleCnyy98JMo",
+          "name": "헤이즈",
+          "type": "artist",
+          "uri": "spotify:artist:5dCvSnVduaFleCnyy98JMo"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 193560,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "KRMIM2120789"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/1MtCOuTy3B6fU72LQPvg16"
+      },
+      "href": "https://api.spotify.com/v1/tracks/1MtCOuTy3B6fU72LQPvg16",
+      "id": "1MtCOuTy3B6fU72LQPvg16",
+      "is_local": false,
+      "is_playable": true,
+      "name": "HAPPEN",
+      "popularity": 53,
+      "preview_url": "https://p.scdn.co/mp3-preview/0c8dd0483808fb6b08227c386d00161b0bf4466e?cid=174e06ca11a84265b0cc2bb26a8ce545",
+      "track_number": 1,
+      "type": "track",
+      "uri": "spotify:track:1MtCOuTy3B6fU72LQPvg16"
+    },
+    {
+      "album": {
+        "album_type": "single",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/5dCvSnVduaFleCnyy98JMo"
+            },
+            "href": "https://api.spotify.com/v1/artists/5dCvSnVduaFleCnyy98JMo",
+            "id": "5dCvSnVduaFleCnyy98JMo",
+            "name": "헤이즈",
+            "type": "artist",
+            "uri": "spotify:artist:5dCvSnVduaFleCnyy98JMo"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/6KpcAZYdX5RrdXme2a12d8"
         },
-        "genres": ["r&b", "soul"],
-        "id": "3fMbdgg4jU18AjLCKBhRSm",
+        "href": "https://api.spotify.com/v1/albums/6KpcAZYdX5RrdXme2a12d8",
+        "id": "6KpcAZYdX5RrdXme2a12d8",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab6761610000e5eb0e08ea2c4d6789fbf5cbe0aa",
             "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b27374329a87443c2e2da276a63b",
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab676161000051740e08ea2c4d6789fbf5cbe0aa",
-            "height": 320,
-            "width": 320
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e0274329a87443c2e2da276a63b",
+            "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab6761610000f1780e08ea2c4d6789fbf5cbe0aa",
-            "height": 160,
-            "width": 160
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d0000485174329a87443c2e2da276a63b",
+            "width": 64
           }
         ],
-        "name": "Michael Jackson",
-        "popularity": 80,
-        "type": "artist",
+        "is_playable": true,
+        "name": "On Rainy Days (2021)",
+        "release_date": "2021-08-04",
+        "release_date_precision": "day",
+        "total_tracks": 2,
+        "type": "album",
+        "uri": "spotify:album:6KpcAZYdX5RrdXme2a12d8"
       },
-      {
-        "followers": {
-          "total": 2792989
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/5dCvSnVduaFleCnyy98JMo"
+          },
+          "href": "https://api.spotify.com/v1/artists/5dCvSnVduaFleCnyy98JMo",
+          "id": "5dCvSnVduaFleCnyy98JMo",
+          "name": "헤이즈",
+          "type": "artist",
+          "uri": "spotify:artist:5dCvSnVduaFleCnyy98JMo"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 230186,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "KRMIM2127791"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/4a0OYMqeBOGuzCPLg5SfWU"
+      },
+      "href": "https://api.spotify.com/v1/tracks/4a0OYMqeBOGuzCPLg5SfWU",
+      "id": "4a0OYMqeBOGuzCPLg5SfWU",
+      "is_local": false,
+      "is_playable": true,
+      "name": "On Rainy Days (2021)",
+      "popularity": 53,
+      "preview_url": "https://p.scdn.co/mp3-preview/5164905b61ea00f4f0848b22fcd44502959f7900?cid=174e06ca11a84265b0cc2bb26a8ce545",
+      "track_number": 1,
+      "type": "track",
+      "uri": "spotify:track:4a0OYMqeBOGuzCPLg5SfWU"
+    },
+    {
+      "album": {
+        "album_type": "single",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/5dCvSnVduaFleCnyy98JMo"
+            },
+            "href": "https://api.spotify.com/v1/artists/5dCvSnVduaFleCnyy98JMo",
+            "id": "5dCvSnVduaFleCnyy98JMo",
+            "name": "헤이즈",
+            "type": "artist",
+            "uri": "spotify:artist:5dCvSnVduaFleCnyy98JMo"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/63qfWGAvtGwa2YF4yC98Ak"
         },
-        "genres": ["k-pop"],
-        "id": "3qNVuliS40BLgXGxhdBdqu",
+        "href": "https://api.spotify.com/v1/albums/63qfWGAvtGwa2YF4yC98Ak",
+        "id": "63qfWGAvtGwa2YF4yC98Ak",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab6761610000e5ebb29975f8b42bcba1eae62577",
             "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b273ee25233c128ee780dce13e7d",
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616100005174b29975f8b42bcba1eae62577",
-            "height": 320,
-            "width": 320
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02ee25233c128ee780dce13e7d",
+            "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab6761610000f178b29975f8b42bcba1eae62577",
-            "height": 160,
-            "width": 160
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d00004851ee25233c128ee780dce13e7d",
+            "width": 64
           }
         ],
-        "name": "태연",
-        "popularity": 64,
-        "type": "artist",
+        "is_playable": true,
+        "name": "사이코지만 괜찮아 (Original Television Soundtrack), Pt.1",
+        "release_date": "2020-06-21",
+        "release_date_precision": "day",
+        "total_tracks": 2,
+        "type": "album",
+        "uri": "spotify:album:63qfWGAvtGwa2YF4yC98Ak"
       },
-      {
-        "followers": {
-          "total": 44832402
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/5dCvSnVduaFleCnyy98JMo"
+          },
+          "href": "https://api.spotify.com/v1/artists/5dCvSnVduaFleCnyy98JMo",
+          "id": "5dCvSnVduaFleCnyy98JMo",
+          "name": "헤이즈",
+          "type": "artist",
+          "uri": "spotify:artist:5dCvSnVduaFleCnyy98JMo"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 234093,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "KRMIM2016393"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/5sVeJMHMfCWf2H6g66KQXz"
+      },
+      "href": "https://api.spotify.com/v1/tracks/5sVeJMHMfCWf2H6g66KQXz",
+      "id": "5sVeJMHMfCWf2H6g66KQXz",
+      "is_local": false,
+      "is_playable": true,
+      "name": "더 많이 사랑한 쪽이 아프대",
+      "popularity": 52,
+      "preview_url": "https://p.scdn.co/mp3-preview/04076599bbc057147fda0d8d381a3d4779ba7ace?cid=174e06ca11a84265b0cc2bb26a8ce545",
+      "track_number": 1,
+      "type": "track",
+      "uri": "spotify:track:5sVeJMHMfCWf2H6g66KQXz"
+    },
+    {
+      "album": {
+        "album_type": "single",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/5dCvSnVduaFleCnyy98JMo"
+            },
+            "href": "https://api.spotify.com/v1/artists/5dCvSnVduaFleCnyy98JMo",
+            "id": "5dCvSnVduaFleCnyy98JMo",
+            "name": "헤이즈",
+            "type": "artist",
+            "uri": "spotify:artist:5dCvSnVduaFleCnyy98JMo"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/7ANb4BnhkVoBO4RDSJ6uSs"
         },
-        "genres": ["k-pop", "k-pop girl group", "pop"],
-        "id": "41MozSoPIsD1dJM0CLPjZF",
+        "href": "https://api.spotify.com/v1/albums/7ANb4BnhkVoBO4RDSJ6uSs",
+        "id": "7ANb4BnhkVoBO4RDSJ6uSs",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab6761610000e5ebc9690bc711d04b3d4fd4b87c",
             "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b273053f6d4ad49f49131dbd3bfc",
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616100005174c9690bc711d04b3d4fd4b87c",
-            "height": 320,
-            "width": 320
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02053f6d4ad49f49131dbd3bfc",
+            "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab6761610000f178c9690bc711d04b3d4fd4b87c",
-            "height": 160,
-            "width": 160
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d00004851053f6d4ad49f49131dbd3bfc",
+            "width": 64
           }
         ],
-        "name": "BLACKPINK",
-        "popularity": 82,
-        "type": "artist",
+        "is_playable": true,
+        "name": "/// (You, Clouds, Rain)",
+        "release_date": "2017-06-26",
+        "release_date_precision": "day",
+        "total_tracks": 5,
+        "type": "album",
+        "uri": "spotify:album:7ANb4BnhkVoBO4RDSJ6uSs"
       },
-      {
-        "followers": {
-          "total": 1535856
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/5dCvSnVduaFleCnyy98JMo"
+          },
+          "href": "https://api.spotify.com/v1/artists/5dCvSnVduaFleCnyy98JMo",
+          "id": "5dCvSnVduaFleCnyy98JMo",
+          "name": "헤이즈",
+          "type": "artist",
+          "uri": "spotify:artist:5dCvSnVduaFleCnyy98JMo"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 189410,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "KRA491601217"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/1Zv6zo71iDXH07Lin7hxMg"
+      },
+      "href": "https://api.spotify.com/v1/tracks/1Zv6zo71iDXH07Lin7hxMg",
+      "id": "1Zv6zo71iDXH07Lin7hxMg",
+      "is_local": false,
+      "is_playable": true,
+      "name": "Don't Know You",
+      "popularity": 53,
+      "preview_url": "https://p.scdn.co/mp3-preview/59124534c7613302a929f7c8dcf899135c40e1ea?cid=174e06ca11a84265b0cc2bb26a8ce545",
+      "track_number": 1,
+      "type": "track",
+      "uri": "spotify:track:1Zv6zo71iDXH07Lin7hxMg"
+    },
+    {
+      "album": {
+        "album_type": "single",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/5dCvSnVduaFleCnyy98JMo"
+            },
+            "href": "https://api.spotify.com/v1/artists/5dCvSnVduaFleCnyy98JMo",
+            "id": "5dCvSnVduaFleCnyy98JMo",
+            "name": "헤이즈",
+            "type": "artist",
+            "uri": "spotify:artist:5dCvSnVduaFleCnyy98JMo"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/10Ldh1KXu0ySjpfiX6qLXQ"
         },
-        "genres": ["j-pop"],
-        "id": "4DDoAL8n6ob19r3jOZEbJI",
+        "href": "https://api.spotify.com/v1/albums/10Ldh1KXu0ySjpfiX6qLXQ",
+        "id": "10Ldh1KXu0ySjpfiX6qLXQ",
         "images": [
           {
-            "url": "https://i.scdn.co/image/ab6761610000e5ebcd4333b5b1847d1ec322f519",
             "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b2733a712d5d26c23c7191cb2d04",
             "width": 640
           },
           {
-            "url": "https://i.scdn.co/image/ab67616100005174cd4333b5b1847d1ec322f519",
-            "height": 320,
-            "width": 320
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e023a712d5d26c23c7191cb2d04",
+            "width": 300
           },
           {
-            "url": "https://i.scdn.co/image/ab6761610000f178cd4333b5b1847d1ec322f519",
-            "height": 160,
-            "width": 160
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d000048513a712d5d26c23c7191cb2d04",
+            "width": 64
           }
         ],
-        "name": "Kana Nishino",
-        "popularity": 57,
-        "type": "artist",
+        "is_playable": true,
+        "name": "VingleVingle",
+        "release_date": "2023-04-05",
+        "release_date_precision": "day",
+        "total_tracks": 1,
+        "type": "album",
+        "uri": "spotify:album:10Ldh1KXu0ySjpfiX6qLXQ"
       },
-      {
-        "followers": {
-          "total": 2191511
-        },
-        "genres": ["j-pop"],
-        "id": "4UK2Lzi6fBfUi9rpDt6cik",
-        "images": [
-          {
-            "url": "https://i.scdn.co/image/ab6761610000e5ebe62cff9c6018ae5616b01eab",
-            "height": 640,
-            "width": 640
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/5dCvSnVduaFleCnyy98JMo"
           },
-          {
-            "url": "https://i.scdn.co/image/ab67616100005174e62cff9c6018ae5616b01eab",
-            "height": 320,
-            "width": 320
-          },
-          {
-            "url": "https://i.scdn.co/image/ab6761610000f178e62cff9c6018ae5616b01eab",
-            "height": 160,
-            "width": 160
-          }
-        ],
-        "name": "Yorushika",
-        "popularity": 67,
-        "type": "artist",
+          "href": "https://api.spotify.com/v1/artists/5dCvSnVduaFleCnyy98JMo",
+          "id": "5dCvSnVduaFleCnyy98JMo",
+          "name": "헤이즈",
+          "type": "artist",
+          "uri": "spotify:artist:5dCvSnVduaFleCnyy98JMo"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 180662,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "KRMIM2344243"
       },
-      {
-        "followers": {
-          "total": 584588
-        },
-        "genres": ["japanese heavy metal", "japanese power metal", "visual kei"],
-        "id": "4VrqQQy6X0hlMtqY5gp6Wx",
-        "images": [
-          {
-            "url": "https://i.scdn.co/image/ab6761610000e5eb4e80b92ad6a0e9fdd2f3a8b5",
-            "height": 640,
-            "width": 640
-          },
-          {
-            "url": "https://i.scdn.co/image/ab676161000051744e80b92ad6a0e9fdd2f3a8b5",
-            "height": 320,
-            "width": 320
-          },
-          {
-            "url": "https://i.scdn.co/image/ab6761610000f1784e80b92ad6a0e9fdd2f3a8b5",
-            "height": 160,
-            "width": 160
-          }
-        ],
-        "name": "X JAPAN",
-        "popularity": 47,
-        "type": "artist",
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/4mSb6RA9eJnXuMWChHLpgn"
       },
-      {
-        "followers": {
-          "total": 2104766
-        },
-        "genres": ["k-pop girl group"],
-        "id": "4gOc8TsQed9eqnqJct2c5v",
-        "images": [
-          {
-            "url": "https://i.scdn.co/image/ab6761610000e5ebdc1dc943555dfa1ee2a107e5",
-            "height": 640,
-            "width": 640
-          },
-          {
-            "url": "https://i.scdn.co/image/ab67616100005174dc1dc943555dfa1ee2a107e5",
-            "height": 320,
-            "width": 320
-          },
-          {
-            "url": "https://i.scdn.co/image/ab6761610000f178dc1dc943555dfa1ee2a107e5",
-            "height": 160,
-            "width": 160
-          }
-        ],
-        "name": "K/DA",
-        "popularity": 62,
-        "type": "artist",
+      "href": "https://api.spotify.com/v1/tracks/4mSb6RA9eJnXuMWChHLpgn",
+      "id": "4mSb6RA9eJnXuMWChHLpgn",
+      "is_local": false,
+      "is_playable": true,
+      "name": "VingleVingle (Prod. R.Tee)",
+      "popularity": 50,
+      "preview_url": "https://p.scdn.co/mp3-preview/684f64d89e377dfcfc7cf0435195810d3f67d800?cid=174e06ca11a84265b0cc2bb26a8ce545",
+      "track_number": 1,
+      "type": "track",
+      "uri": "spotify:track:4mSb6RA9eJnXuMWChHLpgn"
+    }
+  ]
+}
+
+export const RELATED_ARTIST_DATA = {
+  "artists": [
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/7lXgbtBDcCRbfc5f8FhGUL"
       },
-      {
-        "followers": {
-          "total": 5902150
-        },
-        "genres": ["anime", "anime rock", "j-pop"],
-        "id": "5Vo1hnCRmCM6M4thZCInCj",
-        "images": [
-          {
-            "url": "https://i.scdn.co/image/ab6761610000e5eb9cb993cafc5d4657346fe42a",
-            "height": 640,
-            "width": 640
-          },
-          {
-            "url": "https://i.scdn.co/image/ab676161000051749cb993cafc5d4657346fe42a",
-            "height": 320,
-            "width": 320
-          },
-          {
-            "url": "https://i.scdn.co/image/ab6761610000f1789cb993cafc5d4657346fe42a",
-            "height": 160,
-            "width": 160
-          }
-        ],
-        "name": "OFFICIAL HIGE DANDISM",
-        "popularity": 70,
-        "type": "artist",
+      "followers": {
+        "href": null,
+        "total": 385261
       },
-      {
-        "followers": {
-          "total": 4807873
+      "genres": [
+        "korean r&b"
+      ],
+      "href": "https://api.spotify.com/v1/artists/7lXgbtBDcCRbfc5f8FhGUL",
+      "id": "7lXgbtBDcCRbfc5f8FhGUL",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab6761610000e5eb165f3d573fd01404280ff78f",
+          "width": 640
         },
-        "genres": ["j-acoustic", "j-pop"],
-        "id": "5kVZa4lFUmAQlBogl1fkd6",
-        "images": [
-          {
-            "url": "https://i.scdn.co/image/ab6761610000e5eb829f515321b23af8023caf30",
-            "height": 640,
-            "width": 640
-          },
-          {
-            "url": "https://i.scdn.co/image/ab67616100005174829f515321b23af8023caf30",
-            "height": 320,
-            "width": 320
-          },
-          {
-            "url": "https://i.scdn.co/image/ab6761610000f178829f515321b23af8023caf30",
-            "height": 160,
-            "width": 160
-          }
-        ],
-        "name": "Aimyon",
-        "popularity": 67,
-        "type": "artist",
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/ab67616100005174165f3d573fd01404280ff78f",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/ab6761610000f178165f3d573fd01404280ff78f",
+          "width": 160
+        }
+      ],
+      "name": "Hoody",
+      "popularity": 52,
+      "type": "artist",
+      "uri": "spotify:artist:7lXgbtBDcCRbfc5f8FhGUL"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/6aLdhHUqgdKE86xbtNmY8g"
       },
-      {
-        "followers": {
-          "total": 6226828
-        },
-        "genres": ["j-pop", "japanese teen pop"],
-        "id": "64tJ2EAv1R6UaZqc4iOCyj",
-        "images": [
-          {
-            "url": "https://i.scdn.co/image/ab6761610000e5ebfbe071f5bc42f38d3485a29a",
-            "height": 640,
-            "width": 640
-          },
-          {
-            "url": "https://i.scdn.co/image/ab67616100005174fbe071f5bc42f38d3485a29a",
-            "height": 320,
-            "width": 320
-          },
-          {
-            "url": "https://i.scdn.co/image/ab6761610000f178fbe071f5bc42f38d3485a29a",
-            "height": 160,
-            "width": 160
-          }
-        ],
-        "name": "YOASOBI",
-        "popularity": 76,
-        "type": "artist",
+      "followers": {
+        "href": null,
+        "total": 1160818
       },
-      {
-        "followers": {
-          "total": 20394917
+      "genres": [
+        "k-pop",
+        "korean r&b"
+      ],
+      "href": "https://api.spotify.com/v1/artists/6aLdhHUqgdKE86xbtNmY8g",
+      "id": "6aLdhHUqgdKE86xbtNmY8g",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab6761610000e5eb8e9d1c8642df6f869631fe62",
+          "width": 640
         },
-        "genres": ["electropop", "pop"],
-        "id": "69GGBxA162lTqCwzJG5jLp",
-        "images": [
-          {
-            "url": "https://i.scdn.co/image/ab6761610000e5ebdb68d678df6d89bf8a55d052",
-            "height": 640,
-            "width": 640
-          },
-          {
-            "url": "https://i.scdn.co/image/ab67616100005174db68d678df6d89bf8a55d052",
-            "height": 320,
-            "width": 320
-          },
-          {
-            "url": "https://i.scdn.co/image/ab6761610000f178db68d678df6d89bf8a55d052",
-            "height": 160,
-            "width": 160
-          }
-        ],
-        "name": "The Chainsmokers",
-        "popularity": 78,
-        "type": "artist",
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/ab676161000051748e9d1c8642df6f869631fe62",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/ab6761610000f1788e9d1c8642df6f869631fe62",
+          "width": 160
+        }
+      ],
+      "name": "Crush",
+      "popularity": 63,
+      "type": "artist",
+      "uri": "spotify:artist:6aLdhHUqgdKE86xbtNmY8g"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/1mORehSVEd7lcaT2d7Sl2K"
       },
-      {
-        "followers": {
-          "total": 441525
-        },
-        "genres": ["korean pop"],
-        "id": "6GwM5CHqhWXzG3l5kzRSAS",
-        "images": [
-          {
-            "url": "https://i.scdn.co/image/ab6761610000e5eb1b6966cc5bb31edcab435911",
-            "height": 640,
-            "width": 640
-          },
-          {
-            "url": "https://i.scdn.co/image/ab676161000051741b6966cc5bb31edcab435911",
-            "height": 320,
-            "width": 320
-          },
-          {
-            "url": "https://i.scdn.co/image/ab6761610000f1781b6966cc5bb31edcab435911",
-            "height": 160,
-            "width": 160
-          }
-        ],
-        "name": "윤하",
-        "popularity": 51,
-        "type": "artist",
+      "followers": {
+        "href": null,
+        "total": 1100229
       },
-      {
-        "followers": {
-          "total": 4917063
+      "genres": [
+        "k-pop",
+        "korean r&b"
+      ],
+      "href": "https://api.spotify.com/v1/artists/1mORehSVEd7lcaT2d7Sl2K",
+      "id": "1mORehSVEd7lcaT2d7Sl2K",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab6761610000e5eb7e6641ca1d8e86529cccdd32",
+          "width": 640
         },
-        "genres": ["k-pop", "k-pop girl group"],
-        "id": "6HvZYsbFfjnjFrWF950C9d",
-        "images": [
-          {
-            "url": "https://i.scdn.co/image/ab6761610000e5eb5da361915b1fa48895d4f23f",
-            "height": 640,
-            "width": 640
-          },
-          {
-            "url": "https://i.scdn.co/image/ab676161000051745da361915b1fa48895d4f23f",
-            "height": 320,
-            "width": 320
-          },
-          {
-            "url": "https://i.scdn.co/image/ab6761610000f1785da361915b1fa48895d4f23f",
-            "height": 160,
-            "width": 160
-          }
-        ],
-        "name": "NewJeans",
-        "popularity": 84,
-        "type": "artist",
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/ab676161000051747e6641ca1d8e86529cccdd32",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/ab6761610000f1787e6641ca1d8e86529cccdd32",
+          "width": 160
+        }
+      ],
+      "name": "SURAN",
+      "popularity": 50,
+      "type": "artist",
+      "uri": "spotify:artist:1mORehSVEd7lcaT2d7Sl2K"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/3eCd0TZrBPm2n9cDG6yWfF"
       },
-      {
-        "followers": {
-          "total": 21162827
-        },
-        "genres": ["pop", "viral pop"],
-        "id": "6VuMaDnrHyPL1p4EHjYLi7",
-        "images": [
-          {
-            "url": "https://i.scdn.co/image/ab6761610000e5ebf83823555da55fd07555fbd0",
-            "height": 640,
-            "width": 640
-          },
-          {
-            "url": "https://i.scdn.co/image/ab67616100005174f83823555da55fd07555fbd0",
-            "height": 320,
-            "width": 320
-          },
-          {
-            "url": "https://i.scdn.co/image/ab6761610000f178f83823555da55fd07555fbd0",
-            "height": 160,
-            "width": 160
-          }
-        ],
-        "name": "Charlie Puth",
-        "popularity": 80,
-        "type": "artist",
+      "followers": {
+        "href": null,
+        "total": 1370189
       },
-      {
-        "followers": {
-          "total": 793763
+      "genres": [
+        "k-pop",
+        "korean r&b"
+      ],
+      "href": "https://api.spotify.com/v1/artists/3eCd0TZrBPm2n9cDG6yWfF",
+      "id": "3eCd0TZrBPm2n9cDG6yWfF",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab6761610000e5eb6f5769fc671ca8199168d3fb",
+          "width": 640
         },
-        "genres": ["anime", "classic j-pop", "j-pop", "visual kei"],
-        "id": "6jTjjAjvYvMYfaqi837p5x",
-        "images": [
-          {
-            "url": "https://i.scdn.co/image/ab6761610000e5eb7874878b628df526a68dac4c",
-            "height": 640,
-            "width": 640
-          },
-          {
-            "url": "https://i.scdn.co/image/ab676161000051747874878b628df526a68dac4c",
-            "height": 320,
-            "width": 320
-          },
-          {
-            "url": "https://i.scdn.co/image/ab6761610000f1787874878b628df526a68dac4c",
-            "height": 160,
-            "width": 160
-          }
-        ],
-        "name": "L'Arc-en-Ciel",
-        "popularity": 54,
-        "type": "artist",
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/ab676161000051746f5769fc671ca8199168d3fb",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/ab6761610000f1786f5769fc671ca8199168d3fb",
+          "width": 160
+        }
+      ],
+      "name": "DEAN",
+      "popularity": 59,
+      "type": "artist",
+      "uri": "spotify:artist:3eCd0TZrBPm2n9cDG6yWfF"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/6FK6uP46ntwU9gaQQxTlDV"
       },
-      {
-        "followers": {
-          "total": 1443483
-        },
-        "genres": ["classic j-pop", "j-pop"],
-        "id": "79nkC8XZ5ohEVU0Xlf5Ael",
-        "images": [
-          {
-            "url": "https://i.scdn.co/image/ab6761610000e5eb9d2e3be06f4b5d6756875761",
-            "height": 640,
-            "width": 640
-          },
-          {
-            "url": "https://i.scdn.co/image/ab676161000051749d2e3be06f4b5d6756875761",
-            "height": 320,
-            "width": 320
-          },
-          {
-            "url": "https://i.scdn.co/image/ab6761610000f1789d2e3be06f4b5d6756875761",
-            "height": 160,
-            "width": 160
-          }
-        ],
-        "name": "SOUTHERN ALL STARS",
-        "popularity": 64,
-        "type": "artist",
+      "followers": {
+        "href": null,
+        "total": 151069
       },
-      {
-        "followers": {
-          "total": 219096
+      "genres": [
+        "korean r&b"
+      ],
+      "href": "https://api.spotify.com/v1/artists/6FK6uP46ntwU9gaQQxTlDV",
+      "id": "6FK6uP46ntwU9gaQQxTlDV",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab6761610000e5ebdcadde29e1573dd0ce84376c",
+          "width": 640
         },
-        "genres": ["korean pop"],
-        "id": "7jFUYMpMUBDL4JQtMZ5ilc",
-        "images": [
-          {
-            "url": "https://i.scdn.co/image/ab6761610000e5ebb3c06b25c1c87dfcec00877d",
-            "height": 640,
-            "width": 640
-          },
-          {
-            "url": "https://i.scdn.co/image/ab67616100005174b3c06b25c1c87dfcec00877d",
-            "height": 320,
-            "width": 320
-          },
-          {
-            "url": "https://i.scdn.co/image/ab6761610000f178b3c06b25c1c87dfcec00877d",
-            "height": 160,
-            "width": 160
-          }
-        ],
-        "name": "성시경",
-        "popularity": 48,
-        "type": "artist",
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/ab67616100005174dcadde29e1573dd0ce84376c",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/ab6761610000f178dcadde29e1573dd0ce84376c",
+          "width": 160
+        }
+      ],
+      "name": "jeebanoff",
+      "popularity": 42,
+      "type": "artist",
+      "uri": "spotify:artist:6FK6uP46ntwU9gaQQxTlDV"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/1vct46rBqLNRbE9wCibXUH"
       },
-      {
-        "followers": {
-          "total": 18692542
+      "followers": {
+        "href": null,
+        "total": 219765
+      },
+      "genres": [
+        "korean r&b"
+      ],
+      "href": "https://api.spotify.com/v1/artists/1vct46rBqLNRbE9wCibXUH",
+      "id": "1vct46rBqLNRbE9wCibXUH",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab6761610000e5ebbb49d6c0dfcc8ac5651e77ec",
+          "width": 640
         },
-        "genres": ["k-pop", "k-pop girl group", "pop"],
-        "id": "7n2Ycct7Beij7Dj7meI4X0",
-        "images": [
-          {
-            "url": "https://i.scdn.co/image/ab6761610000e5eb8944c8aec8db82f35980b191",
-            "height": 640,
-            "width": 640
-          },
-          {
-            "url": "https://i.scdn.co/image/ab676161000051748944c8aec8db82f35980b191",
-            "height": 320,
-            "width": 320
-          },
-          {
-            "url": "https://i.scdn.co/image/ab6761610000f1788944c8aec8db82f35980b191",
-            "height": 160,
-            "width": 160
-          }
-        ],
-        "name": "TWICE",
-        "popularity": 78,
-        "type": "artist",
-      }
-    ]
-  }
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/ab67616100005174bb49d6c0dfcc8ac5651e77ec",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/ab6761610000f178bb49d6c0dfcc8ac5651e77ec",
+          "width": 160
+        }
+      ],
+      "name": "주영",
+      "popularity": 44,
+      "type": "artist",
+      "uri": "spotify:artist:1vct46rBqLNRbE9wCibXUH"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/2pvCf5g7XBReiPIvcq7W18"
+      },
+      "followers": {
+        "href": null,
+        "total": 150292
+      },
+      "genres": [
+        "korean r&b"
+      ],
+      "href": "https://api.spotify.com/v1/artists/2pvCf5g7XBReiPIvcq7W18",
+      "id": "2pvCf5g7XBReiPIvcq7W18",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab6761610000e5eb85de61e55e078d6bfdaf4bd8",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/ab6761610000517485de61e55e078d6bfdaf4bd8",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/ab6761610000f17885de61e55e078d6bfdaf4bd8",
+          "width": 160
+        }
+      ],
+      "name": "SAAY",
+      "popularity": 42,
+      "type": "artist",
+      "uri": "spotify:artist:2pvCf5g7XBReiPIvcq7W18"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/1sVSMPPNMMSZ7cQNfbvMOe"
+      },
+      "followers": {
+        "href": null,
+        "total": 370398
+      },
+      "genres": [
+        "k-pop",
+        "korean pop",
+        "korean singer-songwriter"
+      ],
+      "href": "https://api.spotify.com/v1/artists/1sVSMPPNMMSZ7cQNfbvMOe",
+      "id": "1sVSMPPNMMSZ7cQNfbvMOe",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab67616d0000b273cc4d1a1e9de2f3e58b44c536",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://i.scdn.co/image/ab67616d00001e02cc4d1a1e9de2f3e58b44c536",
+          "width": 300
+        },
+        {
+          "height": 64,
+          "url": "https://i.scdn.co/image/ab67616d00004851cc4d1a1e9de2f3e58b44c536",
+          "width": 64
+        }
+      ],
+      "name": "에디킴",
+      "popularity": 43,
+      "type": "artist",
+      "uri": "spotify:artist:1sVSMPPNMMSZ7cQNfbvMOe"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/6dhfy4ByARPJdPtMyrUYJK"
+      },
+      "followers": {
+        "href": null,
+        "total": 590487
+      },
+      "genres": [
+        "korean pop"
+      ],
+      "href": "https://api.spotify.com/v1/artists/6dhfy4ByARPJdPtMyrUYJK",
+      "id": "6dhfy4ByARPJdPtMyrUYJK",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab6761610000e5eb28f845b9a1c6e8bccb255f0c",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/ab6761610000517428f845b9a1c6e8bccb255f0c",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/ab6761610000f17828f845b9a1c6e8bccb255f0c",
+          "width": 160
+        }
+      ],
+      "name": "백예린",
+      "popularity": 56,
+      "type": "artist",
+      "uri": "spotify:artist:6dhfy4ByARPJdPtMyrUYJK"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/5HenzRvMtSrgtvU16XAoby"
+      },
+      "followers": {
+        "href": null,
+        "total": 580787
+      },
+      "genres": [
+        "k-pop",
+        "k-rap",
+        "korean r&b"
+      ],
+      "href": "https://api.spotify.com/v1/artists/5HenzRvMtSrgtvU16XAoby",
+      "id": "5HenzRvMtSrgtvU16XAoby",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab6761610000e5eb5c9eb01fd34c0a998913ae60",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/ab676161000051745c9eb01fd34c0a998913ae60",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/ab6761610000f1785c9eb01fd34c0a998913ae60",
+          "width": 160
+        }
+      ],
+      "name": "Zion.T",
+      "popularity": 54,
+      "type": "artist",
+      "uri": "spotify:artist:5HenzRvMtSrgtvU16XAoby"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/4k5fFEYgkWYrYvtOK3zVBl"
+      },
+      "followers": {
+        "href": null,
+        "total": 1811599
+      },
+      "genres": [
+        "k-pop"
+      ],
+      "href": "https://api.spotify.com/v1/artists/4k5fFEYgkWYrYvtOK3zVBl",
+      "id": "4k5fFEYgkWYrYvtOK3zVBl",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab6761610000e5ebfdb9292f006730a215b7bfcc",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/ab67616100005174fdb9292f006730a215b7bfcc",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/ab6761610000f178fdb9292f006730a215b7bfcc",
+          "width": 160
+        }
+      ],
+      "name": "볼빨간사춘기",
+      "popularity": 60,
+      "type": "artist",
+      "uri": "spotify:artist:4k5fFEYgkWYrYvtOK3zVBl"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/6OwKE9Ez6ALxpTaKcT5ayv"
+      },
+      "followers": {
+        "href": null,
+        "total": 1380450
+      },
+      "genres": [
+        "k-pop"
+      ],
+      "href": "https://api.spotify.com/v1/artists/6OwKE9Ez6ALxpTaKcT5ayv",
+      "id": "6OwKE9Ez6ALxpTaKcT5ayv",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab6761610000e5ebe0341dd1e6471899c4eb53c6",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/ab67616100005174e0341dd1e6471899c4eb53c6",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/ab6761610000f178e0341dd1e6471899c4eb53c6",
+          "width": 160
+        }
+      ],
+      "name": "AKMU",
+      "popularity": 62,
+      "type": "artist",
+      "uri": "spotify:artist:6OwKE9Ez6ALxpTaKcT5ayv"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/4WnO2VmlwdTX77ANsThWLQ"
+      },
+      "followers": {
+        "href": null,
+        "total": 262437
+      },
+      "genres": [
+        "k-rap",
+        "korean r&b"
+      ],
+      "href": "https://api.spotify.com/v1/artists/4WnO2VmlwdTX77ANsThWLQ",
+      "id": "4WnO2VmlwdTX77ANsThWLQ",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab6761610000e5eb02425eaa181c0959ea137105",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/ab6761610000517402425eaa181c0959ea137105",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/ab6761610000f17802425eaa181c0959ea137105",
+          "width": 160
+        }
+      ],
+      "name": "코드 쿤스트",
+      "popularity": 48,
+      "type": "artist",
+      "uri": "spotify:artist:4WnO2VmlwdTX77ANsThWLQ"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/4BBN286rBKyCWsSPq2cxYO"
+      },
+      "followers": {
+        "href": null,
+        "total": 437446
+      },
+      "genres": [
+        "k-pop",
+        "korean r&b"
+      ],
+      "href": "https://api.spotify.com/v1/artists/4BBN286rBKyCWsSPq2cxYO",
+      "id": "4BBN286rBKyCWsSPq2cxYO",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab6761610000e5eb18c434d49d7d2f82199fde6d",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/ab6761610000517418c434d49d7d2f82199fde6d",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/ab6761610000f17818c434d49d7d2f82199fde6d",
+          "width": 160
+        }
+      ],
+      "name": "샘김",
+      "popularity": 57,
+      "type": "artist",
+      "uri": "spotify:artist:4BBN286rBKyCWsSPq2cxYO"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/1MAUqH0haKBYbjpknTfreY"
+      },
+      "followers": {
+        "href": null,
+        "total": 353267
+      },
+      "genres": [
+        "k-rap",
+        "korean r&b"
+      ],
+      "href": "https://api.spotify.com/v1/artists/1MAUqH0haKBYbjpknTfreY",
+      "id": "1MAUqH0haKBYbjpknTfreY",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab6761610000e5eb3989259eefdf57067411b32a",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/ab676161000051743989259eefdf57067411b32a",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/ab6761610000f1783989259eefdf57067411b32a",
+          "width": 160
+        }
+      ],
+      "name": "페노메코",
+      "popularity": 53,
+      "type": "artist",
+      "uri": "spotify:artist:1MAUqH0haKBYbjpknTfreY"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/2e4G04F77jxVuDYo44TCSm"
+      },
+      "followers": {
+        "href": null,
+        "total": 396448
+      },
+      "genres": [
+        "k-pop",
+        "k-rap",
+        "korean r&b"
+      ],
+      "href": "https://api.spotify.com/v1/artists/2e4G04F77jxVuDYo44TCSm",
+      "id": "2e4G04F77jxVuDYo44TCSm",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab6761610000e5eb29971b8d9d19fef176338e4a",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/ab6761610000517429971b8d9d19fef176338e4a",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/ab6761610000f17829971b8d9d19fef176338e4a",
+          "width": 160
+        }
+      ],
+      "name": "로꼬",
+      "popularity": 58,
+      "type": "artist",
+      "uri": "spotify:artist:2e4G04F77jxVuDYo44TCSm"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/0siBQaURCli5wn2lqv8WZg"
+      },
+      "followers": {
+        "href": null,
+        "total": 977828
+      },
+      "genres": [
+        "korean r&b"
+      ],
+      "href": "https://api.spotify.com/v1/artists/0siBQaURCli5wn2lqv8WZg",
+      "id": "0siBQaURCli5wn2lqv8WZg",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab6761610000e5ebacb49442ef7030a98e45f905",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/ab67616100005174acb49442ef7030a98e45f905",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/ab6761610000f178acb49442ef7030a98e45f905",
+          "width": 160
+        }
+      ],
+      "name": "DPR LIVE",
+      "popularity": 61,
+      "type": "artist",
+      "uri": "spotify:artist:0siBQaURCli5wn2lqv8WZg"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/5snNHNlYT2UrtZo5HCJkiw"
+      },
+      "followers": {
+        "href": null,
+        "total": 729766
+      },
+      "genres": [
+        "k-pop",
+        "k-rap",
+        "korean old school hip hop"
+      ],
+      "href": "https://api.spotify.com/v1/artists/5snNHNlYT2UrtZo5HCJkiw",
+      "id": "5snNHNlYT2UrtZo5HCJkiw",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab6761610000e5eb9962dc64cfd59d5edaf226db",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/ab676161000051749962dc64cfd59d5edaf226db",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/ab6761610000f1789962dc64cfd59d5edaf226db",
+          "width": 160
+        }
+      ],
+      "name": "에픽하이",
+      "popularity": 53,
+      "type": "artist",
+      "uri": "spotify:artist:5snNHNlYT2UrtZo5HCJkiw"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/5DIi2JWfQPTKffaVBlIYRn"
+      },
+      "followers": {
+        "href": null,
+        "total": 446621
+      },
+      "genres": [
+        "k-rap",
+        "korean r&b"
+      ],
+      "href": "https://api.spotify.com/v1/artists/5DIi2JWfQPTKffaVBlIYRn",
+      "id": "5DIi2JWfQPTKffaVBlIYRn",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab6761610000e5ebb09abbbc0bd04356940e2675",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/ab67616100005174b09abbbc0bd04356940e2675",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/ab6761610000f178b09abbbc0bd04356940e2675",
+          "width": 160
+        }
+      ],
+      "name": "식케이",
+      "popularity": 56,
+      "type": "artist",
+      "uri": "spotify:artist:5DIi2JWfQPTKffaVBlIYRn"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/5DnjOSzLCfn4hDbLECq8pt"
+      },
+      "followers": {
+        "href": null,
+        "total": 145568
+      },
+      "genres": [
+        "korean pop"
+      ],
+      "href": "https://api.spotify.com/v1/artists/5DnjOSzLCfn4hDbLECq8pt",
+      "id": "5DnjOSzLCfn4hDbLECq8pt",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab6761610000e5eb91ff80a3e80708537f648532",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/ab6761610000517491ff80a3e80708537f648532",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/ab6761610000f17891ff80a3e80708537f648532",
+          "width": 160
+        }
+      ],
+      "name": "양다일",
+      "popularity": 41,
+      "type": "artist",
+      "uri": "spotify:artist:5DnjOSzLCfn4hDbLECq8pt"
+    }
+  ]
 }

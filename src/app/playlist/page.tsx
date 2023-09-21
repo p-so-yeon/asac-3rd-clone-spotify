@@ -1,4 +1,6 @@
+import SearchTrack from '@/app/playlist/SearchTrack'
 import Image from 'next/image'
+import { SlOptions } from 'react-icons/sl'
 
 const test_data = {
   cover_img: '',
@@ -31,9 +33,19 @@ export default function page() {
             </div>
             <p>{test_data.author}</p>
           </div>
-          
-          
         </div>
+      </section>
+      {/*Tracks */}
+      <div>
+        <div className="w-full min-h-14 h-14 px-6 py-6 ">
+          <SlOptions size={24} className="text-color-text-secondary" />
+        </div>
+        <div>
+          <div className="bg-slate-400 w-full h-24"></div>
+        </div>
+      </div>
+      <section>
+        <SearchTrack/>
       </section>
     </div>
   )

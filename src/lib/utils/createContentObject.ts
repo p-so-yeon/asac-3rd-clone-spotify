@@ -1,9 +1,9 @@
-import { Image } from "@/lib/types/common/images-data-type"
-import { AlbumItem } from "@/lib/types/raw-api-data-type/artist/get-artists-albums-data-type";
-import { ArtistItem } from "@/lib/types/raw-api-data-type/artist/get-related-artist-data-type";
-import { PlaylistItem } from "@/lib/types/raw-api-data-type/playlist/featured-playlist-data-type";
-import { TrackItem } from "@/lib/types/raw-api-data-type/track/get-track-data-type";
-import { UserItem } from "@/lib/types/raw-api-data-type/user/followed-artist-data-type";
+import { Image } from "@/types/common/images-data-type"
+import { AlbumItem } from "@/types/raw-api-data-type/artist/get-artists-albums-data-type";
+import { ArtistItem } from "@/types/raw-api-data-type/artist/get-related-artist-data-type";
+import { PlaylistItem } from "@/types/raw-api-data-type/playlist/featured-playlist-data-type";
+import { TrackItem } from "@/types/raw-api-data-type/track/get-track-data-type";
+import { UserItem } from "@/types/raw-api-data-type/user/followed-artist-data-type";
 
 type Items = ArtistItem | AlbumItem | PlaylistItem | TrackItem | UserItem;
 
@@ -66,43 +66,17 @@ export const createContentFromItem = {
   track: getContentFromTrack
 }
 
-// 사용 예시
-// const testdata: AlbumItem = {
-//   "album_type": "compilation",
-//   "total_tracks": 9,
-//   "available_markets": ["CA", "BR", "IT"],
-//   "external_urls": {
-//     "spotify": "string"
-//   },
-//   "href": "string",
-//   "id": "2up3OPMp9Tb4dAKM2erWXQ",
-//   "images": [
-//     {
-//       "url": "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228",
-//       "height": 300,
-//       "width": 300
-//     }
-//   ],
-//   "name": "string",
-//   "release_date": "1981-12",
-//   "release_date_precision": "year",
-//   "restrictions": {
-//     "reason": "market"
-//   },
-//   "type": "album",
-//   "uri": "spotify:album:2up3OPMp9Tb4dAKM2erWXQ",
-//   "artists": [
-//     {
-//       "external_urls": {
-//         "spotify": "string"
-//       },
-//       "href": "string",
-//       "id": "string",
-//       "name": "string",
-//       "type": "artist",
-//       "uri": "string"
-//     }
-//   ],
-//   "album_group": "compilation",
-// }
-// const testContentData = createContentFromItem.album(testdata)
+/**
+ * ! 사용예시 
+ * 
+ * * createContentFromItem["typeof ItemType"](param : Items) : CommonContentObject
+ * * createContentFromItem.typeof ItemType(param : Items) : CommonContentObject
+ * 
+ * ? const fetched-raw-playlists-data = useFetch(/playlist)
+ * ? {
+ * ?   fetched-raw-data-playlists-data.Item.map(
+ * ?     (playlist) => 
+ * ?       <ContentCard data={createContentFromItem.playlist(playlist)} .../>
+ * ?   )
+ * ? } 
+ */

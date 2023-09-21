@@ -1,3 +1,4 @@
+'use client'
 import { ReactNode } from 'react'
 
 import { ContentCardContext } from '@/components/ContentCard/ContentCardContext'

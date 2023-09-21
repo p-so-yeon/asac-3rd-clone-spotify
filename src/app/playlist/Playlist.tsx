@@ -1,15 +1,14 @@
 'use client'
 import { useEffect, useState } from 'react'
 
-import ContentCard from '@/components/ContentCard/ContentCard'
 import { MOCK_API_URL } from '@/lib/constant/path'
-import { FeaturedPlaylist, Item } from '@/lib/types/playlist/featured-playlist-mock-data'
+import { FeaturedPlaylist } from '@/types/playlist/featured-playlist-mock-data'
 
 export default function Playlist() {
   const [featuredPlaylists, setFeaturedPlaylists] = useState<FeaturedPlaylist>()
   useEffect(() => {
     async function fetchFeaturedPlaylists() {
-      const url = `${MOCK_API_URL}/featured-playlist`
+      const url = `${MOCK_API_URL}/playlist/featured`
       const res = await fetch(url)
       const featuredPlaylistData: FeaturedPlaylist = await res.json()
       console.log(featuredPlaylistData)
@@ -20,7 +19,8 @@ export default function Playlist() {
 
   return (
     <>
-      <h1>{featuredPlaylists?.message}</h1>
+      <h1 className="text-white">playlist</h1>
+      {/* <h1>{featuredPlaylists?.message}</h1>
       <ul>
         {featuredPlaylists?.playlists.items.map((playlist: Item) => {
           return (
@@ -37,7 +37,7 @@ export default function Playlist() {
             />
           )
         })}
-      </ul>
+      </ul> */}
     </>
   )
 }

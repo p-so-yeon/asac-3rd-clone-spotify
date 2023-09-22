@@ -8,7 +8,7 @@ import { MdOutlinePersonOutline } from 'react-icons/md'
 
 import Dropdown from '@/components/common/dropdown'
 
-function Header() {
+function Nav() {
   const router = useRouter()
 
   const back = () => {
@@ -51,4 +51,4 @@ function Header() {
   )
 }
 
-export default Header
+export default Nav

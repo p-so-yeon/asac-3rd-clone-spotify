@@ -7,7 +7,6 @@ import Header from '@/components/common/header'
 import Player from '@/components/common/Player'
 import Sidebar from '@/components/common/Sidebar'
 import Providers from '@/components/provider/Providers'
-import ReduxProvider from '@/store/provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,7 +19,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ReduxProvider>
           <Providers>
             <main className="bg-color-background-primary w-full h-screen grid grid-cols-[max-content_auto] grid-rows-[1fr_auto] p-2 gap-2">
               <Sidebar />
@@ -47,7 +45,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </section>
           </main> */}
           </Providers>
-          </ReduxProvider>
       </body>
     </html>
   )

@@ -1,0 +1,47 @@
+import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers } from 'redux'
+import { persistReducer } from 'redux-persist'
+// import storage from 'redux-persist/lib/storage'
+import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
+
+import tokenSlice from '@/ducks/features/token/tokenSlice'
+
+const createNoopStorage = () => {
+  return {
+    getItem(_key: any) {
+      return Promise.resolve(null)
+    },
+    setItem(_key: any, value: any) {
+      return Promise.resolve(value)
+    },
+    removeItem(_key: any) {
+      return Promise.resolve()
+    },
+  }
+}
+const storage = typeof window !== 'undefined' ? createWebStorage('local') : createNoopStorage()
+
+const persistConfig = {
+  key: 'root', //localstorage key
+  storage, //로컬스토리지 사용
+  whitelist: ['token'], //유지하고 싶은 값을 배열로 전달
+  //balcklist: 유지하고 싶지 않은 값을 배열로 전달.
+}
+
+const rootReducer = combineReducers({
+  //여러 개의 reducer를 하나의 root reducer로 합쳐준다.
+  user: tokenSlice.reducer,
+})
+
+const tokenReducer = persistReducer(persistConfig, rootReducer)
+
+//persistReducer: reducer 반환 API. 인자로 받은 config 객체를 reducer 함수에 적용해 enhanced reducer를 반환
+const store = configureStore({
+  reducer: { tokenReducer },
+  devTools: process.env.NODE_ENV === "development"
+})
+
+export default store
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch

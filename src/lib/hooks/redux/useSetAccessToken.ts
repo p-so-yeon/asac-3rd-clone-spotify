@@ -3,20 +3,20 @@ import axios from 'axios'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { setToken } from '@/store/tokenSlice'
+import { setToken } from '@/ducks/features/token/tokenSlice'
 
 export default function useSetAccessToken() {
   const dispatch = useDispatch()
   useEffect(() => {
     const setAccessToken = (token: String) => {
-      console.log("token:",token)
+      console.log("token:", token)
       dispatch(
         setToken({
           ACCESS_TOKEN: token,
         }),
       )
       console.log('accessToken setted in Redux toolkit')
-      
+
     }
     axios({
       method: 'post',

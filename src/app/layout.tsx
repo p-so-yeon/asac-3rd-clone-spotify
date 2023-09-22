@@ -3,9 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
-import Nav from '@/components/common/Nav'
-
-// import LayoutResizer from '@/components/common/LayoutResizer'
+import Header from '@/components/common/header'
 
 import Player from '@/components/common/Player'
 import Sidebar from '@/components/common/Sidebar'
@@ -25,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Providers>
           <main className="bg-color-background-primary w-full h-screen grid grid-cols-[max-content_auto] grid-rows-[1fr_auto] p-2 gap-2">
             <Sidebar />
-            <div className="flex flex-col">
+            <div className="flex flex-col overflow-y-auto">
               <Header />
               {children}
             </div>
@@ -34,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </main>
           {/* <main className="bg-color-background-primary">
-            <section className="h-screen grid grid-areas-desktop grid-rows-layout grid-cols-layout p-2 gap-2">
+            <section className="grid h-screen gap-2 p-2 grid-areas-desktop grid-rows-layout grid-cols-layout">
               <aside className="flex w-[280px] grid-in-left-sidebar">
                 <Sidebar />
               </aside>

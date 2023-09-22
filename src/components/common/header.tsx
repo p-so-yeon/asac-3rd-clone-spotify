@@ -4,9 +4,9 @@ import { BsDot } from 'react-icons/bs'
 
 import Nav from '@/components/common/Nav'
 import { MOCK_API_URL } from '@/lib/constant/path'
-import { User } from '@/lib/types/mock-data-type'
-import { Artists } from '@/lib/types/mock-data-type'
-import { playlistItem } from '@/lib/types/mock-data-type'
+import { User } from '@/types/mock-data-type'
+import { Artists } from '@/types/mock-data-type'
+import { playlistItem } from '@/types/mock-data-type'
 function Contentheader() {
   const [curuser, setCuruser] = useState<User>()
   const [followed, setFollowed] = useState<Artists>()

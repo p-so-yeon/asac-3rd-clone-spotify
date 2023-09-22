@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
-import { Track } from "@/lib/types/common/track-data-type"
+import { Track } from "@/types/common/track-data-type"
 
-interface IPlayer {
+interface Player {
   currentTrack: Track
   currentPlaylist: any // playlist
   trackQueue: Track[]
@@ -13,7 +13,7 @@ interface IPlayer {
   isloading: boolean
 }
 
-const initialState: IPlayer = {
+const initialState: Player = {
   currentTrack: {} as Track,
   currentPlaylist: {},
   trackQueue: [] as Track[],

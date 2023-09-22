@@ -1,11 +1,13 @@
 import { rest } from "msw"
 
 import { MOCK_API_URL } from "@/lib/constant/path"
-import { RECENTLY_PLAYED_TRACK_DATA, TOP_TRACKS_DATA, TRACK_DATA } from "@/mock/api/data/tracks-data"
+import { RECENTLY_PLAYED_TRACK_DATA, RECOMMANDATION_TRACK_DATA, TOP_TRACKS_DATA, TRACK_DATA, USERS_SAVED_TRACKS } from "@/mock/api/data/tracks-data"
 
 const TracksHandler = [
-  rest.get(`${MOCK_API_URL}/home/top-track`, (_, res, ctx) => res(ctx.json(TOP_TRACKS_DATA))),
-  rest.get(`${MOCK_API_URL}/home/track`, (_, res, ctx) => res(ctx.json(TRACK_DATA))),
-  rest.get(`${MOCK_API_URL}/home/recently-played-track`, (_, res, ctx) => res(ctx.json(RECENTLY_PLAYED_TRACK_DATA)))
+  rest.get(`${MOCK_API_URL}/track/top-track`, (_, res, ctx) => res(ctx.json(TOP_TRACKS_DATA))),
+  rest.get(`${MOCK_API_URL}/track/get-track`, (_, res, ctx) => res(ctx.json(TRACK_DATA))),
+  rest.get(`${MOCK_API_URL}/track/recently-played`, (_, res, ctx) => res(ctx.json(RECENTLY_PLAYED_TRACK_DATA))),
+  rest.get(`${MOCK_API_URL}/track/recommandation`, (_, res, ctx) => res(ctx.json(RECOMMANDATION_TRACK_DATA))),
+  rest.get(`${MOCK_API_URL}/track/users-saved`, (_, res, ctx) => res(ctx.json(USERS_SAVED_TRACKS))),
 ]
 export default TracksHandler

@@ -4,6 +4,6 @@ import { MOCK_API_URL } from "@/lib/constant/path";
 import { GENRE_DATA } from "@/mock/api/data/genre-data";
 
 const genreHandler = [
-  rest.get(`${MOCK_API_URL}/home/genre`, (_, res, ctx) => res(ctx.json(GENRE_DATA)))
+  rest.get(`${MOCK_API_URL}/genre/get-genre`, (_, res, ctx) => res(ctx.json(GENRE_DATA)))
 ]
 export default genreHandler

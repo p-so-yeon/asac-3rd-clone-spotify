@@ -9,7 +9,7 @@ import { BiLibrary } from 'react-icons/bi'
 import { GoHome } from 'react-icons/go'
 
 import { MOCK_API_URL } from '@/lib/constant/path'
-import { FollowArtist } from '@/lib/types/mock-data-type'
+import { FollowArtist } from '@/types/mock-data-type'
 
 function Sidebar() {
   const pathname = usePathname()
@@ -31,27 +31,43 @@ function Sidebar() {
     [pathname],
   )
   // 사이드바 브레이크 포인트 72 280 420 584 1416
+  // max-width를 screen사이즈별로
+  const [minWidth, defualtWidth, mdWidth, lgWidth, maxWidth] = useMemo(() => [72, 280, 420, 584, 1416], [])
   const [followedArtists, setFlollowedArtists] = useState<FollowArtist>()
-  const [width, setWidth] = useState<number>(295)
+  const [width, setWidth] = useState<number>(
+    localStorage.getItem('sidebarWidth') !== null
+      ? parseInt(localStorage.getItem('sidebarWidth') as string)
+      : defualtWidth,
+  )
   const isResized = useRef<boolean>(false)
-
   useEffect(() => {
+    // 커스텀 훅으로 분리 react query
     async function fetchFlollowedArtists() {
-      const url = `${MOCK_API_URL}/followed-artist`
+      const url = `${MOCK_API_URL}/user/followed-artist`
       const res = await fetch(url)
       const followedArtistsData: FollowArtist = await res.json()
 
       setFlollowedArtists(followedArtistsData)
     }
     fetchFlollowedArtists()
+  }, [])
 
+  useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!isResized.current) return
-      setWidth((prev) => prev + e.movementX / 2)
+
+      setWidth((prev) => {
+        const newWidth = prev + e.movementX / 2
+        const isWidthInRange = newWidth >= minWidth && newWidth <= maxWidth
+        // const isSpreadArea = newWidth >= mdWidth && newWidth <= lgWidth
+        // const
+        return isWidthInRange ? newWidth : prev
+      })
     }
     window.addEventListener('mousemove', handleMouseMove)
 
     const handleMouseUp = () => {
+      localStorage.setItem('sidebarWidth', `${width}`)
       isResized.current = false
     }
     window.addEventListener('mouseup', handleMouseUp)
@@ -60,14 +76,15 @@ function Sidebar() {
       window.removeEventListener('mousemove', handleMouseMove)
       window.removeEventListener('mouseup', handleMouseUp)
     }
-  }, [])
-  // 스크롤 영역 크기
-  // (84 50 134) + 88 = 222
-  // 100vh - 222
+  }, [width, minWidth, mdWidth, lgWidth, maxWidth])
+
   return (
-    <aside className="flex bg-black row-span-1 min-w-[72px]" style={{ width: `${width / 16}rem` }}>
-      <div className="gap-2">
-        <div className="flex flex-col bg-color-box-primary rounded-lg py-2 px-3">
+    <aside
+      className={`flex bg-black row-span-1 min-w-[${minWidth}px] max-w-[${maxWidth}px]`}
+      style={{ width: `${width / 16}rem` }}
+    >
+      <div className={`gap-2 w-full`}>
+        <div className="flex flex-col px-3 py-2 rounded-lg bg-color-box-primary">
           {routes.map((item) => (
             <Link
               key={item.label}
@@ -81,20 +98,20 @@ function Sidebar() {
             </Link>
           ))}
         </div>
-        <main className="bg-color-box-primary rounded-lg w-full py-2">
+        <main className="w-full py-2 rounded-lg bg-color-box-primary">
           {/* Library header */}
-          <header className="font-black flex items-center justify-between py-2 px-4">
-            <div className="inline-flex items-center gap-x-2 px-2 py-1">
+          <header className="flex items-center justify-between px-4 py-2 font-black">
+            <div className="inline-flex items-center px-2 py-1 gap-x-2">
               <BiLibrary className="text-color-text-secondary" size={26} />
-              <p className=" text-color-text-secondary ">내 라이브러리</p>
+              <p className=" text-color-text-secondary">내 라이브러리</p>
             </div>
-            <AiOutlinePlus size={20} className="text-neutral-300 hover:text-white cursor-pointer transition" />
+            <AiOutlinePlus size={20} className="transition cursor-pointer text-neutral-300 hover:text-white" />
           </header>
           {/*Library list*/}
-          <div className="flex flex-col gap-2 px-2 h-[calc(100vh-222px)] overflow-y-auto">
+          <div className="flex flex-col gap-2 px-2 h-[calc(100vh-242px)] overflow-y-auto">
             <div className="flex items-center justify-between px-2 py-0.5">
               <BiSearch size={20} className="m-2 font-black text-color-text-secondary" />
-              <p className="font-bold text-xs text-color-text-secondary">Recents</p>
+              <p className="text-xs font-bold text-color-text-secondary">Recents</p>
             </div>
             <ul className="flex flex-col gap-2">
               {followedArtists?.artists.items.map((artist) => (
@@ -108,7 +125,7 @@ function Sidebar() {
                       alt={`${artist.name}`}
                     />
                     <div className={`flex flex-col`}>
-                      <span className="text-color-text-primary line-clamp-1 break-all">{`${artist.name}`}</span>
+                      <span className="break-all text-color-text-primary line-clamp-1">{`${artist.name}`}</span>
                       <span className="text-color-text-secondary">{`${artist.type}`}</span>
                     </div>
                   </div>
@@ -119,7 +136,10 @@ function Sidebar() {
         </main>
       </div>
       {/* Resize handle */}
-      <div className="cursor-col-resize w-1 bg-red-500" onMouseDown={() => (isResized.current = true)} />
+      <div
+        className="cursor-col-resize w-[3px] hover:bg-color-hover-primary active:bg-color-active-primary"
+        onMouseDown={() => (isResized.current = true)}
+      />
     </aside>
   )
 }

@@ -8,7 +8,7 @@ export interface Track {
   duration_ms: number;
   explicit: boolean;
   id: string;
-  is_playable: boolean;
+  is_playable?: boolean;
   name: string;
   popularity: number;
   preview_url: string;

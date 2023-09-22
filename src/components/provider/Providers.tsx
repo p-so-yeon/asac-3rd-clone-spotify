@@ -5,13 +5,14 @@ import { SessionProvider } from 'next-auth/react'
 import React from 'react'
 
 import MSWComponent from '@/components/mock-service/MSWComponent'
+import ReduxProvider from '@/store/provider'
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <MSWComponent>
-      <SessionProvider>{children}</SessionProvider>
-      {/* <StoreProvider> */}
-      {/* </StoreProvider> */}
+      <ReduxProvider>
+        <SessionProvider>{children}</SessionProvider>
+      </ReduxProvider>
     </MSWComponent>
   )
 }

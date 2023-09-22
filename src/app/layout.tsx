@@ -17,12 +17,11 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>
-          <ReduxProvider>
+        <ReduxProvider>
+          <Providers>
             <main className="bg-color-background-primary w-full h-screen grid grid-cols-[max-content_auto] grid-rows-[1fr_auto] p-2 gap-2">
               <Sidebar />
               <div className="flex flex-col">
@@ -47,8 +46,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
             </section>
           </main> */}
+          </Providers>
           </ReduxProvider>
-        </Providers>
       </body>
     </html>
   )

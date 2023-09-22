@@ -13,7 +13,6 @@ export default function page() {
   return (
     <div className="h-full">
       <PlaylistInfo test_data={test_data} />
-      {/*Tracks */}
       <div className="px-5">
         <section>
           <Playlists />

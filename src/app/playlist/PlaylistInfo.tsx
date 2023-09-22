@@ -1,7 +1,17 @@
 import Image from 'next/image'
 import React from 'react'
 
-export default function PlaylistInfo({test_data}) {
+interface dataProps {
+  cover_img: string | null
+  title: string
+  author: string
+  author_profile: string | null
+}
+
+interface PlaylistInfoProps {
+  test_data: dataProps
+}
+export default function PlaylistInfo({ test_data }: PlaylistInfoProps) {
   return (
     <section className="relative px-4 flex w-full h-72 bg-gradient-to-b from-transparent to-color-card-primary">
       <button className="shadow-xl mr-5 relative top-16 text-white w-52 h-52 hover:bg-color-hover-primary">

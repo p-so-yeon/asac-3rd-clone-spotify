@@ -3,7 +3,7 @@ import { BiLinkExternal } from 'react-icons/bi'
 function Dropdown() {
   return (
     <>
-      <div className="justify-center font-sans w-[196px] h-[248px] rounded-md bg-[#282828]  content-center text-white">
+      <div className=" i18next justify-center font-sans w-[196px] h-[248px] rounded-md bg-[#282828]  content-center text-white">
         <ul className="p-1">
           <li className="text-center">
             <button>

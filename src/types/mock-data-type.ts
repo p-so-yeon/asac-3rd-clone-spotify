@@ -5,7 +5,7 @@ export interface Track {
   duration_ms: number;
   explicit: boolean;
   id: string;
-  is_playable: boolean;
+  is_playable?: boolean;
   name: string;
   popularity: number;
   preview_url: string;
@@ -20,11 +20,11 @@ export interface Album {
   id: string;
   images: Image[];
   name: string;
-  release_date: Date;
+  release_date: string;
   release_date_precision: string;
   type: string;
   artists: Artist[];
-  is_playable: boolean;
+  is_playable?: boolean;
 }
 
 export interface Artist {

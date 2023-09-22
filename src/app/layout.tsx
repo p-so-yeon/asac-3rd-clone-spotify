@@ -4,7 +4,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
 import Header from '@/components/common/header'
-// import LayoutResizer from '@/components/common/LayoutResizer'
 import Player from '@/components/common/Player'
 import Sidebar from '@/components/common/Sidebar'
 import Providers from '@/components/provider/Providers'

@@ -1,6 +1,7 @@
-import SearchTrack from '@/app/playlist/SearchTrack'
 import Image from 'next/image'
 import { SlOptions } from 'react-icons/sl'
+
+import SearchTrack from '@/app/playlist/SearchTrack'
 
 const test_data = {
   cover_img: '',
@@ -45,7 +46,7 @@ export default function page() {
         </div>
       </div>
       <section>
-        <SearchTrack/>
+        <SearchTrack />
       </section>
     </div>
   )

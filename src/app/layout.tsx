@@ -1,9 +1,8 @@
 import './globals.css'
-
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
-import Header from '@/components/common/header'
+import Banner from '@/components/common/banner'
 
 import Player from '@/components/common/Player'
 import Sidebar from '@/components/common/Sidebar'
@@ -24,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className="bg-color-background-primary w-full h-screen grid grid-cols-[max-content_auto] grid-rows-[1fr_auto] p-2 gap-2">
             <Sidebar />
             <div className="flex flex-col overflow-y-auto">
-              <Header />
+              <Banner></Banner>
               {children}
             </div>
             <div className="col-span-2 h-[72px]">

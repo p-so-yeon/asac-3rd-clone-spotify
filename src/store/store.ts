@@ -4,6 +4,7 @@ import { persistReducer } from 'redux-persist'
 // import storage from 'redux-persist/lib/storage'
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
 
+import libarySlice from '@/ducks/features/library/library'
 import tokenSlice from '@/ducks/features/token/tokenSlice'
 
 const createNoopStorage = () => {
@@ -31,17 +32,18 @@ const persistConfig = {
 const rootReducer = combineReducers({
   //여러 개의 reducer를 하나의 root reducer로 합쳐준다.
   user: tokenSlice.reducer,
+  library: libarySlice.reducer,
 })
 
-const tokenReducer = persistReducer(persistConfig, rootReducer)
+const reducer = persistReducer(persistConfig, rootReducer)
 
 //persistReducer: reducer 반환 API. 인자로 받은 config 객체를 reducer 함수에 적용해 enhanced reducer를 반환
 const store = configureStore({
-  reducer: { tokenReducer },
-  devTools: process.env.NODE_ENV === "development"
+  reducer: { reducer },
+  devTools: process.env.NODE_ENV === 'development',
 })
 
 export default store
 
-export type RootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch

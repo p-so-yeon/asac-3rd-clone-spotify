@@ -1,8 +1,12 @@
+'use client'
+import { useSession} from 'next-auth/react'
 import React from 'react'
-
+import { getToken } from "next-auth/jwt"
 import SearchBar from '@/components/common/SearchBar'
 
 export default function SearchTrack() {
+  const { data: session } = useSession()
+  console.log(session,session?.access_token)
   function search(input) {}
 
   return (

@@ -1,35 +1,62 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from '@reduxjs/toolkit'
 
-import { FollowedArtist } from "@/types/raw-api-data-type/user/followed-artist-data-type"
-
-// sidebar
 interface Library {
-  //타입 작성
-  usersPlaylist: any[]
+  userPlaylist: any[]
   userLikedAlbums: any[]
   userLikedPlaylists: any[]
-  userLikedTrack: any[]
-  followedArtist: FollowedArtist | []
+  userLikedTracks: any[]
+  followedArtist: any[]
 }
 
 const initialState: Library = {
-  followedArtist: [],
-  usersPlaylist: [],
+  userPlaylist: [],
   userLikedAlbums: [],
   userLikedPlaylists: [],
-  userLikedTrack: []
+  userLikedTracks: [],
+  followedArtist: [],
 }
 
-export const librarySlice = createSlice({
-  name: "library",
+const librarySlice = createSlice({
+  name: 'library',
   initialState,
   reducers: {
-    // pauseTrack: (state, action: PayloadAction<boolean>) => {
-    //   state.isPlaying = action.payload
-    // },
+    setPlaylist: (state, action) => {
+      return {
+        ...state,
+        userPlaylist: action.payload.userPlaylist,
+      }
+    },
+    setLikedAlbums: (state, action) => {
+      return {
+        ...state,
+        userLikedAlbums: action.payload.userLikedAlbums,
+      }
+    },
+    setLikedPlaylists: (state, action) => {
+      return {
+        ...state,
+        userLikedPlaylists: action.payload.userLikedPlaylists,
+      }
+    },
+    setLikedTracks: (state, action) => {
+      return {
+        ...state,
+        userLikedTracks: action.payload.userLikedTracks,
+      }
+    },
+    setFollowedArtist: (state, action) => {
+      return {
+        ...state,
+        followedArtist: action.payload.followedArtist,
+      }
+    },
   },
-  extraReducers: {}
 })
 
-export const { } = librarySlice.actions
-export default librarySlice.reducer
+export const { setPlaylist } = librarySlice.actions
+export const { setLikedAlbums } = librarySlice.actions
+export const { setLikedPlaylists } = librarySlice.actions
+export const { setLikedTracks } = librarySlice.actions
+export const { setFollowedArtist } = librarySlice.actions
+
+export default librarySlice

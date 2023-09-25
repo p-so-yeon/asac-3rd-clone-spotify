@@ -4,6 +4,6 @@ import Image from 'next/image'
 import useContentCardContext from '@/components/ContentCard/ContentCardContext'
 
 export default function ContentCardImg() {
-  const { data } = useContentCardContext()
-  return <Image className="rounded-md" src={data.image.url} alt={data.name} width={120} height={120} />
+  const data = useContentCardContext()
+  return <Image className="rounded-md " src={data.image.url} alt={data.name} width={160} height={160} />
 }

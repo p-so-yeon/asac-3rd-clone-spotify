@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react'
 import { BiLinkExternal } from 'react-icons/bi'
 
 import { MOCK_API_URL } from '@/lib/constant/path'
-import { User } from '@/lib/types/mock-data-type'
+import { User } from '@/types/mock-data-type'
+
 function Dropdown() {
   const [curuser, setCuruser] = useState<User>()
   useEffect(() => {
@@ -22,7 +23,7 @@ function Dropdown() {
     userdata()
   }, [])
 
-  function Navigate() {}
+  // function Navigate() {}
   return (
     <>
       <div className="relative justify-center font-sans w-[196px] h-[248px] rounded-md bg-[#282828]  content-center text-white z-10">

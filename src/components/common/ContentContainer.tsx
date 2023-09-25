@@ -9,13 +9,15 @@ interface Props {
 
 export default function ContentCardContainer({ title, linkPath, children }: Props) {
   return (
-    <section className="mb-4 border border-red-500">
-      <div className="flex justify-between">
-        <h2>{title}</h2>
+    <section className="">
+      <div className="flex justify-between mb-4">
+        <h2 className="text-2xl text-color-text-primary hover:underline active:underline hover:cursor-pointer">
+          <Link href={`${linkPath}`}>{title}</Link>
+        </h2>
         <Link
           // href={`/section/${id}`}
           href={`${linkPath}`}
-          className="cursor-pointer text-color-text-secondary hover:text-color-hover-primary hover:underline"
+          className="text-sm font-semibold cursor-pointer text-color-text-secondary hover:text-color-text-secondary hover:underline"
         >
           모두표시
         </Link>

@@ -2,15 +2,16 @@
 import { useEffect, useState } from 'react'
 import { BsDot } from 'react-icons/bs'
 
-import Header from '@/components/common/header'
 import { MOCK_API_URL } from '@/lib/constant/path'
 import { User } from '@/types/mock-data-type'
 import { FollowArtist } from '@/types/mock-data-type'
 import { playlistItem } from '@/types/mock-data-type'
+
 function Banner() {
   const [curuser, setCuruser] = useState<User>()
   const [followed, setFollowed] = useState<FollowArtist>()
   const [number, setNumber] = useState<playlistItem>()
+
   useEffect(() => {
     async function userdata() {
       const url = `${MOCK_API_URL}/home/user`
@@ -53,23 +54,16 @@ function Banner() {
 
   return (
     <div>
-      <div className="bg-gradient-to-r from-color-active-primary  rounded-lg ">
-        <div className="z-10">
-          {' '}
-          <Header></Header>
-        </div>
+      <div className="bg-gradient-to-r from-color-active-primary rounded-lg ">
         <div>
           <div className="relative pointer-events-none ml-[30px] h-[30vh] flex z-0">
             <div className="absolute bottom-12  w-[192px] h-[192px] flex">
               <button className=" shadow-2xl mr-[15px]  rounded-full">
                 <img className="w-[192px] h-[192px]  rounded-full" />
-              </button>{' '}
+              </button>
             </div>
             <div className=" whitespace-nowrap flex flex-col ">
-              <div className="absolute left-[245px] top-[85px] text-[14px]  text-color-text-primary ml-2.5">
-                {' '}
-                프로필
-              </div>
+              <div className="absolute left-[245px] top-[85px] text-[14px]  text-color-text-primary ml-2.5">프로필</div>
               <div className="absolute left-[245px] top-[115px] text-[6rem] text-color-text-primary font-black ">
                 {curuser?.display_name}
               </div>
@@ -79,7 +73,7 @@ function Banner() {
                 </div>
                 <div>
                   <BsDot></BsDot>
-                </div>{' '}
+                </div>
                 <a>팔로잉{followed?.artists.total} 명</a>
               </div>
             </div>

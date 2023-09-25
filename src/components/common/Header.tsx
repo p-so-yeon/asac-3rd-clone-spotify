@@ -1,14 +1,13 @@
 'use client'
-
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { BsChevronLeft } from 'react-icons/bs'
 import { BsChevronRight } from 'react-icons/bs'
 import { MdOutlinePersonOutline } from 'react-icons/md'
 
-import Dropdown from '@/components/common/dropdown'
+import Dropdown from '@/components/common/Dropdown'
 
-function Nav() {
+function Header() {
   const router = useRouter()
 
   const back = () => {
@@ -19,11 +18,8 @@ function Nav() {
   }
   const [open, setopen] = useState(false)
 
-  {
-    /* <div className="sticky top-0 flex justify-between relative h-[64px] items-center bg-[#121212] rounded-lg"> */
-  }
   return (
-    <header className="flex justify-between relative h-[64px] items-center bg-[#121212] rounded-lg">
+    <header className="flex justify-between relative h-[64px] items-center bg-transparent rounded-lg z-10">
       <div className="ml-1.5 flex gap-x-2">
         <button className="rounded-full bg-black w-8 h-8 flex justify-center items-center" onClick={back}>
           <BsChevronLeft fontSize="16px;" color="white" />{' '}
@@ -43,7 +39,7 @@ function Nav() {
         </button>
         {open && (
           <div className="absolute top full z-50" style={{ marginLeft: '-165px', marginTop: '8px' }}>
-            {<Dropdown />}
+            <Dropdown />
           </div>
         )}
       </ul>
@@ -51,4 +47,4 @@ function Nav() {
   )
 }
 
-export default Nav
+export default Header

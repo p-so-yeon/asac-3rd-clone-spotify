@@ -13,19 +13,19 @@ export interface ContentCardProps {
 }
 
 type Props = {
-  data: ContentCardProps
+  data: ContentCardObject
   image: ReactNode
   info: ReactNode
 }
 
 export default function ContentCard({ data, image, info }: Props) {
   return (
-    <div className="rounded-md bg-color-box-primary overflow-hidden w-full transition duration-300  hover:bg-[rgb(255,255,255)]/20">
+    <div className="p-4 rounded-sm bg-color-box-primary overflow-hidden w-full transition duration-300 hover:bg-[rgb(255,255,255)]/20">
       <ContentCardContext.Provider value={data}>
-        <div className="">
-          <div>{image}</div>
-          <div>{info}</div>
-        </div>
+        {/* <div className=""> */}
+        <div className="mb-4">{image}</div>
+        <div>{info}</div>
+        {/* </div> */}
       </ContentCardContext.Provider>
     </div>
   )

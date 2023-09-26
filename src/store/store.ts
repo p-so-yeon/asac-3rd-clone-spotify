@@ -6,6 +6,7 @@ import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
 
 import libarySlice from '@/ducks/features/library/library'
 import tokenSlice from '@/ducks/features/token/tokenSlice'
+import { userApi } from '@/ducks/service/user-api'
 
 const createNoopStorage = () => {
   return {
@@ -39,10 +40,14 @@ const reducer = persistReducer(persistConfig, rootReducer)
 
 //persistReducer: reducer 반환 API. 인자로 받은 config 객체를 reducer 함수에 적용해 enhanced reducer를 반환
 const store = configureStore({
-  reducer: { reducer },
+  reducer: { reducer, [userApi.reducerPath]: userApi.reducer },
+
   devTools: process.env.NODE_ENV === 'development',
 })
 
+// middleware(getDefaultMiddleware) {
+//  getDefaultMiddleware().concat()
+// }
 export default store
 
 export type RootState = ReturnType<typeof store.getState>

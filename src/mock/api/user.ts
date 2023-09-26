@@ -3,7 +3,6 @@ import { rest } from 'msw'
 import { MOCK_API_URL } from '@/lib/constant/path'
 import { CUR_USER_DATA } from '@/mock/api/data/currentuser-data'
 import { User_Playlist } from '@/mock/api/data/user_playlist'
-
 import {
   CURRENT_USERS_PROFILE,
   FOLLOWED_ARTISTS_DATA,

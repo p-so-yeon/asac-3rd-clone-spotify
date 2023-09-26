@@ -9,7 +9,7 @@ declare module "next-auth" {
     // refreshToken?: string;
     // token?: string;
     // error?: string;
-    access_token?: string;
+    accessToken?: string;
     user?: User;
   }
 
@@ -24,9 +24,11 @@ declare module "next-auth/jwt" {
     refreshTokenExpires?: number;
     accessTokenExpires?: number;
     refreshToken?: string;
-    access_token?: string;
+    accessToken?: string;
     exp?: number;
     iat?: number;
     jti?: string;
+    error?: string
+    user?: Session['user']
   }
 }

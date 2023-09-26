@@ -7,6 +7,7 @@ import ContentCardContainer from '@/components/common/ContentContainer'
 import { createContentFromItem } from '@/lib/utils/createContentObject'
 import { FollowedArtist } from '@/types/raw-api-data-type/user/followed-artist-data-type'
 // 함수 재사용
+
 async function getSessionData() {
   // server component에서 options에서 정의한 session callback의 리턴 값을 사용
   const session = await getServerSession(options)
@@ -28,7 +29,7 @@ async function getFollowedAristsData() {
       },
     })
     const followedArtistData = await response.json()
-    console.log(followedArtistData)
+    console.log(followedArtistData) 
 
     return followedArtistData
   } catch (error) {

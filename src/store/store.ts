@@ -4,6 +4,7 @@ import { persistReducer } from 'redux-persist'
 // import storage from 'redux-persist/lib/storage'
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
 
+import libarySlice from '@/ducks/features/library/library'
 import tokenSlice from '@/ducks/features/token/tokenSlice'
 import { userApi } from '@/ducks/service/user-api'
 
@@ -32,22 +33,16 @@ const persistConfig = {
 const rootReducer = combineReducers({
   //여러 개의 reducer를 하나의 root reducer로 합쳐준다.
   user: tokenSlice.reducer,
-
+  library: libarySlice.reducer,
 })
 
-const tokenReducer = persistReducer(persistConfig, rootReducer)
+const reducer = persistReducer(persistConfig, rootReducer)
 
 //persistReducer: reducer 반환 API. 인자로 받은 config 객체를 reducer 함수에 적용해 enhanced reducer를 반환
 const store = configureStore({
-  reducer: {
-    tokenReducer,
-    [userApi.reducerPath]: userApi.reducer
-  },
-  // middleware(getDefaultMiddleware) {
-  //   getDefaultMiddleware().concat(userApi.middleware)
-  // },
-  devTools: process.env.NODE_ENV === "development",
+  reducer: { reducer, [userApi.reducerPath]: userApi.reducer },
 
+  devTools: process.env.NODE_ENV === 'development',
 })
 
 // middleware(getDefaultMiddleware) {
@@ -55,5 +50,5 @@ const store = configureStore({
 // }
 export default store
 
-export type RootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch

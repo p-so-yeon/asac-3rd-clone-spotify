@@ -1,13 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    disableStaticImages: true,
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'i.scdn.co',
         port: '',
         pathname: '/image/**/*',
+      },
+      {
+        protocol: 'https',
+        hostname: 'seed-mix-image.spotifycdn.com',
+        port: '',
+        pathname: '/v6/img/**/*',
       },
     ],
   },

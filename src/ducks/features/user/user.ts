@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
 import { Image } from "@/types/common/images-data-type";
 
+
 interface userProfile {
   //타입 작성
   name: string;

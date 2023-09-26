@@ -7,9 +7,10 @@ import { AiOutlinePlus } from 'react-icons/ai'
 import { BiSearch } from 'react-icons/bi'
 import { BiLibrary } from 'react-icons/bi'
 import { GoHome } from 'react-icons/go'
+import { HiMusicalNote } from 'react-icons/hi2'
 
-import { MOCK_API_URL } from '@/lib/constant/path'
-import { FollowArtist } from '@/types/mock-data-type'
+import { useGetCurrentUsersPlaylistQuery } from '@/ducks/service/playlist-api'
+import { useGetUserFollowedArtistQuery } from '@/ducks/service/user-api'
 
 function Sidebar() {
   const pathname = usePathname()
@@ -33,24 +34,14 @@ function Sidebar() {
   // 사이드바 브레이크 포인트 72 280 420 584 1416
   // max-width를 screen사이즈별로
   const [minWidth, defualtWidth, mdWidth, lgWidth, maxWidth] = useMemo(() => [72, 280, 420, 584, 1416], [])
-  const [followedArtists, setFlollowedArtists] = useState<FollowArtist>()
+  const userFollowedArtist = useGetUserFollowedArtistQuery(50)
+  const currentUserPlaylist = useGetCurrentUsersPlaylistQuery(5)
   const [width, setWidth] = useState<number>(
     localStorage.getItem('sidebarWidth') !== null
       ? parseInt(localStorage.getItem('sidebarWidth') as string)
       : defualtWidth,
   )
   const isResized = useRef<boolean>(false)
-  useEffect(() => {
-    // 커스텀 훅으로 분리 react query
-    async function fetchFlollowedArtists() {
-      const url = `${MOCK_API_URL}/user/followed-artist`
-      const res = await fetch(url)
-      const followedArtistsData: FollowArtist = await res.json()
-
-      setFlollowedArtists(followedArtistsData)
-    }
-    fetchFlollowedArtists()
-  }, [])
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -114,12 +105,33 @@ function Sidebar() {
               <p className="text-xs font-bold text-color-text-secondary">Recents</p>
             </div>
             <ul className="flex flex-col gap-2">
-              {followedArtists?.artists.items.map((artist) => (
+              {currentUserPlaylist.data?.items.map((playlist) => (
+                <li key={`${playlist.id}`} className="cursor-pointer hover:bg-color-hover-primary">
+                  <div className="grid grid-cols-[auto_1fr] p-2 gap-x-3 gap-y-2">
+                    {playlist.images.length !== 0 ? (
+                      <Image
+                        className="rounded-md"
+                        src={`${playlist.images[0].url}`}
+                        width={48}
+                        height={48}
+                        alt={`${playlist.name}`}
+                      />
+                    ) : (
+                      <HiMusicalNote className={'text-color-text-secondary'} size={'3rem'} alt={`${playlist.name}`} />
+                    )}
+                    <div className={`flex flex-col`}>
+                      <span className="break-all text-color-text-primary line-clamp-1">{`${playlist.name}`}</span>
+                      <span className="text-color-text-secondary">{`${playlist.type}-${playlist.owner.display_name}`}</span>
+                    </div>
+                  </div>
+                </li>
+              ))}
+              {userFollowedArtist.data?.artists.items.map((artist) => (
                 <li key={`${artist.id}`} className="cursor-pointer hover:bg-color-hover-primary">
                   <div className="grid grid-cols-[auto_1fr] p-2 gap-x-3 gap-y-2">
                     <Image
                       className="rounded-full"
-                      src={`${artist.images[2].url}`}
+                      src={`${artist.images[0].url}`}
                       width={48}
                       height={48}
                       alt={`${artist.name}`}

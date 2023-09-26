@@ -1,28 +1,9 @@
 'use client'
+import { signOut } from 'next-auth/react'
 import React from 'react'
-import { useEffect, useState } from 'react'
 import { BiLinkExternal } from 'react-icons/bi'
 
-import { MOCK_API_URL } from '@/lib/constant/path'
-import { User } from '@/types/mock-data-type'
-
 function Dropdown() {
-  const [curuser, setCuruser] = useState<User>()
-  useEffect(() => {
-    async function userdata() {
-      const url = `${MOCK_API_URL}/home/user`
-      let res = await fetch(url)
-      if (res.ok) {
-        let user_data = await res.json()
-        console.log(user_data)
-        setCuruser(user_data)
-      } else {
-        alert('error' + res.status)
-      }
-    }
-    userdata()
-  }, [])
-
   // function Navigate() {}
   return (
     <>
@@ -67,7 +48,7 @@ function Dropdown() {
           </li>
           <div className="h-[1.5px] bg-color-hover-primary"></div>
           <li className="text-center">
-            <button>
+            <button onClick={() => signOut()}>
               <span className=" text-[0.8125rem] hover:border-2px rounded hover:bg-color-hover-primary w-[188px] h-[40px] flex py-3 pr-2 pb-3 pl-3 items-center">
                 로그아웃
               </span>

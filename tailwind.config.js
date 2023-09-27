@@ -1,6 +1,7 @@
-import type { Config } from 'tailwindcss'
+// import type { Config } from 'tailwindcss'
 
-const config: Config = {
+// const config: Config = {
+const config = {
   mode: 'jit',
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -22,12 +23,9 @@ const config: Config = {
       },
 
       gridTemplateAreas: {
-        "mobile": [],
-        "tablet": [],
-        "desktop": [
-          "left-sidebar main",
-          "player player"
-        ],
+        mobile: [],
+        tablet: [],
+        desktop: ['left-sidebar main', 'player player'],
       },
       gridTemplateColumns: {
         layout: 'auto 1fr',

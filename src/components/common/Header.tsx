@@ -41,7 +41,7 @@ function Header() {
         <button className="rounded-full bg-black w-8 h-8 flex justify-center items-center mr-[30px]">
           {session.status === 'authenticated' && data?.images[0] !== undefined ? (
             <Image
-              className="rounded-full mr-2"
+              className="mr-2 rounded-full"
               src={`${data?.images[0].url} `}
               width={56}
               height={56}

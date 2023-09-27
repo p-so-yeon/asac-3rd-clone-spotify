@@ -1,12 +1,12 @@
 'use client'
 import React from 'react'
 import { FiSearch } from 'react-icons/fi'
-export default function SearchBar({ placeholder, onChange}) {
+export default function SearchBar({ placeholder, onChange }) {
   return (
-    <div className="flex flex-row bg-color-card-primary items-center py-2 rounded-md px-2">
+    <div className="flex flex-row items-center px-2 py-2 rounded-md bg-color-card-primary">
       <FiSearch size={20} className=" text-color-text-secondary" />
       <input
-        className=" pl-1 w-full bg-transparent text-color-text-secondary font-semibold focus:outline-none"
+        className="w-full pl-1 font-semibold bg-transparent text-color-text-secondary focus:outline-none"
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
       ></input>

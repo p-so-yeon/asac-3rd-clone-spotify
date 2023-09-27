@@ -14,7 +14,7 @@ export const PlaylistTracksContext = createContext<{
   setPlaylistTracks: React.Dispatch<React.SetStateAction<playlistTrack[]>>
 }>({
   playlistTracks: [],
-  setPlaylistTracks: () => {},
+  setPlaylistTracks: () => { },
 })
 
 export function PlaylistTrackProvider({ children }) {

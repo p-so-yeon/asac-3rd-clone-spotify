@@ -18,15 +18,16 @@ function Button({ children }: { children: React.ReactNode }) {
 function Player() {
   const currentlyPlayingTrack = useGetCurrentlyPlayingTrackQuery(null)
   const recentlyPlayedTrack = useGetRecentlyPlayedTrackQuery(null)
+
   // aria-label, data-testid aria-expanded
   if (recentlyPlayedTrack.isLoading) return <div>...loading</div>
   return (
-    <footer className="fixed flex w-full bg-color-background-primary px-2">
+    <footer className="fixed flex w-full px-2 bg-color-background-primary">
       <div className="basis-[30%] min-w-[180px] flex justify-start items-center">
         {recentlyPlayedTrack.data && (
           <>
             <Image
-              className="rounded mr-2"
+              className="mr-2 rounded"
               src={`${recentlyPlayedTrack.data?.items[0].track.album.images[0].url} `}
               width={56}
               height={56}
@@ -66,7 +67,7 @@ function Player() {
           </div>
         </div>
       </div>
-      <div className="basis-[30%] min-w-[180px]  flex justify-end">
+      <div className="basis-[30%] min-w-[180px] flex justify-end">
         <div className="flex items-center">
           <Button>
             <MdVolumeUp size={'1rem'} />

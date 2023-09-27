@@ -115,6 +115,9 @@ export const options: NextAuthOptions = {
      * 사용자 ID, OAuth 액세스 토큰 등과 같은 데이터를 브라우저에 전달하려는 경우
      * 이를 토큰에 유지하고 session() 콜백을 사용하여 반환할 수 있습니다.
      */
+    async signIn(params) {
+      return true
+    },
     async jwt({ token, account, profile, user }) {
 
       //user가 처음 로그인 한 경우

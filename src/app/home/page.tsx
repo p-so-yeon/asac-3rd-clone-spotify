@@ -1,12 +1,11 @@
 import { getServerSession } from 'next-auth'
-import { signIn } from 'next-auth/react'
-import { BiLogoSpotify } from 'react-icons/bi'
 
 import ContentCardListItem from '@/components/CardContentListItem'
 import ContentCardContainer from '@/components/common/ContentContainer'
 import { createContentFromItem } from '@/lib/utils/createContentObject'
 import { GetUserTopItems, UserTopArtistItem } from '@/types/raw-api-data-type/user/get-user-top-items-data-type'
 
+import LoginButton from '../../components/LoginButton';
 import { options } from '../api/auth/[...nextauth]/options'
 
 const getAuthSession = async () => {
@@ -49,15 +48,7 @@ export default async function Home() {
         //     .slice(0, 9)
         //     .map((artist) => <ContentCardListItem key={artist.id} content={createContentFromItem.artist(artist)} />)}
         // </ContentCardContainer>
-        <div className="flex items-center justify-center">
-          <button
-            className="flex rounded-md px-2 py-1 text-color-text-primary bg-color-accent-primary "
-            onClick={() => signIn('spotify', { callbackUrl: '/' })}
-          >
-            <BiLogoSpotify size={'1.5rem'} color={'text-white'} />
-            Spotify로 로그인 하기
-          </button>
-        </div>
+        <LoginButton />
       )}
     </>
   )

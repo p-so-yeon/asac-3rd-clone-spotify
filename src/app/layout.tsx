@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Header />
               {children}
             </div>
-            <div className="col-span-2 h-[72px]">
+            <div className="  col-span-2 h-[72px]">
               <Player />
             </div>
           </main>

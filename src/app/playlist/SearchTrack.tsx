@@ -10,7 +10,6 @@ export default function SearchTrack() {
   const [searchResult, setSearchResult] = useState(null)
   const { data: session } = useSession()
   const accessToken = session?.accessToken
-  console.log('accessToken', accessToken)
   async function getSearchData(searchInput: string) {
     try {
       const response = await axios({

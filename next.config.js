@@ -14,6 +14,11 @@ const nextConfig = {
         port: '',
         pathname: '/v6/img/**/*',
       },
+      {
+        protocol: 'https',
+        hostname: 'mosaic.scdn.co',
+        port: '',
+      },
     ],
   },
   webpack: (config) => {

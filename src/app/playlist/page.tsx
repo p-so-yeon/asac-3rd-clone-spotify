@@ -12,14 +12,14 @@ const test_data = {
 
 export default function page() {
   return (
-    <div className="h-full">
+    <div className="w-full overflow-y-scroll h-5/6">
       <PlaylistInfo test_data={test_data} />
       <PlaylistTrackProvider>
-        <div className="px-5">
+        <div className="flex flex-col gap-12 px-5">
           <section>
             <Playlists />
           </section>
-          <section className="pt-4 mt-4 border-t h-52 border-neutral-500">
+          <section className="h-56 pt-4 mt-4 border-tborder-neutral-500">
             <SearchTrack />
           </section>
         </div>

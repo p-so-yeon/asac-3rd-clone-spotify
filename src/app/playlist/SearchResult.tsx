@@ -31,7 +31,7 @@ export default function SearchResult({ data }) {
             <p className="text-sm font-semibold text-[#B3B3B3]">{item.artists[0]?.name}</p>
           </div>
           <div className="absolute text-right top-5 text-[#B3B3B3] text-sm right-48">{item.album?.name}</div>
-          <button className="absolute right-10 top-5" onClick={() => addTrack(item)}>
+          <button className="absolute text-white right-10 top-5" onClick={() => addTrack(item)}>
             추가하기
           </button>
         </div>

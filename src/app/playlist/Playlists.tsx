@@ -13,7 +13,7 @@ export default function Playlists() {
         <SlOptions size={24} className="text-color-text-secondary" />
       </div>
       <div>
-        <div className="w-full h-24 ">
+        <div className="w-full ">
           {playlistTracks.map((item) => (
             <div className="relative flex flex-row px-2 py-3" key={item.id}>
               <Image className="mr-3" src={item.img} width={40} height={40} alt="track image" />

@@ -1,3 +1,5 @@
+import { Image } from "@/types/common/images-data-type";
+
 export interface GetCurrentUserProfile {
   country: string;
   display_name: string;
@@ -7,7 +9,7 @@ export interface GetCurrentUserProfile {
   followers: Followers;
   href: string;
   id: string;
-  images: any[];
+  images: Image[];
   product: string;
   type: string;
   uri: string;

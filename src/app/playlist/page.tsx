@@ -19,7 +19,7 @@ export default function page() {
           <section>
             <Playlists />
           </section>
-          <section className="h-52 mt-4 pt-4 border-t border-neutral-500">
+          <section className="pt-4 mt-4 border-t h-52 border-neutral-500">
             <SearchTrack />
           </section>
         </div>

@@ -31,11 +31,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </main>
           {/* <main className="bg-color-background-primary">
-            <section className="h-screen grid grid-areas-desktop grid-rows-layout grid-cols-layout p-2 gap-2">
+            <section className="grid-areas-desktop grid-rows-layout grid-cols-layout grid h-screen gap-2 p-2">
               <aside className="flex w-[280px] grid-in-left-sidebar">
                 <Sidebar />
               </aside>
-              <div className="flex flex-col grid-in-main">
+              <div className="grid-in-main flex flex-col">
                 <Nav></Nav>
                 {children}
               </div>

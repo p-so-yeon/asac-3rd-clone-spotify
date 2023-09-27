@@ -1,6 +1,7 @@
-import type { Config } from 'tailwindcss'
+// import type { Config } from 'tailwindcss'
 
-const config: Config = {
+// const config: Config = {
+const config = {
   mode: 'jit',
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -10,7 +11,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'color-accent-primary ': '#1db954',
+        'color-accent-primary': '#1db954',
         'color-background-primary': '#000',
         'color-background-base-primary': '#121212',
         'color-box-primary': '#181818',
@@ -22,12 +23,9 @@ const config: Config = {
       },
 
       gridTemplateAreas: {
-        "mobile": [],
-        "tablet": [],
-        "desktop": [
-          "left-sidebar main",
-          "player player"
-        ],
+        mobile: [],
+        tablet: [],
+        desktop: ['left-sidebar main', 'player player'],
       },
       gridTemplateColumns: {
         layout: 'auto 1fr',

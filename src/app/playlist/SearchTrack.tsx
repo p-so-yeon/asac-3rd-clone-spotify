@@ -25,9 +25,9 @@ export default function SearchTrack() {
   }
   return (
     <div>
-      <h1 className="text-white text-xl font-bold mb-4 ">플레이리스트에 추가할 곡을 찾아보세요</h1>
+      <h1 className="mb-4 text-xl font-bold text-white ">플레이리스트에 추가할 곡을 찾아보세요</h1>
       <SearchBar placeholder={'곡 또는 에피소드 검색하기'} onChange={getSearchData} />
-      <SearchResult data={searchResult}/>
+      <SearchResult data={searchResult} />
     </div>
   )
 }

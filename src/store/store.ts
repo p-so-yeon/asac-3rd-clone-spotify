@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
+import { setupListeners } from '@reduxjs/toolkit/dist/query'
 import { combineReducers } from 'redux'
 import { persistReducer } from 'redux-persist'
 // import storage from 'redux-persist/lib/storage'
@@ -6,6 +7,8 @@ import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
 
 import libarySlice from '@/ducks/features/library/library'
 import tokenSlice from '@/ducks/features/token/tokenSlice'
+import { playerApi } from "@/ducks/service/player-api"
+import { playlistApi } from '@/ducks/service/playlist-api'
 import { userApi } from '@/ducks/service/user-api'
 
 const createNoopStorage = () => {
@@ -40,14 +43,18 @@ const reducer = persistReducer(persistConfig, rootReducer)
 
 //persistReducer: reducer 반환 API. 인자로 받은 config 객체를 reducer 함수에 적용해 enhanced reducer를 반환
 const store = configureStore({
-  reducer: { reducer, [userApi.reducerPath]: userApi.reducer },
+  reducer: {
+    reducer,
+    [userApi.reducerPath]: userApi.reducer,
+    [playerApi.reducerPath]: playerApi.reducer,
+    [playlistApi.reducerPath]: playlistApi.reducer
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(userApi.middleware, playerApi.middleware, playlistApi.middleware),
+  devTools: process.env.NODE_ENV === "development",
 
-  devTools: process.env.NODE_ENV === 'development',
 })
+setupListeners(store.dispatch)
 
-// middleware(getDefaultMiddleware) {
-//  getDefaultMiddleware().concat()
-// }
 export default store
 
 export type RootState = ReturnType<typeof store.getState>

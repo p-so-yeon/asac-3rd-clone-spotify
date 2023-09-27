@@ -1,13 +1,11 @@
 'use client'
 
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { MdPlayCircle, MdSkipNext, MdSkipPrevious, MdVolumeOff, MdVolumeUp } from 'react-icons/md'
 import { PiRepeat, PiShuffleLight } from 'react-icons/pi'
 
-import { MOCK_API_URL } from '@/lib/constant/path'
-import { Track } from '@/types/mock-data-type'
-import { RecentlyPlayed } from '@/types/track/recent-played-data-type'
+import { useGetCurrentlyPlayingTrackQuery, useGetRecentlyPlayedTrackQuery } from '@/ducks/service/player-api'
 
 function Button({ children }: { children: React.ReactNode }) {
   return (
@@ -18,84 +16,29 @@ function Button({ children }: { children: React.ReactNode }) {
 }
 
 function Player() {
-  const [currentTrack, setCurrentTrack] = useState<Track>()
-  const [recentlyPlayedTrack, setRecentlyPlayedTrack] = useState<RecentlyPlayed>()
-
-  //최적화 해야함
-  useEffect(() => {
-    // async function fetchCurrentTrack() {
-    //   const url = `${MOCK_API_URL}/home/track`
-    //   const res = await fetch(url)
-    //   const trackData: Track = await res.json()
-    //   console.log(trackData)
-
-    //   setCurrentTrack(trackData)
-    // }
-    async function fetchRecentlyPlayedTrack() {
-      const url = `${MOCK_API_URL}/track/recently-played`
-      const res = await fetch(url)
-      const recentlyPlayedData: RecentlyPlayed = await res.json()
-      setRecentlyPlayedTrack(recentlyPlayedData)
-    }
-    fetchRecentlyPlayedTrack()
-    // fetchCurrentTrack()
-  }, [])
+  const currentlyPlayingTrack = useGetCurrentlyPlayingTrackQuery(null)
+  const recentlyPlayedTrack = useGetRecentlyPlayedTrackQuery(null)
 
   // aria-label, data-testid aria-expanded
+  if (recentlyPlayedTrack.isLoading) return <div>...loading</div>
   return (
-    <footer className="fixed flex w-full bg-color-background-primary">
+    <footer className="fixed flex w-full px-2 bg-color-background-primary">
       <div className="basis-[30%] min-w-[180px] flex justify-start items-center">
-        {/* {currentTrack && (
+        {recentlyPlayedTrack.data && (
           <>
             <Image
-              className="rounded"
-              src={`${currentTrack?.album.images[0].url}`}
+              className="mr-2 rounded"
+              src={`${recentlyPlayedTrack.data?.items[0].track.album.images[0].url} `}
               width={56}
               height={56}
-              alt={`${currentTrack?.album.name}`}
-            />
-            <div className="flex flex-col">
-              <span className="text-color-text-primary hover:underline">{currentTrack?.name}</span>
-              <span className=" text-color-text-secondary hover:underline hover:text-color-text-primary">
-                {currentTrack?.artists.map((artist) => artist.name)}
-              </span>
-            </div>
-          </>
-        )} */}
-        {/* {recentlyPlayedTrack && (
-          <>
-            <Image
-              className="rounded"
-              src={`${recentlyPlayedTrack?.items[0].track.album.images[0].url}`}
-              width={56}
-              height={56}
-              alt={`${recentlyPlayedTrack?.items[0].track.album.name}`}
+              alt={`${recentlyPlayedTrack.data?.items[0].track.name}`}
             />
             <div className="flex flex-col">
               <span className="text-color-text-primary hover:underline">
-                {recentlyPlayedTrack?.items[0].track.name}
+                {recentlyPlayedTrack.data?.items[0].track.name}
               </span>
               <span className=" text-color-text-secondary hover:underline hover:text-color-text-primary">
-                {recentlyPlayedTrack?.items[0].track.artists.map((artist) => artist.name)}
-              </span>
-            </div>
-          </>
-        )} */}
-        {recentlyPlayedTrack && (
-          <>
-            <Image
-              className="rounded"
-              src={`${recentlyPlayedTrack?.items[0].track.album.images[0].url}`}
-              width={56}
-              height={56}
-              alt={`${recentlyPlayedTrack?.items[0].track.album.name}`}
-            />
-            <div className="flex flex-col">
-              <span className="text-color-text-primary hover:underline">
-                {recentlyPlayedTrack?.items[0].track.name}
-              </span>
-              <span className=" text-color-text-secondary hover:underline hover:text-color-text-primary">
-                {recentlyPlayedTrack?.items[0].track.artists.map((artist) => artist.name)}
+                {recentlyPlayedTrack.data?.items[0].track.artists.map((artist) => artist.name)}
               </span>
             </div>
           </>
@@ -124,7 +67,7 @@ function Player() {
           </div>
         </div>
       </div>
-      <div className="basis-[30%] min-w-[180px]  flex justify-end">
+      <div className="basis-[30%] min-w-[180px] flex justify-end">
         <div className="flex items-center">
           <Button>
             <MdVolumeUp size={'1rem'} />

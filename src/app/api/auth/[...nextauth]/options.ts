@@ -105,10 +105,6 @@ export const options: NextAuthOptions = {
      * user 개체는 항상 profile에서 추출된 정보가 포함된
      * 프로토타입 user 개체입니다.
      */
-    async signIn({ user, account, profile, email }) {
-
-      return true
-    },
     /**
      * 이 JWT 콜백은 
      * JWT이 생성되거나(즉, 로그인 시)
@@ -119,42 +115,11 @@ export const options: NextAuthOptions = {
      * 사용자 ID, OAuth 액세스 토큰 등과 같은 데이터를 브라우저에 전달하려는 경우
      * 이를 토큰에 유지하고 session() 콜백을 사용하여 반환할 수 있습니다.
      */
+    async signIn(params) {
+      return true
+    },
     async jwt({ token, account, profile, user }) {
-      // console.log(user);
-      // {
-      //   id: '314hgjbu2uft22xmofmmn6b7tfzq',
-      //     name: '현승재',
-      //       email: 'dudtod1596@gmail.com',
-      //         image: 'https://i.scdn.co/image/ab67757000003b8250415245a1b6949fa82cb528'
-      // }
-      // console.log(profile)
-      // {
-      //   display_name: '현승재',
-      //     external_urls: {
-      //     spotify: 'https://open.spotify.com/user/314hgjbu2uft22xmofmmn6b7tfzq'
-      //   },
-      //   href: 'https://api.spotify.com/v1/users/314hgjbu2uft22xmofmmn6b7tfzq',
-      //     id: '314hgjbu2uft22xmofmmn6b7tfzq',
-      //       images: [
-      //         {
-      //           url: 'https://i.scdn.co/image/ab67757000003b8250415245a1b6949fa82cb528',
-      //           height: 64,
-      //           width: 64
-      //         },
-      //         {
-      //           url: 'https://i.scdn.co/image/ab6775700000ee8550415245a1b6949fa82cb528',
-      //           height: 300,
-      //           width: 300
-      //         }
-      //       ],
-      //         type: 'user',
-      //           uri: 'spotify:user:314hgjbu2uft22xmofmmn6b7tfzq',
-      //             followers: { href: null, total: 0 },
-      //   country: 'KR',
-      //     product: 'premium',
-      //       explicit_content: { filter_enabled: false, filter_locked: false },
-      //   email: 'dudtod1596@gmail.com'
-      // }
+
       //user가 처음 로그인 한 경우
       if (account && user) {
         console.log("at initial login jwt options");
@@ -162,7 +127,6 @@ export const options: NextAuthOptions = {
           accessToken: account.access_token,
           refreshToken: account.refresh_token,
           accessTokenExpires: account.expires_at,
-
           user
         }
       }

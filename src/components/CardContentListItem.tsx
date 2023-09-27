@@ -12,17 +12,15 @@ interface Props {
 
 export default function ContentCardListItem({ content }: Props) {
   return (
-    <li>
-      <ContentCard
-        data={content}
-        image={<ContentCardImg />}
-        info={
-          <ContentCardInfo>
-            <ContentCardName />
-            <ContentCardDescription />
-          </ContentCardInfo>
-        }
-      />
-    </li>
+    <ContentCard
+      data={content}
+      image={<ContentCardImg />}
+      info={
+        <ContentCardInfo>
+          <ContentCardName />
+          <ContentCardDescription />
+        </ContentCardInfo>
+      }
+    />
   )
 }

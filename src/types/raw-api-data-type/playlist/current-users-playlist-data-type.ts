@@ -1,4 +1,4 @@
-export interface USERSSAVEDALBUMS {
+export interface CurrentUsersPlaylist {
   href: string;
   items: Item[];
   limit: number;
@@ -30,9 +30,9 @@ export interface ExternalUrls {
 }
 
 export interface Image {
-  height: null;
+  height: number;
   url: string;
-  width: null;
+  width: number;
 }
 
 export interface Owner {

@@ -20,7 +20,6 @@ export default function SearchResult({ data }) {
     ])
   }
 
-  console.log(data)
   return (
     <div className="">
       {data?.tracks.items.map((item) => (

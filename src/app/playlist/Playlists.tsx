@@ -3,14 +3,14 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import { LuClock3 } from 'react-icons/lu'
 import { SlOptions } from 'react-icons/sl'
-import {VscHeart} from 'react-icons/vsc'
-import {VscHeartFilled} from 'react-icons/vsc'
+import { VscHeart } from 'react-icons/vsc'
+import { VscHeartFilled } from 'react-icons/vsc'
 
 import { usePlaylistTracksContext } from '@/app/playlist/PlaylistTrackProvider'
 
 export default function Playlists() {
   const { playlistTracks, setPlaylistTracks } = usePlaylistTracksContext()
-  const {trackHover, setTrackHover}= useState(false)
+  const [hover, setHover] = useState<number | null>(null)
   const relativeFormatter = new Intl.RelativeTimeFormat('ko', {
     numeric: 'auto',
   })
@@ -38,9 +38,14 @@ export default function Playlists() {
             </span>
           </div>
         </div>
-        <div className="w-full h-full text-color-text-secondary" onMouseOver={()=>setTrackHover(true)} onMouseOutCapture={()=>setTrackHover(false)}>
+        <div className="w-full h-full text-color-text-secondary">
           {playlistTracks.map((item, index) => (
-            <div className="flex items-center justify-around px-2 py-3 rounded-md hover:bg-color-hover-primary" key={item.id}>
+            <div
+              className="flex items-center justify-around px-2 py-3 rounded-md hover:bg-color-hover-primary"
+              onMouseOver={() => setHover(index)}
+              onMouseOutCapture={() => setHover(null)}
+              key={item.id}
+            >
               <span>{index + 1}</span>
               <span className="relative flex w-2/6">
                 <Image className="mr-3" src={item.img} width={40} height={40} alt="track image" />
@@ -51,7 +56,7 @@ export default function Playlists() {
               </span>
               <span className="w-2/6 text-sm">{item.album_name}</span>
               <span className="w-1/6 pl-2 text-sm">{calcDate(item.added_date)}</span>
-              {trackHover&&(<VscHeart className="mr-2" size={16}/> )}
+              {index === hover && <VscHeart size={16} className="absolute right-32 hover:text-white" />}
               <span className=" text-[#B3B3B3] text-sm">
                 {Math.floor(item.duration / 60000)}:{((item.duration % 60000) / 1000).toFixed(0).padStart(2, '0')}
               </span>

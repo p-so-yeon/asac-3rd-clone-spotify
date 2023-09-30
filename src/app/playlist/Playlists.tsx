@@ -37,12 +37,12 @@ export default function Playlists() {
         </div>
         <div className="w-full h-full text-color-text-secondary">
           {playlistTracks.map((item, index) => (
-            <div className="flex items-center justify-around px-2 py-3" key={item.id}>
+            <div className="flex items-center justify-around px-2 py-3 rounded-md hover:bg-color-hover-primary" key={item.id}>
               <span>{index + 1}</span>
               <span className="relative flex w-2/6">
                 <Image className="mr-3" src={item.img} width={40} height={40} alt="track image" />
                 <div>
-                  <p className="font-bold text-color-text-primary">{item.name}</p>
+                  <p className="font-semibold text-color-text-primary">{item.name}</p>
                   <p className="text-sm text-[#B3B3B3]">{item.artist}</p>
                 </div>
               </span>

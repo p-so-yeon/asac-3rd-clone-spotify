@@ -6,6 +6,7 @@ interface playlistTrack {
   img: string
   name: string
   album_name?: string
+  added_date: Date
   artist: string
   duration: number
 }

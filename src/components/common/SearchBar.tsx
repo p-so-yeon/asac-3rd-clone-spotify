@@ -2,10 +2,16 @@
 import React, { useState } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import { IoMdClose } from 'react-icons/io'
-export default function SearchBar({ placeholder, onChange , onClear}) {
+
+interface searchProps {
+  placeholder: string
+  onChange: (value: string) => void
+  onClear: () => void
+}
+
+export default function SearchBar({ placeholder, onChange, onClear }: searchProps) {
   const [inputValue, setInputValue] = useState('')
 
-  
   return (
     <div className="flex flex-row items-center px-2 py-2 rounded-md bg-color-card-primary">
       <FiSearch size={20} className=" text-color-text-secondary" />

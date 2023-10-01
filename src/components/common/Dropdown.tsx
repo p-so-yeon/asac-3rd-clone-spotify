@@ -20,7 +20,7 @@ function Dropdown() {
           <li className="text-center">
             <button>
               <div className=" hover:bg-color-hover-primary hover:border-2px rounded justify-between w-[188px] h-[40px] flex py-3 pr-2 pb-3 pl-3 items-center">
-                <span className="text-[0.8125rem]">프로필 </span>{' '}
+                <span className="text-[0.8125rem]">프로필 </span>
               </div>
             </button>
           </li>

@@ -1,11 +1,11 @@
-import { Image } from "@/types/common/images-data-type"
-import { AlbumItem } from "@/types/raw-api-data-type/artist/get-artists-albums-data-type";
-import { ArtistItem } from "@/types/raw-api-data-type/artist/get-related-artist-data-type";
-import { PlaylistItem } from "@/types/raw-api-data-type/playlist/featured-playlist-data-type";
-import { TrackItem } from "@/types/raw-api-data-type/track/get-track-data-type";
-import { UserItem } from "@/types/raw-api-data-type/user/followed-artist-data-type";
+import { Image } from '@/types/common/images-data-type'
+import { AlbumItem } from '@/types/raw-api-data-type/artist/get-artists-albums-data-type'
+import { ArtistItem } from '@/types/raw-api-data-type/artist/get-related-artist-data-type'
+import { PlaylistItem } from '@/types/raw-api-data-type/playlist/featured-playlist-data-type'
+import { TrackItem } from '@/types/raw-api-data-type/track/get-track-data-type'
+import { UserItem } from '@/types/raw-api-data-type/user/followed-artist-data-type'
 
-type Items = ArtistItem | AlbumItem | PlaylistItem | TrackItem | UserItem;
+type Items = ArtistItem | AlbumItem | PlaylistItem | TrackItem | UserItem
 
 // HOC으로 감싸고 넘기면 가능할 듯?
 export type CommonContentObject = {
@@ -21,7 +21,7 @@ export interface ContentCardObject {
 }
 
 const extractCommonContentFromObject = <T extends Items>(obj: T): CommonContentObject => {
-  const { id, name } = obj;
+  const { id, name } = obj
   return { id, name }
 }
 
@@ -34,7 +34,7 @@ const getContentFromArtist = (obj: ArtistItem): ContentCardObject => {
 const getContentFromAlbum = (obj: AlbumItem): ContentCardObject => {
   const common = extractCommonContentFromObject(obj)
   const { images, artists } = obj
-  const description = artists.map(el => el.name).join(" ")
+  const description = artists.map((el) => el.name).join(' ')
   return { ...common, image: images[0], description }
 }
 
@@ -54,7 +54,7 @@ const getContentFromTrack = (obj: TrackItem): ContentCardObject => {
   const common = extractCommonContentFromObject(obj)
   const { album, artists } = obj
   const { images } = album
-  const description = artists.map(el => el.name).join(" ")
+  const description = artists.map((el) => el.name).join(' ')
   return { ...common, image: images[0], description }
 }
 
@@ -63,20 +63,20 @@ export const createContentFromItem = {
   album: getContentFromAlbum,
   user: getContentFromUser,
   playlist: getContentFromPlayList,
-  track: getContentFromTrack
+  track: getContentFromTrack,
 }
 
 /**
- * ! 사용예시 
- * 
+ * ! 사용예시
+ *
  * * createContentFromItem["typeof ItemType"](param : Items) : CommonContentObject
  * * createContentFromItem.typeof ItemType(param : Items) : CommonContentObject
- * 
+ *
  * ? const fetched-raw-playlists-data = useFetch(/playlist)
  * ? {
  * ?   fetched-raw-data-playlists-data.Item.map(
- * ?     (playlist) => 
+ * ?     (playlist) =>
  * ?       <ContentCard data={createContentFromItem.playlist(playlist)} .../>
  * ?   )
- * ? } 
+ * ? }
  */

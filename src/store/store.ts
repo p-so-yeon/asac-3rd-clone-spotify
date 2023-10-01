@@ -6,8 +6,9 @@ import { persistReducer } from 'redux-persist'
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
 
 import libarySlice from '@/ducks/features/library/library'
+import { playerSlice } from '@/ducks/features/player/player'
 import tokenSlice from '@/ducks/features/token/tokenSlice'
-import { playerApi } from "@/ducks/service/player-api"
+import { playerApi } from '@/ducks/service/player-api'
 import { playlistApi } from '@/ducks/service/playlist-api'
 import { userApi } from '@/ducks/service/user-api'
 
@@ -36,6 +37,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   //여러 개의 reducer를 하나의 root reducer로 합쳐준다.
   user: tokenSlice.reducer,
+  player: playerSlice.reducer,
   library: libarySlice.reducer,
 })
 
@@ -47,11 +49,11 @@ const store = configureStore({
     reducer,
     [userApi.reducerPath]: userApi.reducer,
     [playerApi.reducerPath]: playerApi.reducer,
-    [playlistApi.reducerPath]: playlistApi.reducer
+    [playlistApi.reducerPath]: playlistApi.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(userApi.middleware, playerApi.middleware, playlistApi.middleware),
-  devTools: process.env.NODE_ENV === "development",
-
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(userApi.middleware, playerApi.middleware, playlistApi.middleware),
+  devTools: process.env.NODE_ENV === 'development',
 })
 setupListeners(store.dispatch)
 

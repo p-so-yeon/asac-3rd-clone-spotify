@@ -19,6 +19,14 @@ const nextConfig = {
         hostname: 'mosaic.scdn.co',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'image-cdn-ak.spotifycdn.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'image-cdn-fa.spotifycdn.com',
+      },
     ],
   },
   webpack: (config) => {

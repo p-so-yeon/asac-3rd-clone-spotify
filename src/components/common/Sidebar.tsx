@@ -1,4 +1,5 @@
 'use client'
+import { addDoc, collection } from 'firebase/firestore'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -9,6 +10,7 @@ import { BiLibrary } from 'react-icons/bi'
 import { GoHome } from 'react-icons/go'
 import { HiMusicalNote } from 'react-icons/hi2'
 
+import firebaseDB from '@/app/firebase/firebasedb'
 import { useGetCurrentUsersPlaylistQuery } from '@/ducks/service/playlist-api'
 import { useGetUserFollowedArtistQuery } from '@/ducks/service/user-api'
 
@@ -69,6 +71,19 @@ function Sidebar() {
     }
   }, [width, minWidth, mdWidth, lgWidth, maxWidth])
 
+  async function createPlaylist() {
+    try {
+      console.log('createPlaylist')
+      const docRef = await addDoc(collection(firebaseDB, 'myPlaylists'), {
+        playlistName: '',
+        tracks: [],
+      })
+      console.log('Document written with ID', docRef.id)
+    } catch (e) {
+      console.error('error adding docuemnt', e)
+    }
+  }
+
   return (
     <aside
       className={`flex bg-black row-span-1 min-w-[${minWidth}px] max-w-[${maxWidth}px]`}
@@ -80,8 +95,9 @@ function Sidebar() {
             <Link
               key={item.label}
               href={item.href}
-              className={`py-1 px-3 font-black hover:text-white transition duration-500 flex flex-row items-center ${item.active && 'text-white'
-                } text-color-text-secondary`}
+              className={`py-1 px-3 font-black hover:text-white transition duration-500 flex flex-row items-center ${
+                item.active && 'text-white'
+              } text-color-text-secondary`}
             >
               <item.icon className="mr-3" size={26} />
               <p className="w-full">{item.label}</p>
@@ -95,7 +111,11 @@ function Sidebar() {
               <BiLibrary className="text-color-text-secondary" size={26} />
               <p className=" text-color-text-secondary">내 라이브러리</p>
             </div>
-            <AiOutlinePlus size={20} className="transition cursor-pointer text-neutral-300 hover:text-white" />
+            <AiOutlinePlus
+              onClick={createPlaylist}
+              size={20}
+              className="transition cursor-pointer text-neutral-300 hover:text-white"
+            />
           </header>
           {/*Library list*/}
           <div className="flex flex-col gap-2 px-2 h-[calc(100vh-242px)] overflow-y-auto">

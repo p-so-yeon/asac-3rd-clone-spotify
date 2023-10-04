@@ -9,14 +9,13 @@ export default function useSetAccessToken() {
   const dispatch = useDispatch()
   useEffect(() => {
     const setAccessToken = (token: String) => {
-      console.log("token:", token)
+      console.log('token:', token)
       dispatch(
         setToken({
           ACCESS_TOKEN: token,
         }),
       )
       console.log('accessToken setted in Redux toolkit')
-
     }
     axios({
       method: 'post',

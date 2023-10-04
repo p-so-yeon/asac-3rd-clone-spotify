@@ -1,7 +1,13 @@
-import { rest } from "msw"
+import { rest } from 'msw'
 
-import { MOCK_API_URL } from "@/lib/constant/path"
-import { RECENTLY_PLAYED_TRACK_DATA, RECOMMANDATION_TRACK_DATA, TOP_TRACKS_DATA, TRACK_DATA, USERS_SAVED_TRACKS } from "@/mock/api/data/tracks-data"
+import { MOCK_API_URL } from '@/lib/constant/path'
+import {
+  RECENTLY_PLAYED_TRACK_DATA,
+  RECOMMANDATION_TRACK_DATA,
+  TOP_TRACKS_DATA,
+  TRACK_DATA,
+  USERS_SAVED_TRACKS,
+} from '@/mock/api/data/tracks-data'
 
 const TracksHandler = [
   rest.get(`${MOCK_API_URL}/track/top-track`, (_, res, ctx) => res(ctx.json(TOP_TRACKS_DATA))),

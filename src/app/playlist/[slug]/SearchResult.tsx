@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import React from 'react'
 
-import { usePlaylistTracksContext } from '@/app/playlist/PlaylistTrackProvider'
+import { usePlaylistTracksContext } from '@/app/playlist/[slug]/PlaylistTrackProvider'
 
 export default function SearchResult({ data }) {
   const { playlistTracks, setPlaylistTracks } = usePlaylistTracksContext()

@@ -1,5 +1,8 @@
 'use client'
-import { createContext, useContext, useState } from 'react'
+import { doc, getDoc } from 'firebase/firestore'
+import { createContext, useContext, useEffect, useState } from 'react'
+
+import firebaseDB from '@/app/firebase/firebasedb'
 
 interface playlistTrack {
   id: string
@@ -18,18 +21,20 @@ export const PlaylistTracksContext = createContext<{
   setPlaylistTracks: () => {},
 })
 
-export function PlaylistTrackProvider({ children }) {
+export function PlaylistTrackProvider({ children, playlistSlug }) {
   const [playlistTracks, setPlaylistTracks] = useState<playlistTrack[]>([])
-  // useEffect(() => {
-  //   async function getCurrentPlaylist() {
-  //     try {
-  //       //트랙 데이터 불러오기
-  //     } catch (e) {
-  //       console.log('Error getting current playlist');
-  //     }
-  //   }
-  //   getCurrentPlaylist();
-  // }, []);
+  const [playlistInfo, setPlaylistInfo] = useState()
+  useEffect(() => {
+    async function getCurrentPlaylist() {
+      try {
+        const playlistData = (await getDoc(doc(firebaseDB, 'myPlaylists', `${playlistSlug}`))).data()
+        console.log('playlistData', playlistData)
+      } catch (e) {
+        console.log('Error getting current playlist')
+      }
+    }
+    getCurrentPlaylist()
+  }, [])
   return (
     <PlaylistTracksContext.Provider value={{ playlistTracks, setPlaylistTracks }}>
       {children}

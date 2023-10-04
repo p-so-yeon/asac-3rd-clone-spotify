@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useSession } from 'next-auth/react'
 import { useState } from 'react'
 
-import SearchResult from '@/app/playlist/SearchResult'
+import SearchResult from '@/app/playlist/[slug]/SearchResult'
 import SearchBar from '@/components/common/SearchBar'
 
 export default function SearchTrack() {

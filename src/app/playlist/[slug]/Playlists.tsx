@@ -6,7 +6,7 @@ import { SlOptions } from 'react-icons/sl'
 import { VscHeart } from 'react-icons/vsc'
 import { VscHeartFilled } from 'react-icons/vsc'
 
-import { usePlaylistTracksContext } from '@/app/playlist/PlaylistTrackProvider'
+import { usePlaylistTracksContext } from '@/app/playlist/[slug]/PlaylistTrackProvider'
 
 export default function Playlists() {
   const { playlistTracks, setPlaylistTracks } = usePlaylistTracksContext()

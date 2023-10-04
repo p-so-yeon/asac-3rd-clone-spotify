@@ -2,11 +2,12 @@
 import { useEffect, useState } from 'react'
 import { BsDot } from 'react-icons/bs'
 
+import Following from '@/components/common/Banner/Following'
+import Userplaylist from '@/components/common/Banner/Public_playlist'
 import { MOCK_API_URL } from '@/lib/constant/path'
 import { User } from '@/types/mock-data-type'
 import { FollowArtist } from '@/types/mock-data-type'
 import { playlistItem } from '@/types/mock-data-type'
-
 function Banner() {
   const [curuser, setCuruser] = useState<User>()
   const [followed, setFollowed] = useState<FollowArtist>()
@@ -58,23 +59,22 @@ function Banner() {
         <div>
           <div className="relative pointer-events-none ml-[30px] h-[30vh] flex z-0">
             <div className="absolute bottom-12  w-[192px] h-[192px] flex">
-              <button className=" shadow-2xl mr-[15px]  rounded-full">
-                <img className="w-[192px] h-[192px]  rounded-full" />
-              </button>
+              <button className=" shadow-2xl mr-[15px]  rounded-full"></button>
             </div>
+            <div></div>
             <div className="flex flex-col whitespace-nowrap">
               <div className="absolute left-[245px] top-[85px] text-[14px]  text-color-text-primary ml-2.5">프로필</div>
-              <div className="absolute left-[245px] top-[115px] text-[6rem] text-color-text-primary font-black ">
-                {curuser?.display_name}
-              </div>
+              <div className="absolute left-[245px] top-[115px] text-[6rem] text-color-text-primary font-black "></div>
               <div className="flex text-white absolute left-[245px] top-[250px] text-[0.8125rem] items-center">
                 <div className="flex">
-                  공개 플레이리스트 <div> {number?.total}개</div>
+                  <Userplaylist></Userplaylist>
                 </div>
                 <div>
                   <BsDot></BsDot>
                 </div>
-                <a>팔로잉{followed?.artists.total} 명</a>
+                <a>
+                  <Following></Following>
+                </a>
               </div>
             </div>
           </div>

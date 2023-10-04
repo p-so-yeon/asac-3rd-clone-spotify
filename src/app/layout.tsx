@@ -7,7 +7,6 @@ import Header from '@/components/common/Header'
 import Player from '@/components/common/Player'
 import Sidebar from '@/components/common/Sidebar'
 import Providers from '@/components/provider/Providers'
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -24,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Sidebar />
             <div className="flex flex-col h-[calc(100vh-72px)s] overflow-y-auto">
               <Header />
+
               {children}
             </div>
             <div className="col-span-2 h-[72px]">

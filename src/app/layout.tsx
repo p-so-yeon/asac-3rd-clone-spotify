@@ -29,16 +29,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Header />
               {children}
             </div>
-            <div className="col-span-2 h-[72px]">
+            <div className="fixed bottom-0 col-span-2 h-[72px]">
               <Player />
             </div>
           </main>
           {/* <main className="bg-color-background-primary">
-            <section className="grid-areas-desktop grid-rows-layout grid-cols-layout grid h-screen gap-2 p-2">
+            <section className="grid h-screen gap-2 p-2 grid-areas-desktop grid-rows-layout grid-cols-layout">
               <aside className="flex w-[280px] grid-in-left-sidebar">
                 <Sidebar />
               </aside>
-              <div className="grid-in-main flex flex-col">
+              <div className="flex flex-col grid-in-main">
                 <Nav></Nav>
                 {children}
               </div>

@@ -12,6 +12,7 @@ interface playlistTrack {
   added_date: Date
   artist: string
   duration: number
+  liked: boolean
 }
 interface playlistInfo {
   author: string
@@ -33,9 +34,9 @@ export const PlaylistInfoContext = createContext<{
   setPlaylistInfo: () => {},
 })
 
-export function PlaylistTrackProvider({ children, playlistSlug }) {
+export function PlaylistProvider({ children, playlistSlug }) {
   const [playlistTracks, setPlaylistTracks] = useState<playlistTrack[]>([])
-  const [playlistInfo, setPlaylistInfo] = useState<playlistInfo>( { author: '', coverImg: '', title: '' })
+  const [playlistInfo, setPlaylistInfo] = useState<playlistInfo>({ author: '', coverImg: '', title: '' })
   useEffect(() => {
     async function getCurrentPlaylist() {
       try {
@@ -63,10 +64,10 @@ export function usePlaylistTracksContext() {
   return context
 }
 
-export function usePlaylistInfoContext(){
-  const context=  useContext(PlaylistInfoContext)
-  if(!context){
+export function usePlaylistInfoContext() {
+  const context = useContext(PlaylistInfoContext)
+  if (!context) {
     throw new Error('playlist Info Context could not be made')
-  }                    
+  }
   return context
 }

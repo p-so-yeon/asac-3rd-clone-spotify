@@ -6,7 +6,7 @@ import { SlOptions } from 'react-icons/sl'
 import { VscHeart } from 'react-icons/vsc'
 import { VscHeartFilled } from 'react-icons/vsc'
 
-import { usePlaylistTracksContext } from '@/app/playlist/[slug]/PlaylistTrackProvider'
+import { usePlaylistTracksContext } from '@/app/playlist/[slug]/PlaylistProvider'
 
 export default function Playlists() {
   const { playlistTracks, setPlaylistTracks } = usePlaylistTracksContext()
@@ -32,7 +32,7 @@ export default function Playlists() {
             <span>#</span>
             <span className="w-2/6">제목</span>
             <span className="w-2/6">앨범</span>
-            <span className="w-1/6">추가한 날짜</span>
+            <span className="w-1/6 mr-[48px]">추가한 날짜</span>
             <span className="pr-2">
               <LuClock3 size={15} />
             </span>
@@ -56,7 +56,9 @@ export default function Playlists() {
               </span>
               <span className="w-2/6 text-sm">{item.album_name}</span>
               <span className="w-1/6 pl-2 text-sm">{calcDate(item.added_date)}</span>
-              {index === hover && <VscHeart size={16} className="absolute right-32 hover:text-white" />}
+              <div className="w-[16px]">
+                {index === hover && <VscHeart size={16} className="hover:text-white" />}
+              </div>
               <span className=" text-[#B3B3B3] text-sm">
                 {Math.floor(item.duration / 60000)}:{((item.duration % 60000) / 1000).toFixed(0).padStart(2, '0')}
               </span>

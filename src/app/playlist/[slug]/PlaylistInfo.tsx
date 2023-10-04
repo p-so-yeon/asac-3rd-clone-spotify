@@ -3,17 +3,10 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import { FiEdit2 } from 'react-icons/fi'
 
-interface dataProps {
-  cover_img: string | null
-  title: string
-  author: string
-  author_profile: string | null
-}
+import { usePlaylistInfoContext } from '@/app/playlist/[slug]/PlaylistProvider'
 
-interface PlaylistInfoProps {
-  test_data: dataProps
-}
-export default function PlaylistInfo({ test_data }: PlaylistInfoProps) {
+export default function PlaylistInfo() {
+  const { playlistInfo, setPlaylistInfo } = usePlaylistInfoContext()
   const [coverHover, setCoverHover] = useState(false)
   return (
     <div className="relative flex w-full px-4 h-72 bg-gradient-to-b from-transparent to-color-card-primary">
@@ -28,7 +21,7 @@ export default function PlaylistInfo({ test_data }: PlaylistInfoProps) {
       >
         <Image
           fill={true}
-          src={test_data.cover_img ? test_data.cover_img : '/img/playlistDefault.png'}
+          src={playlistInfo.coverImg ? playlistInfo.coverImg : '/img/playlistDefault.png'}
           alt="playlist cover image"
         />
         {coverHover && (
@@ -40,16 +33,17 @@ export default function PlaylistInfo({ test_data }: PlaylistInfoProps) {
       </button>
       <div className="flex flex-col gap-4 text-white pt-36 ">
         <span className="text-sm">플레이리스트</span>
-        <button className="text-5xl font-extrabold">{test_data.title}</button>
+        <button className="text-5xl font-extrabold">{playlistInfo.title}</button>
         <div className="flex gap-2">
           <div className="relative w-6 h-6 overflow-hidden rounded-full ">
             <Image
               fill={true}
-              src={test_data.author_profile ? test_data.author_profile : '/img/userDefaultProfile.jpeg'}
+              // src={playlistInfo. ? test_data.author_profile : '/img/userDefaultProfile.jpeg'}
+              src="/img/userDefaultProfile.jpeg"
               alt="author profile image"
             />
           </div>
-          <p>{test_data.author}</p>
+          <p>{playlistInfo.author}</p>
         </div>
       </div>
     </div>

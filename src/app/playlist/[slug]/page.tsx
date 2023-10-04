@@ -1,6 +1,6 @@
 import PlaylistInfo from '@/app/playlist/[slug]/PlaylistInfo'
+import { PlaylistProvider } from '@/app/playlist/[slug]/PlaylistProvider'
 import Playlists from '@/app/playlist/[slug]/Playlists'
-import { PlaylistTrackProvider } from '@/app/playlist/[slug]/PlaylistTrackProvider'
 import SearchTrack from '@/app/playlist/[slug]/SearchTrack'
 
 const test_data = {
@@ -11,11 +11,10 @@ const test_data = {
 }
 
 export default function page({ params }: { params: { slug: string } }) {
-  
   return (
     <div className="w-full overflow-y-scroll h-5/6">
-      <PlaylistTrackProvider playlistSlug={params.slug}>
-        <PlaylistInfo test_data={test_data} />
+      <PlaylistProvider playlistSlug={params.slug}>
+        <PlaylistInfo />
         <div className="flex flex-col gap-12 px-5">
           <section>
             <Playlists />
@@ -23,8 +22,8 @@ export default function page({ params }: { params: { slug: string } }) {
           <section className="h-56 pt-4 mt-4 border-tborder-neutral-500">
             <SearchTrack />
           </section>
-        </div> 
-      </PlaylistTrackProvider> 
+        </div>
+      </PlaylistProvider>
     </div>
   )
 }

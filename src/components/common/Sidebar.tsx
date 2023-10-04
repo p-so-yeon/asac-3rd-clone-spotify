@@ -11,7 +11,7 @@ import { BiLibrary } from 'react-icons/bi'
 import { GoHome } from 'react-icons/go'
 import { HiMusicalNote } from 'react-icons/hi2'
 
-import firebaseDB from '@/app/firebase/firebasedb'
+import firebaseDB from '@/core/service/firebase/firebasedb'
 import { useGetCurrentUsersPlaylistQuery } from '@/ducks/service/playlist-api'
 import { useGetUserFollowedArtistQuery } from '@/ducks/service/user-api'
 

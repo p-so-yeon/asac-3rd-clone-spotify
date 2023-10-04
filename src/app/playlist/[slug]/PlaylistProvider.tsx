@@ -2,7 +2,7 @@
 import { doc, getDoc } from 'firebase/firestore'
 import { createContext, useContext, useEffect, useState } from 'react'
 
-import firebaseDB from '@/app/firebase/firebasedb'
+import firebaseDB from '@/core/service/firebase/firebasedb'
 
 interface playlistTrack {
   id: string

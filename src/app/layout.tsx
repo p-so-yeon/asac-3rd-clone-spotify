@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
+// import Script from 'next/script'
 import Header from '@/components/common/Header'
 import Player from '@/components/common/Player'
 import Sidebar from '@/components/common/Sidebar'
@@ -16,6 +17,8 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  console.log('layout rendered')
+
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -46,6 +49,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </main> */}
         </Providers>
       </body>
+      {/* <Script src={`https://sdk.scdn.co/spotify-player.js`} strategy="beforeInteractive" /> */}
+      {/* <Script src={`https://sdk.scdn.co/spotify-player.js`} strategy="afterInteractive" /> */}
     </html>
   )
 }

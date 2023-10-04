@@ -1,7 +1,7 @@
-import type { NextAuthOptions } from "next-auth";
-import { JWT } from "next-auth/jwt";
-import SpotifyProvider, { SpotifyProfile } from "next-auth/providers/spotify"
-import fetch from "node-fetch";
+import type { NextAuthOptions } from 'next-auth'
+import { JWT } from 'next-auth/jwt'
+import SpotifyProvider, { SpotifyProfile } from 'next-auth/providers/spotify'
+import fetch from 'node-fetch'
 // import { SpotifyProfile } from "next-auth/providers/spotify";
 
 const SPOTIFY_REFRESH_TOKEN_URL = 'https://accounts.spotify.com/api/token'
@@ -12,52 +12,53 @@ const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET
 // https://developer.spotify.com/documentation/web-api/concepts/scopes
 // 타사 앱을 사용하는 Spotify 사용자에게 공유하기로 선택한 정보의 범위
 const scopes = [
-  "ugc-image-upload",
-  "playlist-read-private",
-  "playlist-read-collaborative",
-  "playlist-read-private",
-  "playlist-modify-public",
-  "playlist-modify-private",
-  "user-read-private",
-  "user-top-read",
-  "user-follow-read",
-  "user-follow-modify",
-  "user-read-email",
-  "user-read-currently-playing",
-  "user-library-read",
-  "user-library-modify",
-  "user-read-playback-state",
-  "user-modify-playback-state",
-  "user-read-recently-played"
-].join(",")
+  'streaming',
+  'ugc-image-upload',
+  'playlist-read-private',
+  'playlist-read-collaborative',
+  'playlist-read-private',
+  'playlist-modify-public',
+  'playlist-modify-private',
+  'user-read-private',
+  'user-top-read',
+  'user-follow-read',
+  'user-follow-modify',
+  'user-read-email',
+  'user-read-currently-playing',
+  'user-library-read',
+  'user-library-modify',
+  'user-read-playback-state',
+  'user-modify-playback-state',
+  'user-read-recently-played',
+].join(',')
 
 const params = {
-  scope: scopes
+  scope: scopes,
 }
 
 async function refreshAccessToken(token: JWT) {
   // refreshing access token
-  console.log("at refreshing access token jwt options");
+  console.log('at refreshing access token jwt options')
   try {
     const basicAuth = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')
     // url param 생성 방법 직접 객체로 작성 vs URLSearchParams 함수 사용
     const params = new URLSearchParams()
-    params.append("grant_type", 'refresh_token')
-    params.append("refresh_token", token.refreshToken!)
+    params.append('grant_type', 'refresh_token')
+    params.append('refresh_token', token.refreshToken!)
     const response = await fetch(SPOTIFY_REFRESH_TOKEN_URL, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        'Authorization': `Basic ${basicAuth}`,
+        Authorization: `Basic ${basicAuth}`,
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: params
+      body: params,
     })
     const data = await response.json()
     return {
       ...token,
       accessToken: data.access_token,
       refreshToken: data.refresh_token ?? token.refreshToken,
-      accessTokenExpires: Date.now() + data.expires_in * 1000
+      accessTokenExpires: Date.now() + data.expires_in * 1000,
     }
   } catch (error) {
     return {
@@ -67,7 +68,7 @@ async function refreshAccessToken(token: JWT) {
   }
 }
 
-const LOGIN_URL = "https://accounts.spotify.com/authorize?" + new URLSearchParams(params).toString()
+const LOGIN_URL = 'https://accounts.spotify.com/authorize?' + new URLSearchParams(params).toString()
 
 export const options: NextAuthOptions = {
   providers: [
@@ -96,8 +97,8 @@ export const options: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   // secret: process.env.JWT_SECRET,
   pages: {
-    signIn: "/login",
-    signOut: "/logout"
+    signIn: '/login',
+    signOut: '/logout',
   },
   callbacks: {
     /**
@@ -106,11 +107,11 @@ export const options: NextAuthOptions = {
      * 프로토타입 user 개체입니다.
      */
     /**
-     * 이 JWT 콜백은 
+     * 이 JWT 콜백은
      * JWT이 생성되거나(즉, 로그인 시)
-     * 업데이트될 때마다(즉, 클라이언트에서 세션에 액세스할 때마다) 
+     * 업데이트될 때마다(즉, 클라이언트에서 세션에 액세스할 때마다)
      * 호출됩니다.
-     * 
+     *
      * e.g. /api/auth/signin, getSession(), useSession(), /api/auth/session
      * 사용자 ID, OAuth 액세스 토큰 등과 같은 데이터를 브라우저에 전달하려는 경우
      * 이를 토큰에 유지하고 session() 콜백을 사용하여 반환할 수 있습니다.
@@ -119,21 +120,20 @@ export const options: NextAuthOptions = {
       return true
     },
     async jwt({ token, account, profile, user }) {
-
       //user가 처음 로그인 한 경우
       if (account && user) {
-        console.log("at initial login jwt options");
+        console.log('at initial login jwt options')
         return {
           accessToken: account.access_token,
           refreshToken: account.refresh_token,
           accessTokenExpires: account.expires_at,
-          user
+          user,
         }
       }
 
       // access token has not expired
       if (token.accessTokenExpires && Date.now() < token.accessTokenExpires!) {
-        console.log("at normal condition jwt options");
+        // console.log('at normal condition jwt options')
         return token
       }
 
@@ -146,6 +146,6 @@ export const options: NextAuthOptions = {
       session.user = token.user
       // console.log("in options :", session.user);
       return session
-    }
-  }
+    },
+  },
 }

@@ -1,6 +1,6 @@
-import NextAuth from "next-auth"
+import NextAuth from 'next-auth'
 
-import { options } from "@/app/api/auth/[...nextauth]/options"
+import { options } from '@/app/api/auth/[...nextauth]/options'
 
 const handler = NextAuth(options)
 

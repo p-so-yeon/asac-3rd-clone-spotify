@@ -1,30 +1,30 @@
-import { Image } from "@/types/common/images-data-type";
+import { Image } from '@/types/common/images-data-type'
 
 export interface GetCurrentUserProfile {
-  country: string;
-  display_name: string;
-  email: string;
-  explicit_content: ExplicitContent;
-  external_urls: ExternalUrls;
-  followers: Followers;
-  href: string;
-  id: string;
-  images: Image[];
-  product: string;
-  type: string;
-  uri: string;
+  country: string
+  display_name: string
+  email: string
+  explicit_content: ExplicitContent
+  external_urls: ExternalUrls
+  followers: Followers
+  href: string
+  id: string
+  images: Image[]
+  product: string
+  type: string
+  uri: string
 }
 
 export interface ExplicitContent {
-  filter_enabled: boolean;
-  filter_locked: boolean;
+  filter_enabled: boolean
+  filter_locked: boolean
 }
 
 export interface ExternalUrls {
-  spotify: string;
+  spotify: string
 }
 
 export interface Followers {
-  href: null;
-  total: number;
+  href: null
+  total: number
 }

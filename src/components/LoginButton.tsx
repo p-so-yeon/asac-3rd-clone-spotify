@@ -1,6 +1,6 @@
-"use client"
-import { signIn } from "next-auth/react";
-import { BiLogoSpotify } from "react-icons/bi";
+'use client'
+import { signIn } from 'next-auth/react'
+import { BiLogoSpotify } from 'react-icons/bi'
 
 export default function LoginButton() {
   return (
@@ -13,5 +13,5 @@ export default function LoginButton() {
         Spotify로 로그인 하기
       </button>
     </div>
-  );
+  )
 }

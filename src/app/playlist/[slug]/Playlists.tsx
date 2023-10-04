@@ -56,9 +56,7 @@ export default function Playlists() {
               </span>
               <span className="w-2/6 text-sm">{item.album_name}</span>
               <span className="w-1/6 pl-2 text-sm">{calcDate(item.added_date)}</span>
-              <div className="w-[16px]">
-                {index === hover && <VscHeart size={16} className="hover:text-white" />}
-              </div>
+              <div className="w-[16px]">{index === hover && <VscHeart size={16} className="hover:text-white" />}</div>
               <span className=" text-[#B3B3B3] text-sm">
                 {Math.floor(item.duration / 60000)}:{((item.duration % 60000) / 1000).toFixed(0).padStart(2, '0')}
               </span>

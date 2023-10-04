@@ -13,6 +13,11 @@ interface playlistTrack {
   artist: string
   duration: number
 }
+interface playlistInfo {
+  author: string
+  coverImg: string
+  title: string
+}
 export const PlaylistTracksContext = createContext<{
   playlistTracks: playlistTrack[]
   setPlaylistTracks: React.Dispatch<React.SetStateAction<playlistTrack[]>>
@@ -20,15 +25,24 @@ export const PlaylistTracksContext = createContext<{
   playlistTracks: [],
   setPlaylistTracks: () => {},
 })
+export const PlaylistInfoContext = createContext<{
+  playlistInfo: playlistInfo
+  setPlaylistInfo: React.Dispatch<React.SetStateAction<playlistInfo>>
+}>({
+  playlistInfo: { author: '', coverImg: '', title: '' },
+  setPlaylistInfo: () => {},
+})
 
 export function PlaylistTrackProvider({ children, playlistSlug }) {
   const [playlistTracks, setPlaylistTracks] = useState<playlistTrack[]>([])
-  const [playlistInfo, setPlaylistInfo] = useState()
+  const [playlistInfo, setPlaylistInfo] = useState<playlistInfo>( { author: '', coverImg: '', title: '' })
   useEffect(() => {
     async function getCurrentPlaylist() {
       try {
         const playlistData = (await getDoc(doc(firebaseDB, 'myPlaylists', `${playlistSlug}`))).data()
-        console.log('playlistData', playlistData)
+        setPlaylistTracks(playlistData?.tracks) //
+        setPlaylistInfo({ author: playlistData?.author, coverImg: playlistData?.coverImg, title: playlistData?.title })
+        console.log('playlist set done')
       } catch (e) {
         console.log('Error getting current playlist')
       }
@@ -37,7 +51,7 @@ export function PlaylistTrackProvider({ children, playlistSlug }) {
   }, [])
   return (
     <PlaylistTracksContext.Provider value={{ playlistTracks, setPlaylistTracks }}>
-      {children}
+      <PlaylistInfoContext.Provider value={{ playlistInfo, setPlaylistInfo }}>{children}</PlaylistInfoContext.Provider>
     </PlaylistTracksContext.Provider>
   )
 }
@@ -46,5 +60,13 @@ export function usePlaylistTracksContext() {
   if (!context) {
     throw new Error('playlist Track Context could not be made')
   }
+  return context
+}
+
+export function usePlaylistInfoContext(){
+  const context=  useContext(PlaylistInfoContext)
+  if(!context){
+    throw new Error('playlist Info Context could not be made')
+  }                    
   return context
 }

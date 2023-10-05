@@ -1,1 +1,1 @@
-export type ItemType = "track" | "album" | "playlist" | "artist" | "user";
+export type ItemType = 'track' | 'album' | 'playlist' | 'artist' | 'user'

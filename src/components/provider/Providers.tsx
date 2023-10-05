@@ -5,10 +5,14 @@ import React from 'react'
 import AuthProvider from '@/components/provider/AuthProvider'
 import ReduxProvider from '@/components/provider/ReduxProvider'
 
+import WebplaybackProvider from './WebplaybackProvider'
+
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <AuthProvider>
-      <ReduxProvider>{children}</ReduxProvider>
+      <ReduxProvider>
+        <WebplaybackProvider>{children}</WebplaybackProvider>
+      </ReduxProvider>
     </AuthProvider>
   )
 }

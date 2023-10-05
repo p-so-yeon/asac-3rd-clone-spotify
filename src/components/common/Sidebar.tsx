@@ -80,8 +80,9 @@ function Sidebar() {
             <Link
               key={item.label}
               href={item.href}
-              className={`py-1 px-3 font-black hover:text-white transition duration-500 flex flex-row items-center ${item.active && 'text-white'
-                } text-color-text-secondary`}
+              className={`py-1 px-3 font-black hover:text-white transition duration-500 flex flex-row items-center ${
+                item.active && 'text-white'
+              } text-color-text-secondary`}
             >
               <item.icon className="mr-3" size={26} />
               <p className="w-full">{item.label}</p>

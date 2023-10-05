@@ -29,7 +29,6 @@
 //         {items.map((item, index) => (
 //           <tr key={index}>
 
-
 //           </tr>
 //         ))}
 //       </tbody>

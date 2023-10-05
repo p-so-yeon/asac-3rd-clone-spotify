@@ -1,6 +1,6 @@
-import { getServerSession } from "next-auth"
+import { getServerSession } from 'next-auth'
 
-import { options } from "@/app/api/auth/[...nextauth]/options"
+import { options } from '@/app/api/auth/[...nextauth]/options'
 
 const getAuthSession = async () => {
   const session = await getServerSession(options)

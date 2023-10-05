@@ -7,6 +7,7 @@ import { usePlaylistInfoContext } from '@/app/playlist/[slug]/PlaylistProvider'
 
 export default function PlaylistInfo() {
   useEffect(() => {
+    //coverImg기존에 있던 거 가져와지는지 확인 필요
     if (playlistInfo.coverImg) {
       const image = window.URL.createObjectURL(playlistInfo.coverImg)
       setCoverImgPreview(image)
@@ -14,7 +15,6 @@ export default function PlaylistInfo() {
   }, [])
   const { playlistInfo, setPlaylistInfo } = usePlaylistInfoContext()
   const [coverImgPreview, setCoverImgPreview] = useState('/img/playlistDefault.png')
-  //playlistInfo.coverImg가 있다면 coverImgPreview를 셋팅하기
 
   const [coverHover, setCoverHover] = useState(false)
   const coverImgRef = useRef<HTMLInputElement | null>(null)
@@ -60,7 +60,7 @@ export default function PlaylistInfo() {
         <span className="text-sm">플레이리스트</span>
         <input
           type="text"
-          className="text-5xl font-extrabold bg-black placeholder-white border-none"
+          className="text-5xl font-extrabold placeholder-white bg-black border-none"
           placeholder="플레이리스트 제목"
           value={playlistInfo.title}
           onChange={handleTitleChange}

@@ -1,9 +1,9 @@
 'use client'
 import { doc, getDoc } from 'firebase/firestore'
+import { useRouter } from 'next/navigation'
 import { createContext, useContext, useEffect, useState } from 'react'
 
 import firebaseDB from '@/core/service/firebase/firebasedb'
-import { File } from 'buffer'
 
 interface playlistTrack {
   id: string
@@ -17,7 +17,7 @@ interface playlistTrack {
 }
 interface playlistInfo {
   author: string
-  coverImg: Blob
+  coverImg: string
   title: string
 }
 export const PlaylistTracksContext = createContext<{
@@ -36,6 +36,8 @@ export const PlaylistInfoContext = createContext<{
 })
 
 export function PlaylistProvider({ children, playlistSlug }) {
+  const router = useRouter()
+
   const [playlistTracks, setPlaylistTracks] = useState<playlistTrack[]>([])
   const [playlistInfo, setPlaylistInfo] = useState<playlistInfo>({ author: '', coverImg: '', title: '' })
   useEffect(() => {

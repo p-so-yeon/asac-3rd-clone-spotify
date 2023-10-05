@@ -3,13 +3,6 @@ import { PlaylistProvider } from '@/app/playlist/[slug]/PlaylistProvider'
 import Playlists from '@/app/playlist/[slug]/Playlists'
 import SearchTrack from '@/app/playlist/[slug]/SearchTrack'
 
-const test_data = {
-  cover_img: '',
-  title: '내 플레이리스트 #20',
-  author: '승효',
-  author_profile: '',
-}
-
 export default function page({ params }: { params: { slug: string } }) {
   return (
     <div className="w-full overflow-y-scroll h-5/6">

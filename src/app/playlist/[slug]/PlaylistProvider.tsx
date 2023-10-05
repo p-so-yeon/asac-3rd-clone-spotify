@@ -3,6 +3,7 @@ import { doc, getDoc } from 'firebase/firestore'
 import { createContext, useContext, useEffect, useState } from 'react'
 
 import firebaseDB from '@/core/service/firebase/firebasedb'
+import { File } from 'buffer'
 
 interface playlistTrack {
   id: string
@@ -16,7 +17,7 @@ interface playlistTrack {
 }
 interface playlistInfo {
   author: string
-  coverImg: string
+  coverImg: Blob
   title: string
 }
 export const PlaylistTracksContext = createContext<{

@@ -1,7 +1,9 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 'use client'
+import { addDoc, collection, getDocs } from 'firebase/firestore'
 import Image from 'next/image'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { BiSearch } from 'react-icons/bi'
@@ -9,11 +11,27 @@ import { BiLibrary } from 'react-icons/bi'
 import { GoHome } from 'react-icons/go'
 import { HiMusicalNote } from 'react-icons/hi2'
 
+import firebaseDB from '@/core/service/firebase/firebasedb'
 import { useGetCurrentUsersPlaylistQuery } from '@/ducks/service/playlist-api'
 import { useGetUserFollowedArtistQuery } from '@/ducks/service/user-api'
 
+async function getPlaylists(): Promise<any[]> {
+  try {
+    const myPlaylists = await getDocs(collection(firebaseDB, 'playlists'))
+    const playlistData: any[] = []
+    myPlaylists.forEach((playlist) => {
+      playlistData.push({ id: playlist.id, data: playlist.data() })
+    })
+    return playlistData
+  } catch (e) {
+    console.log('Fail to get user playlists in the library ', e)
+    return []
+  }
+}
+
 function Sidebar() {
   const pathname = usePathname()
+  const router = useRouter()
   const routes = useMemo(
     () => [
       {
@@ -69,6 +87,28 @@ function Sidebar() {
     }
   }, [width, minWidth, mdWidth, lgWidth, maxWidth])
 
+  const [playlist, setPlaylists] = useState<any[]>()
+
+  const useGetPlaylists = () => {
+    getPlaylists().then((result) => {
+      setPlaylists(result)
+    })
+  }
+
+  useEffect(() => {
+    useGetPlaylists()
+  }, [])
+
+  async function createPlaylist() {
+    const docRef = await addDoc(collection(firebaseDB, 'myPlaylists'), {
+      title: '',
+      coverImg: '',
+      author: '', //유저 아이디를 넣어주기
+      tracks: [],
+    })
+    useGetPlaylists()
+    router.push(`/playlist/${docRef.id}`)
+  }
   return (
     <aside
       className={`flex bg-black row-span-1 min-w-[${minWidth}px] max-w-[${maxWidth}px]`}
@@ -96,7 +136,11 @@ function Sidebar() {
               <BiLibrary className="text-color-text-secondary" size={26} />
               <p className=" text-color-text-secondary">내 라이브러리</p>
             </div>
-            <AiOutlinePlus size={20} className="transition cursor-pointer text-neutral-300 hover:text-white" />
+            <AiOutlinePlus
+              onClick={createPlaylist}
+              size={20}
+              className="transition cursor-pointer text-neutral-300 hover:text-white"
+            />
           </header>
           {/*Library list*/}
           <div className="flex flex-col gap-2 px-2 h-[calc(100vh-242px)] overflow-y-auto">

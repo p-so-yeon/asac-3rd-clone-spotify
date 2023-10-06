@@ -9,17 +9,27 @@ import { VscHeartFilled } from 'react-icons/vsc'
 import { usePlaylistTracksContext } from '@/app/playlist/[slug]/PlaylistProvider'
 
 export default function Playlists() {
+  const seconds = 1
+  const minute = seconds * 60
+  const hour = minute * 60
+  const day = hour * 24
   const { playlistTracks, setPlaylistTracks } = usePlaylistTracksContext()
   const [hover, setHover] = useState<number | null>(null)
-  const relativeFormatter = new Intl.RelativeTimeFormat('ko', {
-    numeric: 'auto',
-  })
+
   function calcDate(date) {
-    const created = date
     const today = new Date()
-    const dayPassed = Math.ceil(created.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)
-    const daysAgo = relativeFormatter.format(dayPassed, 'day')
-    return daysAgo
+    const dayPassed = Math.trunc((today.getTime() - date) / 1000)
+    if (dayPassed < seconds) {
+      return '방금전'
+    } else if (dayPassed < minute) {
+      return dayPassed + '초 전'
+    } else if (dayPassed < hour) {
+      return Math.trunc(dayPassed / minute) + '분 전'
+    } else if (dayPassed < day) {
+      return Math.trunc(dayPassed / hour) + '시간 전'
+    } else {
+      return Math.trunc(dayPassed / day) + '일 전'
+    }
   }
   return (
     <>

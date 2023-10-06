@@ -10,7 +10,7 @@ interface playlistTrack {
   img: string
   name: string
   album_name?: string
-  added_date: Date
+  added_date: number
   artist: string
   duration: number
   liked: boolean

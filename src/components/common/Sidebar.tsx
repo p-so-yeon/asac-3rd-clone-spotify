@@ -17,7 +17,7 @@ import { useGetUserFollowedArtistQuery } from '@/ducks/service/user-api'
 
 async function getPlaylists(): Promise<any[]> {
   try {
-    const myPlaylists = await getDocs(collection(firebaseDB, 'playlists'))
+    const myPlaylists = await getDocs(collection(firebaseDB, 'myPlaylists'))
     const playlistData: any[] = []
     myPlaylists.forEach((playlist) => {
       playlistData.push({ id: playlist.id, data: playlist.data() })
@@ -148,6 +148,29 @@ function Sidebar() {
               <BiSearch size={20} className="m-2 font-black text-color-text-secondary" />
               <p className="text-xs font-bold text-color-text-secondary">Recents</p>
             </div>
+            <ul className="flex flex-col gap-2">
+              {playlist?.map((item) => (
+                <Link
+                  key={item.id}
+                  className="cursor-pointer hover:bg-color-hover-primary"
+                  href={`/playlist/${item.id}`}
+                >
+                  <div className="grid grid-cols-[auto_1fr] p-2 gap-x-3 gap-y-2">
+                    <Image
+                      className="rouded-md"
+                      src={item.data.coverImg ? item.data.coverImg : '/img/playlistDefault.png'}
+                      alt={item.title}
+                      width={48}
+                      height={48}
+                    />
+                    <div className={`flex flex-col`}>
+                      <span className="break-all text-color-text-primary line-clamp-1">{`${item.data.title}`}</span>
+                      <span className="text-color-text-secondary">{`playlist-${item.data.author}`}</span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </ul>
 
             {currentUserPlaylist && (
               <ul className="flex flex-col gap-2">

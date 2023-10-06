@@ -7,7 +7,7 @@ export default function page({ params }: { params: { slug: string } }) {
   return (
     <div className="w-full overflow-y-scroll h-5/6">
       <PlaylistProvider playlistSlug={params.slug}>
-        <PlaylistInfo />
+        <PlaylistInfo slug={params.slug} />
         <div className="flex flex-col gap-12 px-5">
           <section>
             <Playlists />

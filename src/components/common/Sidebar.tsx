@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 'use client'
 import { addDoc, collection, getDocs } from 'firebase/firestore'
+import { getDownloadURL, ref } from 'firebase/storage'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
@@ -102,9 +103,9 @@ function Sidebar() {
   async function createPlaylist() {
     const docRef = await addDoc(collection(firebaseDB, 'myPlaylists'), {
       title: '',
-      coverImg: '',
       author: '', //유저 아이디를 넣어주기
       tracks: [],
+      coverImg: '',
     })
     useGetPlaylists()
     router.push(`/playlist/${docRef.id}`)
@@ -158,7 +159,7 @@ function Sidebar() {
                   <div className="grid grid-cols-[auto_1fr] p-2 gap-x-3 gap-y-2">
                     <Image
                       className="rouded-md"
-                      src={item.data.coverImg ? item.data.coverImg : '/img/playlistDefault.png'}
+                      src={'/img/playlistDefault.png'} //document id의 이미지가 있다면 보여주기.
                       alt={item.title}
                       width={48}
                       height={48}

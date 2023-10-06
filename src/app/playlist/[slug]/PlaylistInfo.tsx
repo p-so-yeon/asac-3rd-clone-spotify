@@ -1,38 +1,56 @@
 'use client'
+import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage'
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import { FiEdit2 } from 'react-icons/fi'
 
 import { usePlaylistInfoContext } from '@/app/playlist/[slug]/PlaylistProvider'
+const storage = getStorage()
 
 export default function PlaylistInfo() {
-  useEffect(() => {
-    //coverImg기존에 있던 거 가져와지는지 확인 필요
-    if (playlistInfo.coverImg) {
-      const image = window.URL.createObjectURL(playlistInfo.coverImg)
-      setCoverImgPreview(image)
-    }
-  }, [])
   const { playlistInfo, setPlaylistInfo } = usePlaylistInfoContext()
   const [coverImgPreview, setCoverImgPreview] = useState('/img/playlistDefault.png')
 
   const [coverHover, setCoverHover] = useState(false)
   const coverImgRef = useRef<HTMLInputElement | null>(null)
+  useEffect(() => {
+    async function getImage() {
+      const storageRef = ref(storage, playlistInfo.coverImg)
+      await getDownloadURL(storageRef)
+        .then((url) => {
+          console.log('get Image')
+          setCoverImgPreview(url)
+        })
+        .catch((e) => {
+          console.log('error', e)
+        })
+    }
+    if (playlistInfo.coverImg !== null) {
+      getImage()
+    }
+  }, [])
+  async function uploadImage({ file }) {
+    const imageRef = ref(storage, file.name)
+    uploadBytes(imageRef, file).then((snapshot) => {
+      console.log('image uploaded:')
+    })
+    setPlaylistInfo({ ...playlistInfo, coverImg: file.name })
+  }
 
   const handleTitleChange = (e) => {
     setPlaylistInfo({ ...playlistInfo, title: e.target.value })
   }
+  //파일선택 버튼을 감추고 기능만 실행
   const handleCoverImg = () => {
     coverImgRef.current?.click()
   }
   const handleCoverChange = (e) => {
     if (!e.target.files) return
     const file = e.target.files[0]
-    console.log('file', file)
     if (file) {
       let image = window.URL.createObjectURL(file)
       setCoverImgPreview(image)
-      setPlaylistInfo({ ...playlistInfo, coverImg: file })
+      uploadImage({ file: file })
     }
   }
   return (
@@ -67,12 +85,7 @@ export default function PlaylistInfo() {
         ></input>
         <div className="flex gap-2">
           <div className="relative w-6 h-6 overflow-hidden rounded-full ">
-            <Image
-              fill={true}
-              // src={playlistInfo. ? test_data.author_profile : '/img/userDefaultProfile.jpeg'}
-              src="/img/userDefaultProfile.jpeg"
-              alt="author profile image"
-            />
+            <Image fill={true} src={coverImgPreview} alt="author profile image" />
           </div>
           <p>{playlistInfo.author}</p>
         </div>

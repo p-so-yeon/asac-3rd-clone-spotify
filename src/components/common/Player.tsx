@@ -2,87 +2,95 @@
 
 import Image from 'next/image'
 import React, { useEffect } from 'react'
-import { MdPlayCircle, MdSkipNext, MdSkipPrevious, MdVolumeOff, MdVolumeUp } from 'react-icons/md'
-import { PiRepeat, PiShuffleLight } from 'react-icons/pi'
+import { useSelector } from 'react-redux'
 
-import { useGetCurrentlyPlayingTrackQuery, useGetRecentlyPlayedTrackQuery } from '@/ducks/service/player-api'
+import PauseButton from '@/components/common/playback/playback-control-buttons/PauseButton'
+import PlayButton from '@/components/common/playback/playback-control-buttons/PlayButton'
+import RepeatButton from '@/components/common/playback/playback-control-buttons/RepeatButton'
+import ShuffleButton from '@/components/common/playback/playback-control-buttons/ShuffleButton'
+import SkipNextButton from '@/components/common/playback/playback-control-buttons/SkipNextButton'
+import SkipPreviousButton from '@/components/common/playback/playback-control-buttons/SkipPreviousButton'
+import PlayBackVolume from '@/components/common/playback/PlayBackVolume'
+import CurrentPlayingSkeleton from '@/components/common/skeletons/CurrentPlayingSkeleton'
+import { useGetRecentlyPlayedTrackQuery } from '@/ducks/service/player-api'
+import { defaultPlaylistImage } from '@/lib/utils/staticImages'
+import { RootState } from '@/store/store'
 
-import WebPlaybackContainer from './WebPlaybackContainer'
-
-function Button({ children }: { children: React.ReactNode }) {
-  return (
-    <button className="text-color-text-secondary hover:text-color-text-primary active:text-color-active-primary">
-      {children}
-    </button>
-  )
-}
+import PlayBackAudioBar from './playback/PlayBackAudioBar'
 
 function Player() {
-  const currentlyPlayingTrack = useGetCurrentlyPlayingTrackQuery(null)
-  const recentlyPlayedTrack = useGetRecentlyPlayedTrackQuery(null)
+  const { paused, currentTrack } = useSelector((state: RootState) => state.reducer.player)
+  const { data, isLoading } = useGetRecentlyPlayedTrackQuery(null)
+
   useEffect(() => {
     console.log('player is redered')
   }, [])
+
   // aria-label, data-testid aria-expanded
-  if (recentlyPlayedTrack.isLoading) return <div>...loading</div>
 
   return (
     <>
-      <WebPlaybackContainer />
       <footer className="fixed flex w-full px-2 bg-color-background-primary">
         <div className="basis-[30%] min-w-[180px] flex justify-start items-center">
-          {recentlyPlayedTrack.data && (
+          {currentTrack === null || JSON.stringify(currentTrack) === '{}' ? (
+            isLoading ? (
+              <CurrentPlayingSkeleton />
+            ) : (
+              <>
+                <Image
+                  className="mr-2 rounded"
+                  src={data ? `${data?.items[0].track.album.images[0].url}` : defaultPlaylistImage}
+                  width={56}
+                  height={56}
+                  alt={`${data?.items[0].track.name}`}
+                />
+                <div className="flex flex-col">
+                  <span className="text-color-text-primary hover:underline">{data?.items[0].track.name}</span>
+                  <span className=" text-color-text-secondary hover:underline hover:text-color-text-primary">
+                    {data?.items[0].track.artists.map((artist) => artist.name)}
+                  </span>
+                </div>
+              </>
+            )
+          ) : (
             <>
               <Image
                 className="mr-2 rounded"
-                src={`${recentlyPlayedTrack.data?.items[0].track.album.images[0].url} `}
+                src={currentTrack ? `${currentTrack?.album.images[0].url}` : defaultPlaylistImage}
                 width={56}
                 height={56}
-                alt={`${recentlyPlayedTrack.data?.items[0].track.name}`}
+                alt={`${currentTrack?.name}`}
               />
               <div className="flex flex-col">
-                <span className="text-color-text-primary hover:underline">
-                  {recentlyPlayedTrack.data?.items[0].track.name}
-                </span>
+                <span className="text-color-text-primary hover:underline">{currentTrack?.name}</span>
                 <span className=" text-color-text-secondary hover:underline hover:text-color-text-primary">
-                  {recentlyPlayedTrack.data?.items[0].track.artists.map((artist) => artist.name)}
+                  {currentTrack?.artists.map((artist) => artist.name)}
                 </span>
               </div>
             </>
           )}
         </div>
         <div className="basis-[40%] max-w-[722px] ">
-          <div className="flex justify-center gap-4 mb-2">
+          <div className="flex justify-center gap-4 mb-4">
             <div className="flex justify-end gap-2 ml-auto">
-              <Button>
-                <PiShuffleLight size={'1rem'} />
-              </Button>
-              <Button>
-                <MdSkipPrevious size={'1.5rem'} />
-              </Button>
+              <ShuffleButton />
+              <SkipPreviousButton />
             </div>
-            <Button>
-              <MdPlayCircle size={'2rem'} className={'text-color-text-primary hover:scale-105 active:scale-100'} />
-            </Button>
+            {paused ? <PlayButton /> : <PauseButton />}
             <div className="flex justify-start gap-2 mr-auto">
-              <Button>
-                <MdSkipNext size={'1.5rem'} />
-              </Button>
-              <Button>
-                <PiRepeat size={'1rem'} />
-              </Button>
+              <SkipNextButton />
+              <RepeatButton />
             </div>
+          </div>
+          <div className="flex gap-2 items-center">
+            {/* <div className={'bg-color-text-primary w-full h-1'}></div> */}
+            <PlayBackAudioBar className="" />
+            {/* <audio ref={audioRef} onDurationChange={(e) => setDuration(e.currentTarget.duration)}></audio> */}
           </div>
         </div>
         <div className="basis-[30%] min-w-[180px] flex justify-end">
           <div className="flex items-center">
-            <Button>
-              <MdVolumeUp size={'1rem'} />
-            </Button>
-            <Button>
-              <MdVolumeOff size={'1rem'} />
-            </Button>
-            <input type="range" min={0} max={1} step={0.1} className="h-1 ml-2" />
+            <PlayBackVolume />
           </div>
         </div>
       </footer>

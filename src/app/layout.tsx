@@ -9,6 +9,7 @@ import Player from '@/components/common/Player'
 import Sidebar from '@/components/common/Sidebar'
 import Providers from '@/components/provider/Providers'
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   console.log('layout rendered')
-
+  
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -33,24 +34,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Player />
             </div>
           </main>
-          {/* <main className="bg-color-background-primary">
-            <section className="grid h-screen gap-2 p-2 grid-areas-desktop grid-rows-layout grid-cols-layout">
-              <aside className="flex w-[280px] grid-in-left-sidebar">
-                <Sidebar />
-              </aside>
-              <div className="flex flex-col grid-in-main">
-                <Nav></Nav>
-                {children}
-              </div>
-              <div className="grid-in-now-playing-bar h-[72px]">
-                <Player />
-              </div>
-            </section>
-          </main> */}
         </Providers>
       </body>
-      {/* <Script src={`https://sdk.scdn.co/spotify-player.js`} strategy="beforeInteractive" /> */}
-      {/* <Script src={`https://sdk.scdn.co/spotify-player.js`} strategy="afterInteractive" /> */}
     </html>
   )
 }

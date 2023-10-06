@@ -9,6 +9,7 @@ import { MdOutlinePersonOutline } from 'react-icons/md'
 
 import Dropdown from '@/components/common/Dropdown'
 import { useGetCurrentUserProfileQuery } from '@/ducks/service/user-api'
+import { defaultUserImage } from '@/lib/utils/staticImages'
 
 function Header() {
   const router = useRouter()
@@ -42,7 +43,7 @@ function Header() {
           {session.status === 'authenticated' && data?.images[0] !== undefined ? (
             <Image
               className="mr-2 rounded-full"
-              src={`${data?.images[0].url} `}
+              src={data ? `${data?.images[0].url} ` : defaultUserImage}
               width={56}
               height={56}
               alt={`${data?.display_name}`}

@@ -94,7 +94,6 @@ export const playerSlice = createSlice({
     //   state.repeated = action.payload
     // },
   },
-  extraReducers: {},
 })
 
 export const {

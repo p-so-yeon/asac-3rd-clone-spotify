@@ -19,7 +19,6 @@ export default function PlayBackVolume() {
   const [isMute, setIsMute] = useState<boolean>(localVolume !== 0)
 
   const toggleMute = (e: React.MouseEvent) => {
-    e.preventDefault()
     setIsMute((prevState) => !prevState)
     const newVolume = isMute ? 0 : localVolume
     dispatch(setVolume(newVolume))
@@ -27,7 +26,7 @@ export default function PlayBackVolume() {
   }
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newVolume = Math.floor(e.currentTarget.valueAsNumber)
+    const newVolume = Math.floor(e.target.valueAsNumber)
     if (!checkVolumeRange(newVolume)) return
     dispatch(setVolume(newVolume))
     setLocalVolume(newVolume)
@@ -37,22 +36,14 @@ export default function PlayBackVolume() {
     }
   }
 
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    const targetVolume = Math.floor(e.currentTarget.valueAsNumber)
-    if (!checkVolumeRange(targetVolume)) return
-    dispatch(setVolume(targetVolume))
-    setLocalVolume(targetVolume)
-    volumeTrigger({ volume_percent: targetVolume, device_id })
-    if (volume === 0) {
-      setIsMute(true)
-    }
-  }
-  const debouncedOnChange = debounce<typeof handleVolumeChange>(handleVolumeChange, 200)
-  const debouncedBlur = debounce<typeof handleBlur>(handleBlur, 200)
+  const debouncedOnChange = debounce<typeof handleVolumeChange>(handleVolumeChange, 300)
+  const debouncedToggleMute = debounce<typeof toggleMute>(toggleMute, 300)
 
   return (
     <>
-      <Button handleClick={toggleMute}>{isMute ? <MdVolumeUp size={'1rem'} /> : <MdVolumeOff size={'1rem'} />}</Button>
+      <Button handleClick={debouncedToggleMute}>
+        {isMute ? <MdVolumeUp size={'1rem'} /> : <MdVolumeOff size={'1rem'} />}
+      </Button>
       <input
         type="range"
         min={0}
@@ -61,7 +52,6 @@ export default function PlayBackVolume() {
         className="h-1 ml-2"
         defaultValue={volume}
         onChange={debouncedOnChange}
-        onBlur={debouncedBlur}
       />
     </>
   )

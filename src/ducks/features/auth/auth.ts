@@ -17,7 +17,6 @@ export const userSlice = createSlice({
     //   state.isPlaying = action.payload
     // },
   },
-  extraReducers: {},
 })
 
 export const {} = userSlice.actions

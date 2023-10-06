@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux'
 import { playerApi } from '@/ducks/service/player-api'
 import { cn } from '@/lib/utils/classNames'
 import { convertMilliSecondsToMinutesAndSeconds } from '@/lib/utils/convert'
-import { debounce } from '@/lib/utils/debounce'
 import { RootState } from '@/store/store'
 
 interface Props {
@@ -39,24 +38,13 @@ export default function PlayBackAudioBar({ className }: Props) {
   }, [paused, duration, position])
 
   const handleProgressBarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCurrentTime(Math.floor(e.target.valueAsNumber))
+    setCurrentTime(Math.floor(e.currentTarget.valueAsNumber))
   }
 
   const handleSeeking = (e: React.MouseEvent<HTMLInputElement>) => {
     seekTrigger({ position_ms: Math.floor(e.currentTarget.valueAsNumber), device_id })
     setCurrentTime(Math.floor(e.currentTarget.valueAsNumber))
   }
-
-  const handleKeyDownSeeking = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.code === 'ArrowRight' || e.code === 'ArrowLeft') {
-      seekTrigger({ position_ms: Math.floor(e.currentTarget.valueAsNumber), device_id })
-      setCurrentTime(Math.floor(e.currentTarget.valueAsNumber))
-    }
-  }
-
-  const debouncedProgressBarChange = debounce<typeof handleProgressBarChange>(handleProgressBarChange, 200)
-  const debouncedKSeeking = debounce<typeof handleSeeking>(handleSeeking, 200)
-  const debouncedKeyDownSeeking = debounce<typeof handleKeyDownSeeking>(handleKeyDownSeeking, 200)
 
   return (
     <div className="flex gap-2 items-center text-color-text-primary text-xs w-full ">
@@ -68,9 +56,8 @@ export default function PlayBackAudioBar({ className }: Props) {
         max={duration}
         step={interval}
         value={currentTime}
-        onChange={debouncedProgressBarChange}
-        onMouseUp={debouncedKSeeking}
-        onKeyDown={debouncedKeyDownSeeking}
+        onChange={handleProgressBarChange}
+        onMouseUp={handleSeeking}
       />
       {/* https://hermeslog.tistory.com/279 */}
       <span className="">{convertMilliSecondsToMinutesAndSeconds(!!currentTrack ? currentTrack?.duration_ms : 0)}</span>

@@ -5,17 +5,20 @@ import React, { useEffect, useRef, useState } from 'react'
 import { FiEdit2 } from 'react-icons/fi'
 
 import { usePlaylistInfoContext } from '@/app/playlist/[slug]/PlaylistProvider'
-const storage = getStorage()
 
 export default function PlaylistInfo() {
+  const storage = getStorage()
+
   const { playlistInfo, setPlaylistInfo } = usePlaylistInfoContext()
   const [coverImgPreview, setCoverImgPreview] = useState('/img/playlistDefault.png')
-
   const [coverHover, setCoverHover] = useState(false)
   const coverImgRef = useRef<HTMLInputElement | null>(null)
+
   useEffect(() => {
     async function getImage() {
-      const storageRef = ref(storage, playlistInfo.coverImg)
+      console.log('playlistInfo.coverImg', playlistInfo)
+
+      const storageRef = ref(storage, `images/${playlistInfo.coverImg}`)
       await getDownloadURL(storageRef)
         .then((url) => {
           console.log('get Image')
@@ -26,11 +29,14 @@ export default function PlaylistInfo() {
         })
     }
     if (playlistInfo.coverImg !== null) {
+      console.log('playlistInfo.coverImg in if', playlistInfo)
+
       getImage()
     }
   }, [])
   async function uploadImage({ file }) {
-    const imageRef = ref(storage, file.name)
+    const storage = getStorage()
+    const imageRef = ref(storage, `images/${file.name}`)
     uploadBytes(imageRef, file).then((snapshot) => {
       console.log('image uploaded:')
     })
@@ -85,7 +91,7 @@ export default function PlaylistInfo() {
         ></input>
         <div className="flex gap-2">
           <div className="relative w-6 h-6 overflow-hidden rounded-full ">
-            <Image fill={true} src={coverImgPreview} alt="author profile image" />
+            <Image fill={true} src="/img/userDefaultProfile.jpeg" alt="author profile image" />
           </div>
           <p>{playlistInfo.author}</p>
         </div>

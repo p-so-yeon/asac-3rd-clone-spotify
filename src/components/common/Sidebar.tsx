@@ -160,7 +160,7 @@ function Sidebar() {
                     <Image
                       className="rouded-md"
                       src={'/img/playlistDefault.png'} //document id의 이미지가 있다면 보여주기.
-                      alt={item.title}
+                      alt={item.title? item.title: "플레이리스트"}
                       width={48}
                       height={48}
                     />

@@ -57,8 +57,7 @@ export function PlaylistProvider({ children, playlistSlug }) {
       try {
         const playlistData = (await getDoc(doc(firebaseDB, 'myPlaylists', `${playlistSlug}`))).data()
         setPlaylistTracks(playlistData?.tracks) //
-        setPlaylistInfo({ author: playlistData?.author, title: playlistData?.title, coverImg:playlistData?.coverImg })
-        console.log('playlist set done')
+        setPlaylistInfo({ author: playlistData?.author, title: playlistData?.title, coverImg: playlistData?.coverImg })
       } catch (e) {
         console.log('Error getting current playlist')
       }

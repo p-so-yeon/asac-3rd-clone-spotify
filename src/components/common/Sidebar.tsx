@@ -4,8 +4,8 @@ import { addDoc, collection, getDocs } from 'firebase/firestore'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import React, { useEffect, useMemo, useRef, useState } from 'react'
-import { AiOutlinePlus } from 'react-icons/ai'
+import React, { useEffect, useMemo, useState } from 'react'
+import { AiOutlineArrowRight, AiOutlinePlus } from 'react-icons/ai'
 import { BiSearch } from 'react-icons/bi'
 import { BiLibrary } from 'react-icons/bi'
 import { GoHome } from 'react-icons/go'
@@ -14,6 +14,7 @@ import { HiMusicalNote } from 'react-icons/hi2'
 import firebaseDB from '@/core/service/firebase/firebasedb'
 import { useGetCurrentUsersPlaylistQuery } from '@/ducks/service/playlist-api'
 import { useGetUserFollowedArtistQuery } from '@/ducks/service/user-api'
+import { convertWidthToBoundary } from '@/lib/utils/convert'
 
 async function getPlaylists(): Promise<any[]> {
   try {
@@ -52,40 +53,15 @@ function Sidebar() {
   // 사이드바 브레이크 포인트 72 280 420 584 1416
   // max-width를 screen사이즈별로
   const [minWidth, defualtWidth, mdWidth, lgWidth, maxWidth] = useMemo(() => [72, 280, 420, 584, 1416], [])
+
+  // const dispatch = useDispatch()
+  // const sidebarWidth = useSelector((state: RootState) => state.reducer.library)
   const userFollowedArtist = useGetUserFollowedArtistQuery(50)
   const currentUserPlaylist = useGetCurrentUsersPlaylistQuery(5)
+
   const [width, setWidth] = useState<number>(
-    localStorage.getItem('sidebarWidth') !== null
-      ? parseInt(localStorage.getItem('sidebarWidth') as string)
-      : defualtWidth,
+    !localStorage.getItem('sidebarWidth') ? defualtWidth : parseInt(localStorage.getItem('sidebarWidth') as string),
   )
-  const isResized = useRef<boolean>(false)
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!isResized.current) return
-
-      setWidth((prev) => {
-        const newWidth = prev + e.movementX / 2
-        const isWidthInRange = newWidth >= minWidth && newWidth <= maxWidth
-        // const isSpreadArea = newWidth >= mdWidth && newWidth <= lgWidth
-        // const
-        return isWidthInRange ? newWidth : prev
-      })
-    }
-    window.addEventListener('mousemove', handleMouseMove)
-
-    const handleMouseUp = () => {
-      localStorage.setItem('sidebarWidth', `${width}`)
-      isResized.current = false
-    }
-    window.addEventListener('mouseup', handleMouseUp)
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-      window.removeEventListener('mouseup', handleMouseUp)
-    }
-  }, [width, minWidth, mdWidth, lgWidth, maxWidth])
 
   const [playlist, setPlaylists] = useState<any[]>()
 
@@ -109,12 +85,14 @@ function Sidebar() {
     useGetPlaylists()
     router.push(`/playlist/${docRef.id}`)
   }
+
   return (
     <aside
       className={`flex bg-black row-span-1 min-w-[${minWidth}px] max-w-[${maxWidth}px]`}
       style={{ width: `${width / 16}rem` }}
     >
       <div className={`gap-2 w-full`}>
+        {/* nav */}
         <div className="flex flex-col px-3 py-2 rounded-lg bg-color-box-primary">
           {routes.map((item) => (
             <Link
@@ -136,12 +114,24 @@ function Sidebar() {
               <BiLibrary className="text-color-text-secondary" size={26} />
               <p className=" text-color-text-secondary">내 라이브러리</p>
             </div>
-            <AiOutlinePlus
-              onClick={createPlaylist}
-              size={20}
-              className="transition cursor-pointer text-neutral-300 hover:text-white"
-            />
+            <div className={'flex gap-2'}>
+              <AiOutlinePlus
+                onClick={createPlaylist}
+                size={20}
+                className="transition cursor-pointer text-neutral-300 hover:text-white"
+              />
+              <button
+                className='className="transition cursor-pointer text-neutral-300 hover:text-white'
+                onClick={() => {
+                  console.log('expand sidebar')
+                  setWidth(lgWidth)
+                }}
+              >
+                <AiOutlineArrowRight size={20} />
+              </button>
+            </div>
           </header>
+
           {/*Library list*/}
           <div className="flex flex-col gap-2 px-2 h-[calc(100vh-242px)] overflow-y-auto">
             <div className="flex items-center justify-between px-2 py-0.5">
@@ -149,9 +139,9 @@ function Sidebar() {
               <p className="text-xs font-bold text-color-text-secondary">Recents</p>
             </div>
 
-            {currentUserPlaylist && (
-              <ul className="flex flex-col gap-2">
-                {currentUserPlaylist.data?.items.map((playlist) => (
+            <ul className="flex flex-col gap-2">
+              {currentUserPlaylist &&
+                currentUserPlaylist.data?.items.map((playlist) => (
                   <li key={`${playlist.id}`} className="cursor-pointer hover:bg-color-hover-primary">
                     <div className="grid grid-cols-[auto_1fr] p-2 gap-x-3 gap-y-2">
                       {playlist.images.length !== 0 ? (
@@ -172,7 +162,9 @@ function Sidebar() {
                     </div>
                   </li>
                 ))}
-                {userFollowedArtist.data?.artists.items.map((artist) => (
+
+              {userFollowedArtist &&
+                userFollowedArtist.data?.artists.items.map((artist) => (
                   <li key={`${artist.id}`} className="cursor-pointer hover:bg-color-hover-primary">
                     <div className="grid grid-cols-[auto_1fr] p-2 gap-x-3 gap-y-2">
                       <Image
@@ -189,15 +181,31 @@ function Sidebar() {
                     </div>
                   </li>
                 ))}
-              </ul>
-            )}
+            </ul>
           </div>
         </main>
       </div>
       {/* Resize handle */}
       <div
         className="cursor-col-resize w-[3px] hover:bg-color-hover-primary active:bg-color-active-primary"
-        onMouseDown={() => (isResized.current = true)}
+        onMouseDown={() => {
+          const mouseMoveHandler = (e: MouseEvent) => {
+            const newWidth = convertWidthToBoundary(e.pageX, minWidth, maxWidth)
+            setWidth(newWidth)
+          }
+
+          // 3️⃣
+          const mouseUpHandler = (e: MouseEvent) => {
+            const newWidth = convertWidthToBoundary(e.pageX, minWidth, maxWidth)
+            localStorage.setItem('sidebarWidth', `${newWidth}`)
+            document.removeEventListener('mousemove', mouseMoveHandler)
+          }
+
+          // 1️⃣
+          document.addEventListener('mousemove', mouseMoveHandler)
+          document.addEventListener('mouseup', mouseUpHandler, { once: true })
+          // mouseup 이벤트는 한번만 실행되면 되기에 { once: true } 옵션을 추가해준다.
+        }}
       />
     </aside>
   )

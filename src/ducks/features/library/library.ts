@@ -7,7 +7,6 @@ interface Library {
   userLikedTracks: any[]
   followedArtist: any[]
 }
-
 const initialState: Library = {
   userPlaylist: [],
   userLikedAlbums: [],
@@ -53,10 +52,7 @@ const librarySlice = createSlice({
   },
 })
 
-export const { setPlaylist } = librarySlice.actions
-export const { setLikedAlbums } = librarySlice.actions
-export const { setLikedPlaylists } = librarySlice.actions
-export const { setLikedTracks } = librarySlice.actions
-export const { setFollowedArtist } = librarySlice.actions
+export const { setPlaylist, setLikedAlbums, setLikedPlaylists, setLikedTracks, setFollowedArtist } =
+  librarySlice.actions
 
 export default librarySlice

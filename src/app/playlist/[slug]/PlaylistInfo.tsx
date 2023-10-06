@@ -10,6 +10,8 @@ export default function PlaylistInfo() {
   const storage = getStorage()
 
   const { playlistInfo, setPlaylistInfo } = usePlaylistInfoContext()
+  console.log('playlistInfo.coverImg', playlistInfo)
+
   const [coverImgPreview, setCoverImgPreview] = useState('/img/playlistDefault.png')
   const [coverHover, setCoverHover] = useState(false)
   const coverImgRef = useRef<HTMLInputElement | null>(null)
@@ -33,7 +35,7 @@ export default function PlaylistInfo() {
 
       getImage()
     }
-  }, [])
+  }, [playlistInfo])
   async function uploadImage({ file }) {
     const storage = getStorage()
     const imageRef = ref(storage, `images/${file.name}`)

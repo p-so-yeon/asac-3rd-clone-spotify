@@ -28,6 +28,7 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'image-cdn-fa.spotifycdn.com',
       },
+      { protocol: 'https', hostname: 'firebasestorage.googleapis.com' },
     ],
   },
   webpack: (config) => {

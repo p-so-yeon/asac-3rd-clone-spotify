@@ -18,16 +18,16 @@ interface Props {
 export default function ContentCardListItem({ content }: Props) {
   const [domain, type, id] = content.uri.split(':')
   return (
-    <li>
+    <li className={''}>
       <Link href={`/${type}/${id}`}>
         <ContentCard
-          classNames="group"
+          classNames="group w-[150px]"
           data={content}
           image={
-            <>
+            <div className="relative">
               <ContentCardImg />
-              <GlobalPlayButton uri={content.uri} className={'group-hover:opacity-100'} />
-            </>
+              <GlobalPlayButton uri={content.uri} className={'group-hover:opacity-100 right-0 bottom-0'} />
+            </div>
           }
           info={
             <ContentCardInfo>

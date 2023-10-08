@@ -1,5 +1,9 @@
-// 'use client'
+'use client'
 import Link from 'next/link'
+import { useSelector } from 'react-redux'
+
+import { cn } from '@/lib/utils/classNames'
+import { RootState } from '@/store/store'
 
 interface Props {
   title: string
@@ -8,8 +12,14 @@ interface Props {
 }
 
 export default function ContentCardContainer({ title, linkPath, children }: Props) {
+  const sidebarWidth = useSelector((state: RootState) => state.reducer.library.width)
+  const mainWidth = Math.floor(window.innerWidth - sidebarWidth)
+  const mainCols = Math.floor(mainWidth / 200)
+  // console.log(mainWidth)
+  // console.log(mainCols)
+
   return (
-    <section className="">
+    <section className={'overflow-x-auto no-scrollbar no-scrollbar::-webkit-scrollbar'}>
       <div className="flex justify-between mb-4">
         <h2 className="text-2xl text-color-text-primary hover:underline active:underline hover:cursor-pointer">
           <Link href={`${linkPath}`}>{title}</Link>
@@ -22,9 +32,7 @@ export default function ContentCardContainer({ title, linkPath, children }: Prop
           모두표시
         </Link>
       </div>
-      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-9">
-        {children}
-      </div>
+      <div className={cn(`flex gap-4 items-center scroll whitespace-nowrap scroll-smooth`)}>{children}</div>
     </section>
   )
 }

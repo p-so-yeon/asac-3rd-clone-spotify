@@ -34,7 +34,7 @@ export default function SidebarItem(props: Props) {
 
           {props.sidebarWitdh >= props.shrinkPoint && (
             <div className={cn('flex flex-col')}>
-              <span className="break-all text-color-text-primary line-clamp-1">{`${props.content.name}`}</span>
+              <span className="break-all text-color-text-primary line-clamp-1 hover:underline">{`${props.content.name}`}</span>
               <span className="break-all text-color-text-secondary line-clamp-1">{`${props.content.type}`}</span>
             </div>
           )}

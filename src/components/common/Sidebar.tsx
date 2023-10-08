@@ -1,20 +1,23 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 'use client'
 import { addDoc, collection, getDocs } from 'firebase/firestore'
-import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import React, { useEffect, useMemo, useState } from 'react'
-import { AiOutlineArrowRight, AiOutlinePlus } from 'react-icons/ai'
+import { AiOutlineArrowLeft, AiOutlineArrowRight, AiOutlinePlus } from 'react-icons/ai'
 import { BiSearch } from 'react-icons/bi'
 import { BiLibrary } from 'react-icons/bi'
 import { GoHome } from 'react-icons/go'
-import { HiMusicalNote } from 'react-icons/hi2'
 
 import firebaseDB from '@/core/service/firebase/firebasedb'
 import { useGetCurrentUsersPlaylistQuery } from '@/ducks/service/playlist-api'
 import { useGetUserFollowedArtistQuery } from '@/ducks/service/user-api'
+import { cn } from '@/lib/utils/classNames'
 import { convertWidthToBoundary } from '@/lib/utils/convert'
+import { createContentFromItem } from '@/lib/utils/createContentObject'
+import { Item } from '@/types/raw-api-data-type/playlist/current-users-playlist-data-type'
+
+import SidebarItem from './sidebar/SidebarItem'
 
 async function getPlaylists(): Promise<any[]> {
   try {
@@ -52,7 +55,10 @@ function Sidebar() {
   )
   // 사이드바 브레이크 포인트 72 280 420 584 1416
   // max-width를 screen사이즈별로
-  const [minWidth, defualtWidth, mdWidth, lgWidth, maxWidth] = useMemo(() => [72, 280, 420, 584, 1416], [])
+  const [minWidth, shrinkPoint, defaultWidth, mdWidth, lgWidth, maxWidth] = useMemo(
+    () => [72, 230, 280, 420, 584, 800],
+    [],
+  )
 
   // const dispatch = useDispatch()
   // const sidebarWidth = useSelector((state: RootState) => state.reducer.library)
@@ -60,7 +66,7 @@ function Sidebar() {
   const currentUserPlaylist = useGetCurrentUsersPlaylistQuery(5)
 
   const [width, setWidth] = useState<number>(
-    !localStorage.getItem('sidebarWidth') ? defualtWidth : parseInt(localStorage.getItem('sidebarWidth') as string),
+    !localStorage.getItem('sidebarWidth') ? defaultWidth : parseInt(localStorage.getItem('sidebarWidth') as string),
   )
 
   const [playlist, setPlaylists] = useState<any[]>()
@@ -93,7 +99,7 @@ function Sidebar() {
     >
       <div className={`gap-2 w-full`}>
         {/* nav */}
-        <div className="flex flex-col px-3 py-2 rounded-lg bg-color-box-primary">
+        <nav className="flex flex-col px-3 py-2 rounded-lg bg-color-box-primary">
           {routes.map((item) => (
             <Link
               key={item.label}
@@ -102,84 +108,100 @@ function Sidebar() {
                 item.active && 'text-white'
               } text-color-text-secondary`}
             >
-              <item.icon className="mr-3" size={26} />
-              <p className="w-full">{item.label}</p>
+              <item.icon className={cn('mr-3', { 'mr-0': width <= shrinkPoint })} size={26} />
+              {width >= shrinkPoint && <p className="w-full">{item.label}</p>}
             </Link>
           ))}
-        </div>
+        </nav>
         <main className="w-full py-2 rounded-lg bg-color-box-primary">
           {/* Library header */}
           <header className="flex items-center justify-between px-4 py-2 font-black">
-            <div className="inline-flex items-center px-2 py-1 gap-x-2">
-              <BiLibrary className="text-color-text-secondary" size={26} />
-              <p className=" text-color-text-secondary">내 라이브러리</p>
-            </div>
-            <div className={'flex gap-2'}>
-              <AiOutlinePlus
-                onClick={createPlaylist}
-                size={20}
-                className="transition cursor-pointer text-neutral-300 hover:text-white"
-              />
-              <button
-                className='className="transition cursor-pointer text-neutral-300 hover:text-white'
-                onClick={() => {
-                  console.log('expand sidebar')
-                  setWidth(lgWidth)
-                }}
-              >
-                <AiOutlineArrowRight size={20} />
-              </button>
-            </div>
+            {width <= shrinkPoint ? (
+              <div className="inline-flex items-center px-2 py-1 gap-x-2">
+                <button
+                  className='className="transition cursor-pointer text-neutral-300 hover:text-white'
+                  onClick={() => {
+                    setWidth(defaultWidth)
+                    localStorage.setItem('sidebarWidth', `${defaultWidth}`)
+                  }}
+                >
+                  <BiLibrary className="text-color-text-secondary" size={26} />
+                </button>
+              </div>
+            ) : (
+              <>
+                <div className="inline-flex items-center px-2 py-1 gap-x-2">
+                  <BiLibrary className="text-color-text-secondary" size={26} />
+                  {width > shrinkPoint && <p className=" text-color-text-secondary">내 라이브러리</p>}
+                </div>
+                <div className={'flex gap-2'}>
+                  <AiOutlinePlus
+                    onClick={createPlaylist}
+                    size={20}
+                    className="transition cursor-pointer text-neutral-300 hover:text-white"
+                  />
+                  {width >= lgWidth ? (
+                    <button
+                      className='className="transition cursor-pointer text-neutral-300 hover:text-white'
+                      onClick={() => {
+                        setWidth(defaultWidth)
+                        localStorage.setItem('sidebarWidth', `${defaultWidth}`)
+                      }}
+                    >
+                      <AiOutlineArrowLeft size={20} />
+                    </button>
+                  ) : (
+                    <button
+                      className='className="transition cursor-pointer text-neutral-300 hover:text-white'
+                      onClick={() => {
+                        setWidth(lgWidth)
+                        localStorage.setItem('sidebarWidth', `${lgWidth}`)
+                      }}
+                    >
+                      <AiOutlineArrowRight size={20} />
+                    </button>
+                  )}
+                </div>
+              </>
+            )}
           </header>
 
           {/*Library list*/}
-          <div className="flex flex-col gap-2 px-2 h-[calc(100vh-242px)] overflow-y-auto">
-            <div className="flex items-center justify-between px-2 py-0.5">
-              <BiSearch size={20} className="m-2 font-black text-color-text-secondary" />
-              <p className="text-xs font-bold text-color-text-secondary">Recents</p>
-            </div>
+          <div className={cn('flex flex-col gap-2 px-2 h-[calc(100vh-242px)] overflow-y-auto')}>
+            {width >= shrinkPoint && (
+              <div className="flex items-center justify-between px-2 py-0.5">
+                <BiSearch size={20} className="m-2 font-black text-color-text-secondary" />
+                <p className="text-xs font-bold text-color-text-secondary">Recents</p>
+              </div>
+            )}
 
             <ul className="flex flex-col gap-2">
               {currentUserPlaylist &&
                 currentUserPlaylist.data?.items.map((playlist) => (
-                  <li key={`${playlist.id}`} className="cursor-pointer hover:bg-color-hover-primary">
-                    <div className="grid grid-cols-[auto_1fr] p-2 gap-x-3 gap-y-2">
-                      {playlist.images.length !== 0 ? (
-                        <Image
-                          className="rounded-md"
-                          src={`${playlist.images[0].url}`}
-                          width={48}
-                          height={48}
-                          alt={`${playlist.name}`}
-                        />
-                      ) : (
-                        <HiMusicalNote className={'text-color-text-secondary'} size={'3rem'} alt={`${playlist.name}`} />
-                      )}
-                      <div className={`flex flex-col`}>
-                        <span className="break-all text-color-text-primary line-clamp-1">{`${playlist.name}`}</span>
-                        <span className="text-color-text-secondary">{`${playlist.type}-${playlist.owner.display_name}`}</span>
-                      </div>
-                    </div>
-                  </li>
+                  <SidebarItem
+                    key={playlist.id}
+                    content={{
+                      ...createContentFromItem.playlist(playlist as Item),
+                      type: `${playlist.type} • ${playlist.owner.display_name}`,
+                    }}
+                    playedAt={0}
+                    sidebarWitdh={width}
+                    shrinkPoint={shrinkPoint}
+                  />
                 ))}
 
               {userFollowedArtist &&
                 userFollowedArtist.data?.artists.items.map((artist) => (
-                  <li key={`${artist.id}`} className="cursor-pointer hover:bg-color-hover-primary">
-                    <div className="grid grid-cols-[auto_1fr] p-2 gap-x-3 gap-y-2">
-                      <Image
-                        className="rounded-full"
-                        src={`${artist.images[0].url}`}
-                        width={48}
-                        height={48}
-                        alt={`${artist.name}`}
-                      />
-                      <div className={`flex flex-col`}>
-                        <span className="break-all text-color-text-primary line-clamp-1">{`${artist.name}`}</span>
-                        <span className="text-color-text-secondary">{`${artist.type}`}</span>
-                      </div>
-                    </div>
-                  </li>
+                  <SidebarItem
+                    key={artist.id}
+                    content={{
+                      ...createContentFromItem.artist(artist),
+                      type: `${artist.type}`,
+                    }}
+                    playedAt={0}
+                    sidebarWitdh={width}
+                    shrinkPoint={shrinkPoint}
+                  />
                 ))}
             </ul>
           </div>
@@ -191,13 +213,13 @@ function Sidebar() {
         onMouseDown={() => {
           const mouseMoveHandler = (e: MouseEvent) => {
             const newWidth = convertWidthToBoundary(e.pageX, minWidth, maxWidth)
-            setWidth(newWidth)
+            setWidth(newWidth >= shrinkPoint ? newWidth : minWidth)
           }
 
           // 3️⃣
           const mouseUpHandler = (e: MouseEvent) => {
             const newWidth = convertWidthToBoundary(e.pageX, minWidth, maxWidth)
-            localStorage.setItem('sidebarWidth', `${newWidth}`)
+            localStorage.setItem('sidebarWidth', `${newWidth >= shrinkPoint ? newWidth : minWidth}`)
             document.removeEventListener('mousemove', mouseMoveHandler)
           }
 

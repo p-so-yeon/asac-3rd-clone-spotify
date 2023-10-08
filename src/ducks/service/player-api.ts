@@ -11,6 +11,7 @@ export interface IstartAndResumePlaybackArg {
   position?: number
   type: Exclude<ItemType, 'user'>
   position_ms: number
+  offset: string
 }
 
 export const playerApi = createApi({
@@ -42,20 +43,26 @@ export const playerApi = createApi({
         },
       }),
     }),
-    // 현재 재생중인 곡만 플레이 context_uri에서 playlist album artist 가능
-    // 어캐 나누지
     startAndResumePlayback: builder.mutation<null, IstartAndResumePlaybackArg>({
-      query: ({ device_id, uri, position, type, position_ms }) => ({
+      query: ({ device_id, uri, position, offset, type, position_ms }) => ({
         url: `/play?device_id=${device_id}`,
         method: 'PUT',
         body:
           type === 'track'
             ? {
-                uris: [`${uri}`],
+                uris: [uri],
+                position_ms: position_ms,
+              }
+            : type === 'artist'
+            ? {
+                context_uri: uri,
                 position_ms: position_ms,
               }
             : {
                 context_uri: uri,
+                offset: {
+                  uri: { offset },
+                },
                 position_ms: position_ms,
               },
       }),

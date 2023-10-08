@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 'use client'
-import { addDoc, collection, getDocs } from 'firebase/firestore'
+import { addDoc, collection, getDocs, onSnapshot } from 'firebase/firestore'
 import { getDownloadURL, ref } from 'firebase/storage'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -16,19 +16,6 @@ import firebaseDB from '@/core/service/firebase/firebasedb'
 import { useGetCurrentUsersPlaylistQuery } from '@/ducks/service/playlist-api'
 import { useGetUserFollowedArtistQuery } from '@/ducks/service/user-api'
 
-async function getPlaylists(): Promise<any[]> {
-  try {
-    const myPlaylists = await getDocs(collection(firebaseDB, 'myPlaylists'))
-    const playlistData: any[] = []
-    myPlaylists.forEach((playlist) => {
-      playlistData.push({ id: playlist.id, data: playlist.data() })
-    })
-    return playlistData
-  } catch (e) {
-    console.log('Fail to get user playlists in the library ', e)
-    return []
-  }
-}
 
 function Sidebar() {
   const pathname = usePathname()
@@ -90,15 +77,17 @@ function Sidebar() {
 
   const [playlist, setPlaylists] = useState<any[]>()
 
-  const useGetPlaylists = () => {
-    getPlaylists().then((result) => {
-      setPlaylists(result)
-    })
-  }
 
   useEffect(() => {
-    useGetPlaylists()
-  }, [])
+    const playlistSnap = onSnapshot(collection(firebaseDB, 'myPlaylists'), (playlists) => {
+      const playlistData: any[] = []
+      playlists.forEach((doc) => {
+        playlistData.push({ id: doc.id, data: doc.data() })
+      })
+      setPlaylists(playlistData)
+      console.log("sidebar setPlaylists")
+    })
+  },[])
 
   async function createPlaylist() {
     const docRef = await addDoc(collection(firebaseDB, 'myPlaylists'), {
@@ -107,7 +96,6 @@ function Sidebar() {
       tracks: [],
       coverImg: '',
     })
-    useGetPlaylists()
     router.push(`/playlist/${docRef.id}`)
   }
   return (
@@ -160,7 +148,7 @@ function Sidebar() {
                     <Image
                       className="rouded-md"
                       src={'/img/playlistDefault.png'} //document id의 이미지가 있다면 보여주기.
-                      alt={item.title? item.title: "플레이리스트"}
+                      alt={item.data.title ? item.data.title : '플레이리스트'}
                       width={48}
                       height={48}
                     />

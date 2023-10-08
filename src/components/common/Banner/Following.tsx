@@ -6,9 +6,7 @@ import { useGetUserFollowedArtistQuery } from '@/ducks/service/user-api'
 function Following() {
   const session = useSession()
   const { data, error, isLoading } = useGetUserFollowedArtistQuery(50)
-  // useEffect(() => {
-  //   //console.log(data?.items?.filter((item) => item.public === true).length)
-  // }, [data])
+
   return (
     <div>
       {session.status === 'authenticated' && data?.artists && (

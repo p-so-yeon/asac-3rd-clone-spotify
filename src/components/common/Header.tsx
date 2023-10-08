@@ -8,6 +8,7 @@ import { BsChevronRight } from 'react-icons/bs'
 import { MdOutlinePersonOutline } from 'react-icons/md'
 
 import Dropdown from '@/components/common/Dropdown'
+import Headersearch from '@/components/Searchpage/Headersearch'
 import { useGetCurrentUserProfileQuery } from '@/ducks/service/user-api'
 
 function Header() {
@@ -21,7 +22,7 @@ function Header() {
   }
   const [open, setopen] = useState(false)
   const session = useSession()
-  const { data, error, isLoading } = useGetCurrentUserProfileQuery(`${session.data?.user?.id}`)
+  const { data, error, isLoading } = useGetCurrentUserProfileQuery('IU')
   return (
     <header className="flex justify-between relative h-[64px] items-center bg-transparent rounded-lg z-10">
       <div className="ml-1.5 flex gap-x-2">
@@ -32,6 +33,8 @@ function Header() {
           <BsChevronRight fontSize="16px;" color="white" />
         </button>
       </div>
+      <Headersearch></Headersearch>
+
       <ul
         className="relative"
         onClick={() => {

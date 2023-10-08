@@ -1,7 +1,7 @@
-import PlaylistInfo from '@/app/playlist/[slug]/PlaylistInfo'
-import { PlaylistProvider } from '@/app/playlist/[slug]/PlaylistProvider'
-import Playlists from '@/app/playlist/[slug]/Playlists'
-import SearchTrack from '@/app/playlist/[slug]/SearchTrack'
+import PlaylistInfo from '@/app/myplaylist/[slug]/PlaylistInfo'
+import { PlaylistProvider } from '@/app/myplaylist/[slug]/PlaylistProvider'
+import Playlists from '@/app/myplaylist/[slug]/Playlists'
+import SearchTrack from '@/app/myplaylist/[slug]/SearchTrack'
 
 export default function page({ params }: { params: { slug: string } }) {
   return (

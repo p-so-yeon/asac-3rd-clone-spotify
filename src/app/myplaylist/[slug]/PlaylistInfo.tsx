@@ -4,7 +4,7 @@ import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import { FiEdit2 } from 'react-icons/fi'
 
-import { usePlaylistInfoContext } from '@/app/playlist/[slug]/PlaylistProvider'
+import { usePlaylistInfoContext } from '@/app/myplaylist/[slug]/PlaylistProvider'
 
 export default function PlaylistInfo() {
   const storage = getStorage()

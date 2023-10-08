@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 'use client'
-import { addDoc, collection, getDocs, onSnapshot } from 'firebase/firestore'
+import { addDoc, collection, onSnapshot } from 'firebase/firestore'
 import { getDownloadURL, getStorage, ref } from 'firebase/storage'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -115,7 +115,7 @@ function Sidebar() {
       tracks: [],
       coverImg: '',
     })
-    router.push(`/playlist/${docRef.id}`)
+    router.push(`/myplaylist/${docRef.id}`)
   }
   return (
     <aside
@@ -161,7 +161,7 @@ function Sidebar() {
                 <Link
                   key={item.id}
                   className="cursor-pointer hover:bg-color-hover-primary"
-                  href={`/playlist/${item.id}`}
+                  href={`/myplaylist/${item.id}`}
                 >
                   <div className="grid grid-cols-[auto_1fr] p-2 gap-x-3 gap-y-2">
                     <Image

@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 'use client'
 import { addDoc, collection, getDocs, onSnapshot } from 'firebase/firestore'
-import { getDownloadURL, ref } from 'firebase/storage'
+import { getDownloadURL, getStorage, ref } from 'firebase/storage'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
@@ -16,6 +16,25 @@ import firebaseDB from '@/core/service/firebase/firebasedb'
 import { useGetCurrentUsersPlaylistQuery } from '@/ducks/service/playlist-api'
 import { useGetUserFollowedArtistQuery } from '@/ducks/service/user-api'
 
+//이미지 다운까지되는데 src에 추가가 안됨.
+async function getImage(item) {
+  const storage = getStorage()
+  if (item.coverImg === null) {
+    return '/img/playlistDefault.png'
+  } else {
+    const storageRef = ref(storage, `images/${item}`)
+    let url = '/img/playlistDefault.png'
+    await getDownloadURL(storageRef)
+      .then((url) => {
+        console.log('img downloaded', url)
+        url = url
+      })
+      .catch((e) => {
+        return '/img/playlistDefault.png'
+      })
+    return url
+  }
+}
 
 function Sidebar() {
   const pathname = usePathname()
@@ -77,17 +96,17 @@ function Sidebar() {
 
   const [playlist, setPlaylists] = useState<any[]>()
 
-
   useEffect(() => {
     const playlistSnap = onSnapshot(collection(firebaseDB, 'myPlaylists'), (playlists) => {
       const playlistData: any[] = []
       playlists.forEach((doc) => {
-        playlistData.push({ id: doc.id, data: doc.data() })
+        console.log(doc.data().coverImg)
+        playlistData.push({ id: doc.id, data: doc.data(), img: getImage(doc.data().coverImg) })
       })
       setPlaylists(playlistData)
-      console.log("sidebar setPlaylists")
+      console.log('sidebar setPlaylists')
     })
-  },[])
+  }, [])
 
   async function createPlaylist() {
     const docRef = await addDoc(collection(firebaseDB, 'myPlaylists'), {
@@ -147,7 +166,7 @@ function Sidebar() {
                   <div className="grid grid-cols-[auto_1fr] p-2 gap-x-3 gap-y-2">
                     <Image
                       className="rouded-md"
-                      src={'/img/playlistDefault.png'} //document id의 이미지가 있다면 보여주기.
+                      src={item.img}
                       alt={item.data.title ? item.data.title : '플레이리스트'}
                       width={48}
                       height={48}

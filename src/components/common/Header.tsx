@@ -8,17 +8,21 @@ import { BsChevronRight } from 'react-icons/bs'
 import { MdOutlinePersonOutline } from 'react-icons/md'
 
 import Dropdown from '@/components/common/Dropdown'
+import Headersearch from '@/components/common/Searchpage/Headersearch'
 import { useGetCurrentUserProfileQuery } from '@/ducks/service/user-api'
 import { defaultUserImage } from '@/lib/utils/staticImages'
 
-function Header() {
+interface Typeprops {
+  type: 'search' | ''
+}
+function Header({ type }: Typeprops): React.ReactElement {
   const router = useRouter()
 
   const back = () => {
     router.back()
   }
   const forward = () => {
-    window.history.forward()
+    router.forward()
   }
   const [open, setopen] = useState(false)
   const session = useSession()
@@ -32,6 +36,7 @@ function Header() {
         <button className="flex items-center justify-center w-8 h-8 bg-black rounded-full" onClick={forward}>
           <BsChevronRight fontSize="16px;" color="white" />
         </button>
+        {type === 'search' && <Headersearch />}
       </div>
       <ul
         className="relative"

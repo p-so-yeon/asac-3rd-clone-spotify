@@ -6,8 +6,11 @@ export interface Getseveralbrowsecategories {
   offset: number
   previous: null
   total: number
+  categories: categories
 }
-
+export interface categories {
+  items: Item[]
+}
 export interface Item {
   href: string
   icons: Icon[]

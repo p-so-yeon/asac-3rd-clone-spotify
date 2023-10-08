@@ -10,19 +10,22 @@ import { MdOutlinePersonOutline } from 'react-icons/md'
 import Dropdown from '@/components/common/Dropdown'
 import Headersearch from '@/components/Searchpage/Headersearch'
 import { useGetCurrentUserProfileQuery } from '@/ducks/service/user-api'
-
-function Header() {
+import { defaultUserImage } from '@/lib/utils/staticImages'
+interface Typeprops {
+  type: 'search' | ''
+}
+function Header({ type }: Typeprops): React.ReactElement {
   const router = useRouter()
 
   const back = () => {
     router.back()
   }
   const forward = () => {
-    window.history.forward()
+    router.forward()
   }
   const [open, setopen] = useState(false)
   const session = useSession()
-  const { data, error, isLoading } = useGetCurrentUserProfileQuery('IU')
+  const { data, error, isLoading } = useGetCurrentUserProfileQuery(`${session.data?.user?.id}`)
   return (
     <header className="flex justify-between relative h-[64px] items-center bg-transparent rounded-lg z-10">
       <div className="ml-1.5 flex gap-x-2">
@@ -32,9 +35,8 @@ function Header() {
         <button className="flex items-center justify-center w-8 h-8 bg-black rounded-full" onClick={forward}>
           <BsChevronRight fontSize="16px;" color="white" />
         </button>
+        {type === 'search' && <Headersearch />}
       </div>
-      <Headersearch></Headersearch>
-
       <ul
         className="relative"
         onClick={() => {
@@ -43,7 +45,13 @@ function Header() {
       >
         <button className="rounded-full bg-black w-8 h-8 flex justify-center items-center mr-[30px]">
           {session.status === 'authenticated' && data?.images[0] !== undefined ? (
-            <Image className="mr-2 rounded-full" src={`${data?.images[0].url} `} fill alt={`${data?.display_name}`} />
+            <Image
+              className="mr-2 rounded-full"
+              src={data ? `${data?.images[0].url} ` : defaultUserImage}
+              width={56}
+              height={56}
+              alt={`${data?.display_name}`}
+            />
           ) : (
             <MdOutlinePersonOutline color="#fff" fontSize="large" alt={data?.display_name} />
           )}

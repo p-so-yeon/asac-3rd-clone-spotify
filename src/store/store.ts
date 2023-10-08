@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/dist/query'
 import { combineReducers } from 'redux'
-import { persistReducer } from 'redux-persist'
+import { FLUSH, PAUSE, PERSIST, persistReducer, PURGE, REGISTER, REHYDRATE } from 'redux-persist'
 // import storage from 'redux-persist/lib/storage'
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
 
@@ -53,12 +53,11 @@ const store = configureStore({
     [searchApi.reducerPath]: searchApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(
-      userApi.middleware,
-      playerApi.middleware,
-      playlistApi.middleware,
-      searchApi.middleware,
-    ),
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }).concat(userApi.middleware, playerApi.middleware, playlistApi.middleware, searchApi.middleware),
   devTools: process.env.NODE_ENV === 'development',
 })
 setupListeners(store.dispatch)

@@ -6,15 +6,12 @@ import { useGetUserFollowedArtistQuery } from '@/ducks/service/user-api'
 function Following() {
   const session = useSession()
   const { data, error, isLoading } = useGetUserFollowedArtistQuery(50)
-
-  return (
-    <div>
-      {session.status === 'authenticated' && data?.artists && (
-        <div className="flex">
-          팔로잉 <div className="ml-[5px]"> {data?.artists?.total}명</div>
-        </div>
-      )}
-    </div>
-  )
+  // useEffect(() => {
+  //   //console.log(data?.items?.filter((item) => item.public === true).length)
+  // }, [data])
+  if (isLoading) {
+    return <div>loading..</div>
+  }
+  return session.status === 'authenticated' && data?.artists && data?.artists?.total
 }
 export default Following

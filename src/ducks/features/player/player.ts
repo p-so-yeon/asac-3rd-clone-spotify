@@ -1,35 +1,47 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { Track } from '@/types/common/track-data-type'
-
 interface Player {
   device_id: string
   isReady: boolean
-  currentTrack: Track
+  context: Spotify.PlaybackContext
+  currentTrack: Spotify.Track
   currentPlaylist: any // playlist
-  trackQueue: Track[]
+  trackQueue: Spotify.Track[]
   volume: number
-  isPlaying: boolean
-  isSuffle: boolean
-  isRepeat: boolean
-  isloading: boolean
+  paused: boolean
+  shuffled: boolean
+  repeated: 0 | 1 | 2
+  /**
+   * 0: NO_REPEAT
+   * 1: ONCE_REPEAT
+   * 2: FULL_REPEAT
+   *
+   * The repeat mode.
+   * No repeat mode is 0,
+   * repeat context 1
+   * repeat track 2.
+   */
   duration: number
   position: number
+  loading: boolean
+  position_ms: number
 }
 
 const initialState: Player = {
   device_id: '',
   isReady: false,
-  currentTrack: {} as Track,
+  context: {} as Spotify.PlaybackContext,
+  currentTrack: {} as Spotify.Track,
   currentPlaylist: {},
-  trackQueue: [] as Track[],
+  trackQueue: [] as Spotify.Track[],
   volume: 50,
-  isPlaying: false,
-  isSuffle: false,
-  isRepeat: false,
-  isloading: false,
+  paused: true,
+  shuffled: false,
+  repeated: 0,
   duration: 0,
   position: 0,
+  loading: true,
+  position_ms: 0,
 }
 
 export const playerSlice = createSlice({
@@ -40,54 +52,65 @@ export const playerSlice = createSlice({
       state.device_id = action.payload
     },
     setReady: (state, action: PayloadAction<boolean>) => {
-      state.isPlaying = action.payload
+      state.paused = action.payload
+    },
+    setContext: (state, action: PayloadAction<Spotify.PlaybackContext>) => {
+      state.context = action.payload
     },
     setPause: (state, action: PayloadAction<boolean>) => {
-      state.isPlaying = action.payload
+      state.paused = action.payload
     },
-    setPlay: (state, action: PayloadAction<boolean>) => {
-      state.isPlaying = action.payload
+    setShuffle: (state, action: PayloadAction<boolean>) => {
+      state.shuffled = action.payload
     },
-    setSuffle: (state, action: PayloadAction<boolean>) => {
-      state.isSuffle = action.payload
+    setRepeat: (state, action: PayloadAction<0 | 1 | 2>) => {
+      state.repeated = action.payload
     },
-    setRepeat: (state, action: PayloadAction<boolean>) => {
-      state.isRepeat = action.payload
+    setVolume: (state, action: PayloadAction<number>) => {
+      state.volume = action.payload
     },
-    setVolume: (state, action: PayloadAction<boolean>) => {
-      state.isRepeat = action.payload
+    setPosition: (state, action: PayloadAction<number>) => {
+      state.position = action.payload
     },
-    setPosisition: (state, action: PayloadAction<boolean>) => {
-      state.isRepeat = action.payload
+    setPosition_ms: (state, action: PayloadAction<number>) => {
+      state.position_ms = action.payload
     },
-    setTrack: (state, action: PayloadAction<boolean>) => {
-      state.isRepeat = action.payload
+    setDuration: (state, action: PayloadAction<number>) => {
+      state.duration = action.payload
     },
-    addQueue: (state, action: PayloadAction<boolean>) => {
-      state.isRepeat = action.payload
+    setTrack: (state, action: PayloadAction<Spotify.Track>) => {
+      state.currentTrack = action.payload
     },
-    updateQueue: (state, action: PayloadAction<boolean>) => {
-      state.isRepeat = action.payload
+    setLoading: (state, action: PayloadAction<boolean>) => {
+      state.loading = action.payload
     },
-    deleteQueue: (state, action: PayloadAction<boolean>) => {
-      state.isRepeat = action.payload
-    },
+    // addQueue: (state, action: PayloadAction<boolean>) => {
+    //   state.repeated = action.payload
+    // },
+    // updateQueue: (state, action: PayloadAction<boolean>) => {
+    //   state.repeated = action.payload
+    // },
+    // deleteQueue: (state, action: PayloadAction<boolean>) => {
+    //   state.repeated = action.payload
+    // },
   },
-  extraReducers: {},
 })
 
 export const {
   setDeviceId,
   setReady,
+  setContext,
   setPause,
-  setPlay,
-  setSuffle,
+  setShuffle,
   setRepeat,
   setVolume,
-  setPosisition,
+  setPosition,
+  setPosition_ms,
+  setDuration,
   setTrack,
-  addQueue,
-  updateQueue,
-  deleteQueue,
+  setLoading,
+  // addQueue,
+  // updateQueue,
+  // deleteQueue,
 } = playerSlice.actions
 export default playerSlice.reducer

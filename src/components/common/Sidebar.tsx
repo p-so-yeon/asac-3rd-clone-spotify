@@ -148,46 +148,49 @@ function Sidebar() {
               <BiSearch size={20} className="m-2 font-black text-color-text-secondary" />
               <p className="text-xs font-bold text-color-text-secondary">Recents</p>
             </div>
-            <ul className="flex flex-col gap-2">
-              {currentUserPlaylist.data?.items.map((playlist) => (
-                <li key={`${playlist.id}`} className="cursor-pointer hover:bg-color-hover-primary">
-                  <div className="grid grid-cols-[auto_1fr] p-2 gap-x-3 gap-y-2">
-                    {playlist.images.length !== 0 ? (
+
+            {currentUserPlaylist && (
+              <ul className="flex flex-col gap-2">
+                {currentUserPlaylist.data?.items.map((playlist) => (
+                  <li key={`${playlist.id}`} className="cursor-pointer hover:bg-color-hover-primary">
+                    <div className="grid grid-cols-[auto_1fr] p-2 gap-x-3 gap-y-2">
+                      {playlist.images.length !== 0 ? (
+                        <Image
+                          className="rounded-md"
+                          src={`${playlist.images[0].url}`}
+                          width={48}
+                          height={48}
+                          alt={`${playlist.name}`}
+                        />
+                      ) : (
+                        <HiMusicalNote className={'text-color-text-secondary'} size={'3rem'} alt={`${playlist.name}`} />
+                      )}
+                      <div className={`flex flex-col`}>
+                        <span className="break-all text-color-text-primary line-clamp-1">{`${playlist.name}`}</span>
+                        <span className="text-color-text-secondary">{`${playlist.type}-${playlist.owner.display_name}`}</span>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+                {userFollowedArtist.data?.artists.items.map((artist) => (
+                  <li key={`${artist.id}`} className="cursor-pointer hover:bg-color-hover-primary">
+                    <div className="grid grid-cols-[auto_1fr] p-2 gap-x-3 gap-y-2">
                       <Image
-                        className="rounded-md"
-                        src={`${playlist.images[0].url}`}
+                        className="rounded-full"
+                        src={`${artist.images[0].url}`}
                         width={48}
                         height={48}
-                        alt={`${playlist.name}`}
+                        alt={`${artist.name}`}
                       />
-                    ) : (
-                      <HiMusicalNote className={'text-color-text-secondary'} size={'3rem'} alt={`${playlist.name}`} />
-                    )}
-                    <div className={`flex flex-col`}>
-                      <span className="break-all text-color-text-primary line-clamp-1">{`${playlist.name}`}</span>
-                      <span className="text-color-text-secondary">{`${playlist.type}-${playlist.owner.display_name}`}</span>
+                      <div className={`flex flex-col`}>
+                        <span className="break-all text-color-text-primary line-clamp-1">{`${artist.name}`}</span>
+                        <span className="text-color-text-secondary">{`${artist.type}`}</span>
+                      </div>
                     </div>
-                  </div>
-                </li>
-              ))}
-              {userFollowedArtist.data?.artists.items.map((artist) => (
-                <li key={`${artist.id}`} className="cursor-pointer hover:bg-color-hover-primary">
-                  <div className="grid grid-cols-[auto_1fr] p-2 gap-x-3 gap-y-2">
-                    <Image
-                      className="rounded-full"
-                      src={`${artist.images[0].url}`}
-                      width={48}
-                      height={48}
-                      alt={`${artist.name}`}
-                    />
-                    <div className={`flex flex-col`}>
-                      <span className="break-all text-color-text-primary line-clamp-1">{`${artist.name}`}</span>
-                      <span className="text-color-text-secondary">{`${artist.type}`}</span>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </main>
       </div>

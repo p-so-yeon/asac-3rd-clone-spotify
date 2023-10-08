@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Genre from '@/components/common/Genre'
 import getAuthSession from '@/core/api/auth/getAuthSession'
 import getCategories from '@/core/api/category/getUserCategories'

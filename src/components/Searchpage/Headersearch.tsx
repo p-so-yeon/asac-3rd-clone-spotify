@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { FiSearch } from 'react-icons/fi'
 
 import { useGetSearchItemsQuery } from '@/ducks/service/search-api'
+
 function Headersearch() {
   const session = useSession()
   const [searchitem, setSearchitem] = useState<string>('')

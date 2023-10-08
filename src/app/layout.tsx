@@ -3,7 +3,6 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
-import Banner from '@/components/common/Banner'
 // import Script from 'next/script'
 import Header from '@/components/common/Header'
 import Player from '@/components/common/Player'
@@ -27,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Sidebar />
             <div className="flex flex-col h-[calc(100vh-72px)s] overflow-y-auto">
               <Header />
-              <Banner></Banner>
+
               {children}
             </div>
             <div className="fixed bottom-0 col-span-2 h-[72px]">

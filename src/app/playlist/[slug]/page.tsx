@@ -1,29 +1,28 @@
-import PlaylistInfo from '@/app/playlist/[slug]/PlaylistInfo'
-import { PlaylistProvider } from '@/app/playlist/[slug]/PlaylistProvider'
-import Playlists from '@/app/playlist/[slug]/Playlists'
-import SearchTrack from '@/app/playlist/[slug]/SearchTrack'
+import Banner from '@/app/playlist/[slug]/Banner'
+import PlaylistSetting from '@/app/playlist/[slug]/PlaylistSetting'
+import Tracks from '@/app/playlist/[slug]/Tracks'
+import getPlaylist from '@/core/api/playlist/getPlaylist'
+import { GetPlaylist } from '@/types/raw-api-data-type/playlist/get-playlist-type'
 
-const test_data = {
-  cover_img: '',
-  title: '내 플레이리스트 #20',
-  author: '승효',
-  author_profile: '',
-}
+export default async function page({ params }: { params: { slug: string } }) {
+  const playlistData: GetPlaylist = await getPlaylist(params.slug)
+  const playlistSnapshot = playlistData?.snapshot_id //The version identifier for the current playlist.
 
-export default function page({ params }: { params: { slug: string } }) {
+  const playlistBannerData = {
+    title: playlistData?.name ,
+    coverImg: playlistData?.images[0]?.url , // 첫 번째 이미지 URL
+    description: playlistData?.description ,
+    type: playlistData?.type ,
+    owner_name: playlistData?.owner.display_name,
+    followers: playlistData?.followers?.total ,
+    total_tracks: playlistData?.tracks?.total ,
+  }
+
   return (
-    <div className="w-full overflow-y-scroll h-5/6">
-      <PlaylistProvider playlistSlug={params.slug}>
-        <PlaylistInfo />
-        <div className="flex flex-col gap-12 px-5">
-          <section>
-            <Playlists />
-          </section>
-          <section className="h-56 pt-4 mt-4 border-tborder-neutral-500">
-            <SearchTrack />
-          </section>
-        </div>
-      </PlaylistProvider>
-    </div>
+    <>
+      <Banner playlistInfo={playlistBannerData} />
+      <PlaylistSetting />
+      <Tracks tracks={playlistData?.tracks.items} />
+    </>
   )
 }

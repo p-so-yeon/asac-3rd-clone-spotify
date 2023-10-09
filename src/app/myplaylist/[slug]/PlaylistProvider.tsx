@@ -1,24 +1,24 @@
 'use client'
-import { doc, getDoc } from 'firebase/firestore'
+import { doc, getDoc, updateDoc } from 'firebase/firestore'
+import { useRouter } from 'next/navigation'
 import { createContext, useContext, useEffect, useState } from 'react'
 
 import firebaseDB from '@/core/service/firebase/firebasedb'
-import { File } from 'buffer'
 
 interface playlistTrack {
   id: string
   img: string
   name: string
   album_name?: string
-  added_date: Date
+  added_date: number
   artist: string
   duration: number
   liked: boolean
 }
 interface playlistInfo {
   author: string
-  coverImg: Blob
   title: string
+  coverImg: string
 }
 export const PlaylistTracksContext = createContext<{
   playlistTracks: playlistTrack[]
@@ -31,26 +31,43 @@ export const PlaylistInfoContext = createContext<{
   playlistInfo: playlistInfo
   setPlaylistInfo: React.Dispatch<React.SetStateAction<playlistInfo>>
 }>({
-  playlistInfo: { author: '', coverImg: '', title: '' },
+  playlistInfo: { author: '', title: '', coverImg: '' },
   setPlaylistInfo: () => {},
 })
+async function updatePlaylist({ playlistInfo, playlistTracks, slug }) {
+  console.log('updated')
+  try {
+    const playlistData = doc(firebaseDB, 'myPlaylists', `${slug}`)
+    await updateDoc(playlistData, {
+      ...playlistInfo,
+      tracks: playlistTracks,
+    })
+  } catch (e) {
+    console.log('Error updating current playlist', e)
+  }
+}
 
 export function PlaylistProvider({ children, playlistSlug }) {
+  const router = useRouter()
+
   const [playlistTracks, setPlaylistTracks] = useState<playlistTrack[]>([])
-  const [playlistInfo, setPlaylistInfo] = useState<playlistInfo>({ author: '', coverImg: '', title: '' })
+  const [playlistInfo, setPlaylistInfo] = useState<playlistInfo>({ author: '', title: '', coverImg: '' })
   useEffect(() => {
     async function getCurrentPlaylist() {
       try {
         const playlistData = (await getDoc(doc(firebaseDB, 'myPlaylists', `${playlistSlug}`))).data()
         setPlaylistTracks(playlistData?.tracks) //
-        setPlaylistInfo({ author: playlistData?.author, coverImg: playlistData?.coverImg, title: playlistData?.title })
-        console.log('playlist set done')
+        setPlaylistInfo({ author: playlistData?.author, title: playlistData?.title, coverImg: playlistData?.coverImg })
       } catch (e) {
         console.log('Error getting current playlist')
       }
     }
     getCurrentPlaylist()
   }, [])
+
+  window.addEventListener('beforeunload', () => {
+    updatePlaylist({ playlistInfo: playlistInfo, playlistTracks: playlistTracks, slug: playlistSlug })
+  })
   return (
     <PlaylistTracksContext.Provider value={{ playlistTracks, setPlaylistTracks }}>
       <PlaylistInfoContext.Provider value={{ playlistInfo, setPlaylistInfo }}>{children}</PlaylistInfoContext.Provider>

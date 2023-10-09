@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
-
+import { getStorage } from 'firebase/storage'
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_APIKEYS,
   authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
@@ -12,10 +12,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
-
+const storage = getStorage(app)
 // Initialize Cloud Firestore and get a reference to the service
 const firebaseDB = getFirestore(app)
 if (firebaseDB) {
   console.log(firebaseDB)
 }
-export default firebaseDB 
+export default firebaseDB

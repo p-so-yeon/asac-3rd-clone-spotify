@@ -1,4 +1,8 @@
 export interface Getseveralbrowsecategories {
+  categories: Categories
+}
+
+export interface Categories {
   href: string
   items: Item[]
   limit: number
@@ -6,22 +10,18 @@ export interface Getseveralbrowsecategories {
   offset: number
   previous: null
   total: number
-  categories: categories
 }
-export interface categories {
-  items: Item[]
-}
+
 export interface Item {
+  color: any
   href: string
-  icons: Icon[]
+  images: Image[]
   id: string
   name: string
 }
 
-export interface Icon {
+export interface Image {
   height: number | null
   url: string
   width: number | null
 }
-
-export type { Item as categoryItem }

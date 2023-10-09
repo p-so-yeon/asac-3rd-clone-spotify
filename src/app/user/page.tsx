@@ -1,5 +1,5 @@
 'use client'
-import Banner from '@/components/Banner'
+import Banner from '@/components/common/Banner'
 import Display_name from '@/components/common/Banner/Display_name'
 import Following from '@/components/common/Banner/Following'
 import Userimg from '@/components/common/Banner/Profile_img'

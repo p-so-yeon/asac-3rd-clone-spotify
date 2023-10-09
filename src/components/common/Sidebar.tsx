@@ -8,10 +8,8 @@ import { AiOutlineArrowLeft, AiOutlineArrowRight, AiOutlinePlus } from 'react-ic
 import { BiSearch } from 'react-icons/bi'
 import { BiLibrary } from 'react-icons/bi'
 import { GoHome } from 'react-icons/go'
-import { useDispatch } from 'react-redux'
 
 import firebaseDB from '@/core/service/firebase/firebasedb'
-import { setSidebarWidth } from '@/ducks/features/library/library'
 import { useGetCurrentUsersPlaylistQuery } from '@/ducks/service/playlist-api'
 import { useGetUserFollowedArtistQuery } from '@/ducks/service/user-api'
 import { cn } from '@/lib/utils/classNames'
@@ -64,7 +62,6 @@ function Sidebar() {
 
   const userFollowedArtist = useGetUserFollowedArtistQuery(50)
   const currentUserPlaylist = useGetCurrentUsersPlaylistQuery(5)
-  const dispatch = useDispatch()
   const [width, setWidth] = useState<number>(
     !localStorage.getItem('sidebarWidth') ? defaultWidth : parseInt(localStorage.getItem('sidebarWidth') as string),
   )
@@ -122,7 +119,6 @@ function Sidebar() {
                   className='className="transition cursor-pointer text-neutral-300 hover:text-white'
                   onClick={() => {
                     setWidth(defaultWidth)
-                    dispatch(setSidebarWidth(defaultWidth))
                     localStorage.setItem('sidebarWidth', `${defaultWidth}`)
                   }}
                 >
@@ -146,7 +142,6 @@ function Sidebar() {
                       className='className="transition cursor-pointer text-neutral-300 hover:text-white'
                       onClick={() => {
                         setWidth(defaultWidth)
-                        dispatch(setSidebarWidth(defaultWidth))
                         localStorage.setItem('sidebarWidth', `${defaultWidth}`)
                       }}
                     >
@@ -157,7 +152,6 @@ function Sidebar() {
                       className='className="transition cursor-pointer text-neutral-300 hover:text-white'
                       onClick={() => {
                         setWidth(lgWidth)
-                        dispatch(setSidebarWidth(lgWidth))
                         localStorage.setItem('sidebarWidth', `${lgWidth}`)
                       }}
                     >
@@ -216,14 +210,12 @@ function Sidebar() {
         onMouseDown={() => {
           const mouseMoveHandler = (e: MouseEvent) => {
             const newWidth = convertWidthToBoundary(e.pageX, minWidth, maxWidth)
-            dispatch(setSidebarWidth(newWidth >= shrinkPoint ? newWidth : minWidth))
             setWidth(newWidth >= shrinkPoint ? newWidth : minWidth)
           }
 
           // 3️⃣
           const mouseUpHandler = (e: MouseEvent) => {
             const newWidth = convertWidthToBoundary(e.pageX, minWidth, maxWidth)
-            dispatch(setSidebarWidth(newWidth >= shrinkPoint ? newWidth : minWidth))
             localStorage.setItem('sidebarWidth', `${newWidth >= shrinkPoint ? newWidth : minWidth}`)
             document.removeEventListener('mousemove', mouseMoveHandler)
           }

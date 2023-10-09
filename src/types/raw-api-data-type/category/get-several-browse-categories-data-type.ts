@@ -13,6 +13,7 @@ export interface Categories {
 }
 
 export interface Item {
+  color: any
   href: string
   images: Image[]
   id: string

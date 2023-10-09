@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import React from 'react'
 
-import { usePlaylistTracksContext } from '@/app/playlist/[slug]/PlaylistProvider'
+import { usePlaylistTracksContext } from '@/app/myplaylist/[slug]/PlaylistProvider'
 
 export default function SearchResult({ data }) {
   const { playlistTracks, setPlaylistTracks } = usePlaylistTracksContext()
@@ -17,7 +17,7 @@ export default function SearchResult({ data }) {
         name: item.name,
         artist: item.artists[0]?.name,
         album_name: item.album.name,
-        added_date: created,
+        added_date: created.getTime(),
         duration: item.duration_ms,
         liked: false,
       },

@@ -6,21 +6,15 @@ import { SlOptions } from 'react-icons/sl'
 import { VscHeart } from 'react-icons/vsc'
 import { VscHeartFilled } from 'react-icons/vsc'
 
-import { usePlaylistTracksContext } from '@/app/playlist/[slug]/PlaylistProvider'
+import { usePlaylistTracksContext } from '@/app/myplaylist/[slug]/PlaylistProvider'
+import useCalcDate from '@/lib/hooks/useCalcTime'
 
 export default function Playlists() {
   const { playlistTracks, setPlaylistTracks } = usePlaylistTracksContext()
   const [hover, setHover] = useState<number | null>(null)
-  const relativeFormatter = new Intl.RelativeTimeFormat('ko', {
-    numeric: 'auto',
-  })
-  function calcDate(date) {
-    const created = date
-    const today = new Date()
-    const dayPassed = Math.ceil(created.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)
-    const daysAgo = relativeFormatter.format(dayPassed, 'day')
-    return daysAgo
-  }
+
+  const calcDate = useCalcDate()
+
   return (
     <>
       <div className="w-full py-6 min-h-14 h-14 ">

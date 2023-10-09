@@ -1,38 +1,64 @@
 'use client'
+import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage'
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import { FiEdit2 } from 'react-icons/fi'
 
-import { usePlaylistInfoContext } from '@/app/playlist/[slug]/PlaylistProvider'
+import { usePlaylistInfoContext } from '@/app/myplaylist/[slug]/PlaylistProvider'
 
 export default function PlaylistInfo() {
-  useEffect(() => {
-    if (playlistInfo.coverImg) {
-      const image = window.URL.createObjectURL(playlistInfo.coverImg)
-      setCoverImgPreview(image)
-    }
-  }, [])
-  const { playlistInfo, setPlaylistInfo } = usePlaylistInfoContext()
-  const [coverImgPreview, setCoverImgPreview] = useState('/img/playlistDefault.png')
-  //playlistInfo.coverImg가 있다면 coverImgPreview를 셋팅하기
+  const storage = getStorage()
 
+  const { playlistInfo, setPlaylistInfo } = usePlaylistInfoContext()
+  console.log('playlistInfo.coverImg', playlistInfo)
+
+  const [coverImgPreview, setCoverImgPreview] = useState('/img/playlistDefault.png')
   const [coverHover, setCoverHover] = useState(false)
   const coverImgRef = useRef<HTMLInputElement | null>(null)
+
+  useEffect(() => {
+    async function getImage() {
+      console.log('playlistInfo.coverImg', playlistInfo)
+
+      const storageRef = ref(storage, `images/${playlistInfo.coverImg}`)
+      await getDownloadURL(storageRef)
+        .then((url) => {
+          console.log('get Image')
+          setCoverImgPreview(url)
+        })
+        .catch((e) => {
+          console.log('error', e)
+        })
+    }
+    if (playlistInfo.coverImg !== null) {
+      console.log('playlistInfo.coverImg in if', playlistInfo)
+
+      getImage()
+    }
+  }, [playlistInfo])
+  async function uploadImage({ file }) {
+    const storage = getStorage()
+    const imageRef = ref(storage, `images/${file.name}`)
+    uploadBytes(imageRef, file).then((snapshot) => {
+      console.log('image uploaded:')
+    })
+    setPlaylistInfo({ ...playlistInfo, coverImg: file.name })
+  }
 
   const handleTitleChange = (e) => {
     setPlaylistInfo({ ...playlistInfo, title: e.target.value })
   }
+  //파일선택 버튼을 감추고 기능만 실행
   const handleCoverImg = () => {
     coverImgRef.current?.click()
   }
   const handleCoverChange = (e) => {
     if (!e.target.files) return
     const file = e.target.files[0]
-    console.log('file', file)
     if (file) {
       let image = window.URL.createObjectURL(file)
       setCoverImgPreview(image)
-      setPlaylistInfo({ ...playlistInfo, coverImg: file })
+      uploadImage({ file: file })
     }
   }
   return (
@@ -60,19 +86,14 @@ export default function PlaylistInfo() {
         <span className="text-sm">플레이리스트</span>
         <input
           type="text"
-          className="text-5xl font-extrabold bg-black placeholder-white border-none"
+          className="text-5xl font-extrabold placeholder-white bg-black border-none"
           placeholder="플레이리스트 제목"
           value={playlistInfo.title}
           onChange={handleTitleChange}
         ></input>
         <div className="flex gap-2">
           <div className="relative w-6 h-6 overflow-hidden rounded-full ">
-            <Image
-              fill={true}
-              // src={playlistInfo. ? test_data.author_profile : '/img/userDefaultProfile.jpeg'}
-              src="/img/userDefaultProfile.jpeg"
-              alt="author profile image"
-            />
+            <Image fill={true} src="/img/userDefaultProfile.jpeg" alt="author profile image" />
           </div>
           <p>{playlistInfo.author}</p>
         </div>

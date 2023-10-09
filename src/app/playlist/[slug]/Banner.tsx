@@ -15,21 +15,22 @@ interface BannerProps {
 function Banner({ playlistInfo }: BannerProps) {
   return (
     <section>
-      <div className="relative flex w-full px-4 h-72 bg-gradient-to-b from-transparent to-color-card-primary">
-        <div className="relative mr-5 shadow-xl top-16 w-60 h-60">
+      <div className="relative flex w-full gap-4 px-4 pt-4 pb-8 h-72 bg-gradient-to-b from-transparent to-color-card-primary">
+        <div className="relative shadow-xl w-60 h-60">
           <Image fill={true} src={playlistInfo.coverImg} alt="playlist cover image" />
         </div>
-        <div className="flex flex-col gap-4 text-white pt-36"></div>
-        <span className="text-sm">플레이리스트</span>
-        <span className="text-sm">{playlistInfo.description}</span>
-        <h1 className="text-5xl font-extrabold placeholder-white bg-black border-none">{playlistInfo.title}</h1>
-        <div className="flex gap-2">
-          <div className="relative w-6 h-6 overflow-hidden rounded-full ">
-            <Image fill={true} src="/img/userDefaultProfile.jpeg" alt="author profile image" />
+        <div className="flex flex-col justify-end gap-4 text-white">
+          <span className="text-sm">플레이리스트</span>
+          <span className="text-sm">{playlistInfo.description}</span>
+          <h1 className="text-6xl font-extrabold ">{playlistInfo.title}</h1>
+          <div className="flex gap-2">
+            <div className="relative w-6 h-6 overflow-hidden rounded-full ">
+              <Image fill={true} src="/img/userDefaultProfile.jpeg" alt="author profile image" />
+            </div>
+            <p className="text-sm font-bold">{playlistInfo.owner_name}</p>
+            <p className="text-sm">· 좋아요{playlistInfo.followers} 개</p>
+            <p className="text-sm">· {playlistInfo.total_tracks}곡</p>
           </div>
-          <p>{playlistInfo.owner_name}</p>
-          <p>{playlistInfo.followers}</p>
-          <p>{playlistInfo.total_tracks}</p>
         </div>
       </div>
     </section>

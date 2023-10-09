@@ -7,7 +7,13 @@ import { VscHeart } from 'react-icons/vsc'
 import useCalcDate from '@/lib/hooks/useCalcTime'
 import { Item } from '@/types/raw-api-data-type/playlist/get-playlist-type'
 
-function Tracks(tracks: Item[]) {
+
+interface TracksProps {
+  tracks: Item[];
+}
+
+
+function Tracks({ tracks }: TracksProps) {
   const calcDate = useCalcDate()
   const [hover, setHover] = useState<number | null>(null)
 

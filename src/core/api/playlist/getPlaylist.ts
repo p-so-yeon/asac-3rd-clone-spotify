@@ -15,6 +15,7 @@ const getPlaylist = async (playlist_id: string): Promise<any> => {
       throw new Error(`Fail to fetch data during ${getPlaylist.name}`)
     }
     const data = res.json()
+    console.log("playlist data",data)
     return data
   }
 }

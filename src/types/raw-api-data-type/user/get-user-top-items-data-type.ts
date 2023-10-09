@@ -69,7 +69,7 @@ export interface Album {
   id: string
   images: Image[]
   name: string
-  release_date: Date
+  release_date: string
   release_date_precision: ReleaseDatePrecision
   total_tracks: number
   type: AlbumTypeEnum

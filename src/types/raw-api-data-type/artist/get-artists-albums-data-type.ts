@@ -1,4 +1,4 @@
-import { AlbumType } from '@/lib/types/common/album-data-type'
+import { AlbumType } from '@/types/common/album-data-type'
 
 export interface GetArtistsAlbums {
   href: string

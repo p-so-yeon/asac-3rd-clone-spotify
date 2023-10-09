@@ -61,7 +61,16 @@ export default function WebplaybackProvider({ children }: { children: React.Reac
               dispatch(setContext(state.context))
               dispatch(setPause(state.paused))
               dispatch(setLoading(state.loading))
-              dispatch(setPosition(0))
+              if (state.context.uri === '') {
+                //track
+                state.context.metadata?.current_item.uri === state.track_window.current_track?.uri
+                  ? dispatch(setPosition(state.position))
+                  : dispatch(setPosition(0))
+              } else {
+                state.context.uri === state.track_window.current_track.uri
+                  ? dispatch(setPosition(state.position))
+                  : dispatch(setPosition(0))
+              }
               dispatch(setDuration(state.track_window.current_track?.duration_ms))
               dispatch(setRepeat(state.repeat_mode))
               dispatch(setShuffle(state.shuffle))

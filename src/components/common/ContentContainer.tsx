@@ -1,9 +1,7 @@
 'use client'
 import Link from 'next/link'
-import { useSelector } from 'react-redux'
 
 import { cn } from '@/lib/utils/classNames'
-import { RootState } from '@/store/store'
 
 interface Props {
   title: string
@@ -12,16 +10,10 @@ interface Props {
 }
 
 export default function ContentCardContainer({ title, linkPath, children }: Props) {
-  const sidebarWidth = useSelector((state: RootState) => state.reducer.library.width)
-  const mainWidth = Math.floor(window.innerWidth - sidebarWidth)
-  const mainCols = Math.floor(mainWidth / 200)
-  // console.log(mainWidth)
-  // console.log(mainCols)
-
   return (
     <section className={'overflow-x-auto no-scrollbar no-scrollbar::-webkit-scrollbar'}>
-      <div className="flex justify-between mb-4">
-        <h2 className="text-2xl text-color-text-primary hover:underline active:underline hover:cursor-pointer">
+      <div className="flex justify-between mb-2">
+        <h2 className="text-2xl font-bold text-color-text-primary hover:underline active:underline hover:cursor-pointer">
           <Link href={`${linkPath}`}>{title}</Link>
         </h2>
         <Link

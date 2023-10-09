@@ -12,9 +12,9 @@ interface Library {
   followedArtist: Item[]
 }
 const initialState: Library = {
-  // width: 280,
+  width: 280,
   // @ts-ignore
-  width: !localStorage.getItem('sidebarWidth') ? 280 : parseInt(localStorage.getItem('sidebarWidth') as string),
+  // width: !localStorage.getItem('sidebarWidth') ? 280 : parseInt(localStorage.getItem('sidebarWidth') as string),
   userPlaylist: [],
   userLikedAlbums: [],
   userLikedPlaylists: [],

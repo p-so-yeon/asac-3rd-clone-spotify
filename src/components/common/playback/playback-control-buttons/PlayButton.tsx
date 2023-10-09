@@ -21,7 +21,7 @@ export default function PlayButton() {
     if (currentTrack === null) {
       return transferTrigger(device_id)
     }
-    if (JSON.stringify(context) !== '{}' && context.uri !== null) {
+    if (JSON.stringify(context) !== '{}' && context.uri) {
       playTrigger({
         device_id,
         type: context.uri.split(':')[1] as 'track' | 'album' | 'playlist' | 'artist',
@@ -30,7 +30,15 @@ export default function PlayButton() {
         position_ms: position <= Math.floor(duration / 1000) * 1000 ? position : 0,
       })
     }
-
+    if (JSON.stringify(context) !== '{}' && !context.uri && context.metadata?.current_item.uri) {
+      playTrigger({
+        device_id,
+        type: context.metadata?.current_item.uri.split(':')[1] as 'track' | 'album' | 'playlist' | 'artist',
+        uri: context.metadata?.current_item.uri,
+        offset: context.metadata?.current_item.uri,
+        position_ms: position <= Math.floor(duration / 1000) * 1000 ? position : 0,
+      })
+    }
     dispatch(setPause(false))
   }
 

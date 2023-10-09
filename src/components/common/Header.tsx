@@ -8,7 +8,6 @@ import { BsChevronRight } from 'react-icons/bs'
 import { MdOutlinePersonOutline } from 'react-icons/md'
 
 import Dropdown from '@/components/common/Dropdown'
-import Headersearch from '@/components/common/Searchpage/Headersearch'
 import { useGetCurrentUserProfileQuery } from '@/ducks/service/user-api'
 import { defaultUserImage } from '@/lib/utils/staticImages'
 
@@ -36,7 +35,6 @@ function Header({ type }: Typeprops): React.ReactElement {
         <button className="flex items-center justify-center w-8 h-8 bg-black rounded-full" onClick={forward}>
           <BsChevronRight fontSize="16px;" color="white" />
         </button>
-        {type === 'search' && <Headersearch />}
       </div>
       <ul
         className="relative"
@@ -44,13 +42,12 @@ function Header({ type }: Typeprops): React.ReactElement {
           setopen(!open)
         }}
       >
-        <button className="rounded-full bg-black w-8 h-8 flex justify-center items-center mr-[30px]">
+        <button className="rounded-full bg-black w-[20px] h-[40px] flex justify-center items-center mr-[30px]">
           {session.status === 'authenticated' && data?.images[0] !== undefined ? (
             <Image
-              className="mr-2 rounded-full"
+              className="mr-2 rounded-full border-8 border-gray-700"
               src={data ? `${data?.images[0].url} ` : defaultUserImage}
-              width={56}
-              height={56}
+              fill
               alt={`${data?.display_name}`}
             />
           ) : (

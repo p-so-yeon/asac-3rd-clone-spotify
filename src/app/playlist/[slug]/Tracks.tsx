@@ -1,12 +1,15 @@
+'use client'
 import Image from 'next/image'
-import React from 'react'
+import { useState } from 'react'
 import { LuClock3 } from 'react-icons/lu'
 import { VscHeart } from 'react-icons/vsc'
 
 import useCalcDate from '@/lib/hooks/useCalcTime'
+import { Item } from '@/types/raw-api-data-type/playlist/get-playlist-type'
 
-function Tracks() {
+function Tracks(tracks: Item[]) {
   const calcDate = useCalcDate()
+  const [hover, setHover] = useState<number | null>(null)
 
   return (
     <section>
@@ -22,26 +25,26 @@ function Tracks() {
         </div>
       </div>
       <div className="w-full h-full text-color-text-secondary">
-        {playlistTracks.map((item, index) => (
+        {tracks.map((item, index) => (
           <div
             className="flex items-center justify-around px-2 py-3 rounded-md hover:bg-color-hover-primary"
             onMouseOver={() => setHover(index)}
             onMouseOutCapture={() => setHover(null)}
-            key={item.id}
+            key={item.track.id}
           >
             <span>{index + 1}</span>
             <span className="relative flex w-2/6">
-              <Image className="mr-3" src={item.img} width={40} height={40} alt="track image" />
+              <Image className="mr-3" src={item.track.album.images[0].url} width={40} height={40} alt="track image" />
               <div>
-                <p className="font-semibold text-color-text-primary">{item.name}</p>
-                <p className="text-sm text-[#B3B3B3]">{item.artist}</p>
+                <p className="font-semibold text-color-text-primary">{item.track.name}</p>
+                <p className="text-sm text-[#B3B3B3]">{item.track.artists[0].name}</p>
               </div>
             </span>
-            <span className="w-2/6 text-sm">{item.album_name}</span>
-            <span className="w-1/6 pl-2 text-sm">{calcDate(item.added_date)}</span>
+            <span className="w-2/6 text-sm">{item.track.album.name}</span>
+            <span className="w-1/6 pl-2 text-sm">{calcDate(item.added_at)}</span>
             <div className="w-[16px]">{index === hover && <VscHeart size={16} className="hover:text-white" />}</div>
             <span className=" text-[#B3B3B3] text-sm">
-              {Math.floor(item.duration / 60000)}:{((item.duration % 60000) / 1000).toFixed(0).padStart(2, '0')}
+              {Math.floor(item.track.duration_ms / 60000)}:{((item.track.duration_ms % 60000) / 1000).toFixed(0).padStart(2, '0')}
             </span>
           </div>
         ))}

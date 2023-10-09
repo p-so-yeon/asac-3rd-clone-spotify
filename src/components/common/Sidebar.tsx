@@ -212,16 +212,18 @@ function Sidebar() {
             <ul className="flex flex-col gap-2">
               {currentUserPlaylist &&
                 currentUserPlaylist.data?.items.map((playlist) => (
-                  <SidebarItem
-                    key={playlist.id}
-                    content={{
-                      ...createContentFromItem.playlist(playlist as Item),
-                      type: `${playlist.type} • ${playlist.owner.display_name}`,
-                    }}
-                    playedAt={0}
-                    sidebarWitdh={width}
-                    shrinkPoint={shrinkPoint}
-                  />
+                  <Link key={playlist.id} href={`/playlist/${playlist.id}`}>
+                    <SidebarItem
+                      key={playlist.id}
+                      content={{
+                        ...createContentFromItem.playlist(playlist as Item),
+                        type: `${playlist.type} • ${playlist.owner.display_name}`,
+                      }}
+                      playedAt={0}
+                      sidebarWitdh={width}
+                      shrinkPoint={shrinkPoint}
+                    />
+                  </Link>
                 ))}
 
               {userFollowedArtist &&

@@ -4,7 +4,7 @@ const getPlaylist = async (playlist_id: string): Promise<any> => {
   const baseUrl = 'https://api.spotify.com/v1'
   const session = await getAuthSession()
   if (session) {
-    const url = `${baseUrl}playlists/${playlist_id}`
+    const url = `${baseUrl}/playlists/${playlist_id}`
     const res = await fetch(url, {
       method: 'GET',
       headers: {

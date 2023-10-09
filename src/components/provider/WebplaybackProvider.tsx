@@ -2,8 +2,7 @@
 
 import Script from 'next/script'
 import { getSession } from 'next-auth/react'
-import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import {
   setContext,
@@ -18,13 +17,9 @@ import {
   setTrack,
 } from '@/ducks/features/player/player'
 import { playerApi } from '@/ducks/service/player-api'
-import { AppDispatch, RootState } from '@/store/store'
+import { AppDispatch } from '@/store/store'
 
 export default function WebplaybackProvider({ children }: { children: React.ReactNode }) {
-  const isPaused = useSelector((state: RootState) => state.reducer.player.paused)
-  const [is_active, setActive] = useState<boolean>(false)
-
-  // const [current_track, setTrack] = useState<Spotify.Track | null>(null)
   const dispatch = useDispatch<AppDispatch>()
   const [transfer] = playerApi.endpoints.transferPlayback.useMutation()
   return (
@@ -66,20 +61,10 @@ export default function WebplaybackProvider({ children }: { children: React.Reac
               dispatch(setContext(state.context))
               dispatch(setPause(state.paused))
               dispatch(setLoading(state.loading))
-              dispatch(setPosition(state.position))
+              dispatch(setPosition(0))
               dispatch(setDuration(state.track_window.current_track?.duration_ms))
               dispatch(setRepeat(state.repeat_mode))
               dispatch(setShuffle(state.shuffle))
-              // player.getVolume().then((value) => {
-              //   dispatch(setVolume(value * 100))
-              // })
-              player.getCurrentState().then((state) => {
-                if (!state) {
-                  setActive(false)
-                } else {
-                  setActive(true)
-                }
-              })
             })
             player.on('initialization_error', ({ message }) => {
               console.error('Failed to initialize', message)

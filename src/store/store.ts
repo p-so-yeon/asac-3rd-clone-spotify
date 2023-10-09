@@ -10,8 +10,8 @@ import { playerSlice } from '@/ducks/features/player/player'
 import tokenSlice from '@/ducks/features/token/tokenSlice'
 import { playerApi } from '@/ducks/service/player-api'
 import { playlistApi } from '@/ducks/service/playlist-api'
-import { userApi } from '@/ducks/service/user-api'
 import { searchApi } from '@/ducks/service/search-api'
+import { userApi } from '@/ducks/service/user-api'
 
 const createNoopStorage = () => {
   return {
@@ -51,14 +51,14 @@ const store = configureStore({
     [userApi.reducerPath]: userApi.reducer,
     [playerApi.reducerPath]: playerApi.reducer,
     [playlistApi.reducerPath]: playlistApi.reducer,
-    [searchApi.reducerPath]: playlistApi.reducer,
+    [searchApi.reducerPath]: searchApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(userApi.middleware, playerApi.middleware, playlistApi.middleware,searchApi.middleware),
+    }).concat(userApi.middleware, playerApi.middleware, playlistApi.middleware, searchApi.middleware),
   devTools: process.env.NODE_ENV === 'development',
 })
 setupListeners(store.dispatch)

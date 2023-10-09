@@ -23,7 +23,7 @@ export interface Item {
   name: string
   owner: Owner
   primary_color: null
-  public: null
+  public: boolean
   snapshot_id: string
   tracks: Tracks
   type: string

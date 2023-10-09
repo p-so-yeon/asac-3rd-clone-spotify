@@ -1,5 +1,7 @@
-import React from "react";
+import React from 'react'
+
+import LoginButton from '@/components/LoginButton'
 
 export default function page() {
-  return <div>page</div>;
+  return <LoginButton />
 }

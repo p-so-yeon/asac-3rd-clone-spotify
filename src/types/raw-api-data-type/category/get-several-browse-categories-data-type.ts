@@ -15,12 +15,13 @@ export interface Categories {
 export interface Item {
   color: any
   href: string
+  icons: Icon[]
   images: Image[]
   id: string
   name: string
 }
 
-export interface Image {
+export interface Icon {
   height: number | null
   url: string
   width: number | null

@@ -4,7 +4,7 @@ const getUsersTopItems = async (limit: number, type: 'artist' | 'track'): Promis
   const baseUrl = 'https://api.spotify.com/v1'
   const session = await getAuthSession()
   if (session) {
-    const url = `${baseUrl}/me/top/${type}?time_range=short_term&limit=${limit}`
+    const url = `${baseUrl}/me/top/${type}s?time_range=short_term&limit=${limit}`
     const res = await fetch(url, {
       method: 'GET',
       headers: {

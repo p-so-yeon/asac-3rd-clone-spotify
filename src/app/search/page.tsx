@@ -62,10 +62,10 @@ export default async function page() {
   })
   return (
     <div>
-      <div className="text-white">최근 검색 기록</div> <div className="text-white">모두 둘러보기</div>
+      <div className="text-white">최근 검색 기록 </div> <div className="text-white">모두 둘러보기</div>
       <div className="flex flex-wrap gap-5">
         {Categories?.categories?.items?.map((item: any) => (
-          <Genre key={item.index} name={item.name} url={item.icons} color={item.color}></Genre>
+          <Genre key={item.index} name={item.name} url={item?.icons[0].url} color={item.color}></Genre>
         ))}
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/dist/query'
 import { combineReducers } from 'redux'
-import { persistReducer } from 'redux-persist'
+import { FLUSH, PAUSE, PERSIST, persistReducer, PURGE, REGISTER, REHYDRATE } from 'redux-persist'
 // import storage from 'redux-persist/lib/storage'
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
 
@@ -11,6 +11,7 @@ import tokenSlice from '@/ducks/features/token/tokenSlice'
 import { playerApi } from '@/ducks/service/player-api'
 import { playlistApi } from '@/ducks/service/playlist-api'
 import { userApi } from '@/ducks/service/user-api'
+import { searchApi } from '@/ducks/service/search-api'
 
 const createNoopStorage = () => {
   return {
@@ -50,9 +51,14 @@ const store = configureStore({
     [userApi.reducerPath]: userApi.reducer,
     [playerApi.reducerPath]: playerApi.reducer,
     [playlistApi.reducerPath]: playlistApi.reducer,
+    [searchApi.reducerPath]: playlistApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(userApi.middleware, playerApi.middleware, playlistApi.middleware),
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }).concat(userApi.middleware, playerApi.middleware, playlistApi.middleware,searchApi.middleware),
   devTools: process.env.NODE_ENV === 'development',
 })
 setupListeners(store.dispatch)

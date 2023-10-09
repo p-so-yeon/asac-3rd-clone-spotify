@@ -1,4 +1,4 @@
-import { Image } from '@/lib/types/common/images-data-type'
+import { Image } from '@/types/common/images-data-type'
 
 // in Album & Track #1
 // followers? genres? images? popularity?

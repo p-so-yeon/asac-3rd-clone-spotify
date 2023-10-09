@@ -1,5 +1,5 @@
-import { Album } from '@/lib/types/common/album-data-type'
-import { Artist } from '@/lib/types/common/artist-data-type'
+import { Album } from '@/types/common/album-data-type'
+import { Artist } from '@/types/common/artist-data-type'
 
 export interface Track {
   album?: Album

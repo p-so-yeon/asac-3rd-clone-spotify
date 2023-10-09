@@ -6,5 +6,5 @@ export const metadata: Metadata = {
 }
 
 export default async function HomeLayout({ children }: { children: React.ReactNode }) {
-  return <section className="flex flex-col gap-4 px-4 pt-2">{children}</section>
+  return <section className="flex flex-col gap-10 px-4 pt-2 mb-20">{children}</section>
 }

@@ -13,7 +13,7 @@ export default function ContentCardContainer({ title, linkPath, children }: Prop
   return (
     <section className={'overflow-x-auto no-scrollbar no-scrollbar::-webkit-scrollbar'}>
       <div className="flex justify-between mb-2">
-        <h2 className="text-2xl text-color-text-primary hover:underline active:underline hover:cursor-pointer">
+        <h2 className="text-2xl font-bold text-color-text-primary hover:underline active:underline hover:cursor-pointer">
           <Link href={`${linkPath}`}>{title}</Link>
         </h2>
         <Link

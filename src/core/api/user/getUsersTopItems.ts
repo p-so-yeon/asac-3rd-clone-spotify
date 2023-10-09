@@ -1,11 +1,10 @@
 import getAuthSession from '../auth/getAuthSession'
 
-const getUsersTopItems = async (limit: number): Promise<any> => {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_API_URL
-  const baseUrl2 = 'https://api.spotify.com/v1'
+const getUsersTopItems = async (limit: number, type: 'artist' | 'track'): Promise<any> => {
+  const baseUrl = 'https://api.spotify.com/v1'
   const session = await getAuthSession()
   if (session) {
-    const url = `${baseUrl2}/me/top/artists?time_range=short_term&limit=${limit}`
+    const url = `${baseUrl}/me/top/${type}s?time_range=short_term&limit=${limit}`
     const res = await fetch(url, {
       method: 'GET',
       headers: {

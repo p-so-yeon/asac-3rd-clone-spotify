@@ -55,8 +55,8 @@ const getContentFromPlayList = (obj: PlaylistItem): ContentCardObject => {
 const getContentFromTrack = (obj: TrackItem): ContentCardObject => {
   const common = extractCommonContentFromObject(obj)
   const { album, artists } = obj
-  const { images } = album
-  const description = artists.map((el) => el.name).join(' ')
+  const { images } = album!
+  const description = artists!.map((el) => el.name).join(' ')
   return { ...common, image: images[0], description }
 }
 

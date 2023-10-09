@@ -1,6 +1,6 @@
-import { Artist } from '@/lib/types/common/artist-data-type'
-import { Image } from '@/lib/types/common/images-data-type'
-import { Track } from '@/lib/types/common/track-data-type'
+import { Artist } from '@/types/common/artist-data-type'
+import { Image } from '@/types/common/images-data-type'
+import { Track } from '@/types/common/track-data-type'
 
 export interface Album {
   album_type: string

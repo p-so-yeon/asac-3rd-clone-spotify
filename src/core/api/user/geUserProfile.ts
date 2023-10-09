@@ -1,10 +1,10 @@
 import getAuthSession from '../auth/getAuthSession'
 
-const getFollowedArtists = async (limit: number): Promise<any> => {
+const getCurrentUsersProfile = async (): Promise<any> => {
   const baseUrl = 'https://api.spotify.com/v1'
   const session = await getAuthSession()
   if (session) {
-    const url = `${baseUrl}/me/following?type=artist&limit=${limit}`
+    const url = `${baseUrl}/me`
     const res = await fetch(url, {
       method: 'GET',
       headers: {
@@ -12,11 +12,11 @@ const getFollowedArtists = async (limit: number): Promise<any> => {
       },
     })
     if (!res.ok) {
-      throw new Error(`Fail to fetch data during ${getFollowedArtists.name}`)
+      throw new Error(`Fail to fetch data during ${getCurrentUsersProfile.name}`)
     }
     const data = res.json()
     return data
   }
 }
 
-export default getFollowedArtists
+export default getCurrentUsersProfile

@@ -11,18 +11,20 @@ type Items = ArtistItem | AlbumItem | PlaylistItem | TrackItem | UserItem
 export type CommonContentObject = {
   id: string
   name: string
+  uri: string
 }
 
 export interface ContentCardObject {
   id: string
   name: string
+  uri: string
   image: Image
   description: string
 }
 
 const extractCommonContentFromObject = <T extends Items>(obj: T): CommonContentObject => {
-  const { id, name } = obj
-  return { id, name }
+  const { id, name, uri } = obj
+  return { id, name, uri }
 }
 
 const getContentFromArtist = (obj: ArtistItem): ContentCardObject => {
@@ -46,7 +48,7 @@ const getContentFromUser = (obj: UserItem): ContentCardObject => {
 
 const getContentFromPlayList = (obj: PlaylistItem): ContentCardObject => {
   const common = extractCommonContentFromObject(obj)
-  const { images, description } = obj
+  const { images, description, owner } = obj
   return { ...common, image: images[0], description }
 }
 

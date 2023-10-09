@@ -22,37 +22,13 @@ export default function PlayButton() {
       return transferTrigger(device_id)
     }
     if (JSON.stringify(context) !== '{}' && context.uri !== null) {
-      console.log('context :', context)
       playTrigger({
         device_id,
-        type: 'playlist',
+        type: context.uri.split(':')[1] as 'track' | 'album' | 'playlist' | 'artist',
         uri: context.uri,
+        offset: currentTrack.uri,
         position_ms: position <= Math.floor(duration / 1000) * 1000 ? position : 0,
       })
-    } else {
-      if (currentTrack !== null) {
-        playTrigger({
-          device_id,
-          type: 'track',
-          uri: currentTrack?.uri,
-          position_ms: position <= Math.floor(duration / 1000) * 1000 ? position : 0,
-        })
-      }
-      // if (!currentTrack?.uri) {
-      //   playTrigger({
-      //     device_id,
-      //     type: 'track',
-      //     uri: `spotify:${currentTrack.type}:${currentTrack.id}`,
-      //     position_ms: position <= Math.floor(duration / 1000) * 1000 ? position : 0,
-      //   })
-      // } else {
-      //   playTrigger({
-      //     device_id,
-      //     type: 'track',
-      //     uri: currentTrack?.uri,
-      //     position_ms: position <= Math.floor(duration / 1000) * 1000 ? position : 0,
-      //   })
-      // }
     }
 
     dispatch(setPause(false))
